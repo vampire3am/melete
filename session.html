@@ -257,7 +257,15 @@
   </main>
 
   <script src="js/melete-core.js"></script>
+  <script src="js/melete-auth.js"></script>
   <script>
+    // Enforce Google Sign-In Gate
+    if (!MeleteAuth.getUser()) {
+      MeleteAuth.requireAuth((user) => {
+        console.log('Candidate signed in:', user);
+      }, { allowClose: false });
+    }
+
     // Load session or fallback
     const currentSession = MeleteStorage.getSession() || MeleteStorage.getDefaultSession();
 
@@ -695,7 +703,7 @@
         currentSession.score = Math.round(totalScore / recordedAnswers.length);
         
         // Save to server
-        const user = JSON.parse(localStorage.getItem('melete_user') || '{"name":"Candidate","email":"student@melete.ai"}');
+        const user = MeleteAuth.getUser() || { name: 'Candidate', email: 'candidate@gmail.com', phone: '' };
         try {
           await fetch('/api/sessions', {
             method: 'POST',
@@ -704,6 +712,7 @@
               user_id: user.id || 'demo_student',
               user_name: user.name,
               user_email: user.email,
+              user_phone: user.phone || '',
               university: currentSession.university,
               country: currentSession.country,
               framework: currentSession.framework,

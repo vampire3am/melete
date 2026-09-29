@@ -242,23 +242,40 @@
     {
       "id": "demo_student_1",
       "name": "Bikash Shrestha",
-      "email": "bikash.shrestha@example.com",
+      "email": "bikash.shrestha@gmail.com",
+      "phone": "+977 9841234567",
       "picture": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80",
       "country": "Nepal",
       "target_destination": "United Kingdom",
+      "target_university": "Coventry University",
       "practice_count": 4,
       "created_at": "2026-09-26T07:18:42.320Z",
       "last_login": "2026-09-29T07:18:42.322Z"
     },
     {
       "id": "demo_student_2",
+      "name": "Sarah Chen",
+      "email": "sarah.chen@gmail.com",
+      "phone": "+44 7911 123456",
+      "picture": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80",
+      "country": "United Kingdom",
+      "target_destination": "United Kingdom",
+      "target_university": "Imperial College London",
+      "practice_count": 5,
+      "created_at": "2026-09-24T07:18:42.322Z",
+      "last_login": "2026-09-29T07:18:42.322Z"
+    },
+    {
+      "id": "demo_student_3",
       "name": "Aayush Adhikari",
-      "email": "aayush.a@example.com",
+      "email": "aayush.a@gmail.com",
+      "phone": "+977 9812345678",
       "picture": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=100&auto=format&fit=crop&q=80",
       "country": "Nepal",
       "target_destination": "United States",
+      "target_university": "Northeastern University",
       "practice_count": 2,
-      "created_at": "2026-09-24T07:18:42.322Z",
+      "created_at": "2026-09-28T07:18:42.322Z",
       "last_login": "2026-09-29T07:18:42.322Z"
     }
   ],

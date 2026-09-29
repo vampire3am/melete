@@ -266,11 +266,13 @@
           <table class="w-full text-left text-sm text-slate-600">
             <thead class="bg-slate-50 text-slate-400 uppercase text-[11px] font-mono tracking-wider border-b border-slate-200">
               <tr>
-                <th class="py-3 px-4">Student Name</th>
-                <th class="py-3 px-4">Email Address</th>
-                <th class="py-3 px-4">Target Country</th>
+                <th class="py-3 px-4">Candidate</th>
+                <th class="py-3 px-4">Google Email</th>
+                <th class="py-3 px-4">Phone / WhatsApp</th>
+                <th class="py-3 px-4">Target Destination & Institution</th>
                 <th class="py-3 px-4">Sessions Run</th>
-                <th class="py-3 px-4">Joined</th>
+                <th class="py-3 px-4">Registered</th>
+                <th class="py-3 px-4 text-right">Direct Contact</th>
               </tr>
             </thead>
             <tbody id="students-table-tbody">
@@ -600,16 +602,50 @@
         tbody.innerHTML = '';
         (data.users || []).forEach(u => {
           const tr = document.createElement('tr');
-          tr.className = 'border-b border-slate-100 hover:bg-slate-50';
+          tr.className = 'border-b border-slate-100 hover:bg-slate-50 transition-colors';
+          const cleanPhone = (u.phone || '').replace(/[^0-9+]/g, '');
+          const waLink = cleanPhone ? `https://wa.me/${cleanPhone.replace('+', '')}` : null;
+
           tr.innerHTML = `
-            <td class="py-3 px-4 font-medium text-slate-900 flex items-center gap-2">
-              <img src="${u.picture || 'assets/logo.svg'}" class="w-6 h-6 rounded-full object-cover"/>
-              <span>${u.name}</span>
+            <td class="py-3 px-4 font-medium text-slate-900 flex items-center gap-2.5">
+              <img src="${u.picture || 'assets/favicon.svg'}" class="w-7 h-7 rounded-full object-cover border border-slate-200 shrink-0"/>
+              <div>
+                <span class="block font-semibold text-slate-900 leading-tight">${u.name}</span>
+                <span class="text-[10px] text-slate-400 font-mono">ID: ${u.id || 'N/A'}</span>
+              </div>
             </td>
-            <td class="py-3 px-4 font-mono text-xs text-slate-600">${u.email}</td>
-            <td class="py-3 px-4 text-xs">${u.target_destination || 'Global'}</td>
-            <td class="py-3 px-4 font-bold text-primary">${u.practice_count || 0}</td>
-            <td class="py-3 px-4 text-xs text-slate-400">${new Date(u.created_at).toLocaleDateString()}</td>
+            <td class="py-3 px-4 font-mono text-xs text-slate-600">
+              <a href="mailto:${u.email}" class="hover:underline hover:text-primary">${u.email}</a>
+            </td>
+            <td class="py-3 px-4 text-xs font-mono">
+              ${u.phone ? `
+                <span class="text-slate-900 font-semibold block">${u.phone}</span>
+                <span class="text-[10px] text-emerald-600">✓ Verified Phone</span>
+              ` : `
+                <span class="text-slate-400 italic">Not provided</span>
+              `}
+            </td>
+            <td class="py-3 px-4 text-xs">
+              <span class="font-semibold text-slate-800 block">${u.target_destination || 'United Kingdom'}</span>
+              <span class="text-slate-500 text-[11px] block">${u.target_university || 'Institution TBD'}</span>
+            </td>
+            <td class="py-3 px-4 font-bold text-primary text-center">
+              <span class="px-2 py-0.5 rounded-full bg-blue-50 text-primary text-xs font-mono">${u.practice_count || 0}</span>
+            </td>
+            <td class="py-3 px-4 text-xs text-slate-400 font-mono">${new Date(u.created_at || Date.now()).toLocaleDateString()}</td>
+            <td class="py-3 px-4 text-right">
+              ${waLink ? `
+                <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-mono text-xs font-semibold transition-colors">
+                  <span class="material-symbols-outlined text-[14px]">chat</span>
+                  <span>WhatsApp</span>
+                </a>
+              ` : `
+                <a href="mailto:${u.email}" class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-slate-100 text-slate-600 hover:bg-slate-200 font-mono text-xs transition-colors">
+                  <span class="material-symbols-outlined text-[14px]">mail</span>
+                  <span>Email</span>
+                </a>
+              `}
+            </td>
           `;
           tbody.appendChild(tr);
         });

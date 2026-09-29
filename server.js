@@ -65,19 +65,25 @@ app.get('/:page.html', (req, res, next) => {
 
 app.post('/api/auth/google', (req, res) => {
   try {
-    const { email, name, picture, credential } = req.body;
-    let userProfile = { email, name, picture };
+    const { email, name, picture, credential, phone, country, target_destination, target_university } = req.body;
+    let userProfile = { 
+      email, 
+      name, 
+      picture, 
+      phone: phone || '', 
+      country: country || 'Global', 
+      target_destination: target_destination || 'United Kingdom',
+      target_university: target_university || ''
+    };
 
     // If a Google JWT credential was provided, we can decode the payload
     if (credential) {
       try {
         const payloadBase64 = credential.split('.')[1];
         const decoded = JSON.parse(Buffer.from(payloadBase64, 'base64').toString('utf-8'));
-        userProfile = {
-          email: decoded.email,
-          name: decoded.name,
-          picture: decoded.picture
-        };
+        userProfile.email = decoded.email || userProfile.email;
+        userProfile.name = decoded.name || userProfile.name;
+        userProfile.picture = decoded.picture || userProfile.picture;
       } catch (e) {
         console.warn('Could not decode Google JWT, using provided body:', e.message);
       }
@@ -92,6 +98,17 @@ app.post('/api/auth/google', (req, res) => {
   } catch (err) {
     console.error('Auth error:', err);
     res.status(500).json({ error: 'Authentication failed' });
+  }
+});
+
+app.post('/api/auth/profile', (req, res) => {
+  try {
+    const { email, phone, name, target_destination, target_university, country } = req.body;
+    if (!email) return res.status(400).json({ error: 'Email is required' });
+    const user = db.findOrCreateUser({ email, phone, name, target_destination, target_university, country });
+    res.json({ success: true, user });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to update profile' });
   }
 });
 

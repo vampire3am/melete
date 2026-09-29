@@ -280,14 +280,21 @@ const db = {
     if (user) {
       user.last_login = new Date().toISOString();
       if (profile.name) user.name = profile.name;
+      if (profile.phone) user.phone = profile.phone;
+      if (profile.picture) user.picture = profile.picture;
+      if (profile.country) user.country = profile.country;
+      if (profile.target_destination) user.target_destination = profile.target_destination;
+      if (profile.target_university) user.target_university = profile.target_university;
     } else {
       user = {
         id: 'usr_' + Date.now(),
         name: profile.name || 'International Student',
         email: profile.email,
+        phone: profile.phone || '',
         picture: profile.picture || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80',
         country: profile.country || 'Global',
         target_destination: profile.target_destination || 'United Kingdom',
+        target_university: profile.target_university || 'Coventry University',
         practice_count: 0,
         created_at: new Date().toISOString(),
         last_login: new Date().toISOString()

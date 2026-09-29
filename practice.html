@@ -308,6 +308,7 @@
 
   </main>
 
+  <script src="js/melete-auth.js"></script>
   <script>
     // State
     let activeQuestions = [];
@@ -483,6 +484,12 @@
 
     // Recording Logic
     async function toggleRecording() {
+      if (!MeleteAuth.getUser()) {
+        MeleteAuth.requireAuth(() => {
+          toggleRecording();
+        });
+        return;
+      }
       if (!isRecording) {
         startRecording();
       } else {
