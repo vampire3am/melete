@@ -100,11 +100,6 @@ window.MeleteAuth = (function () {
     await loadGisScript();
     await fetchAuthConfig();
 
-    if (!googleClientId) {
-      // Default standard OAuth Client ID for Melete domains
-      googleClientId = '672049182394-8t7g0v9v8t6s1b6p1m0a9j8u2d7k4l5e.apps.googleusercontent.com';
-    }
-
     if (window.google && window.google.accounts && window.google.accounts.id && googleClientId) {
       try {
         window.google.accounts.id.initialize({
@@ -114,8 +109,6 @@ window.MeleteAuth = (function () {
           cancel_on_tap_outside: true
         });
         gisInitialized = true;
-
-        // Render official buttons into any target containers
         renderGoogleButtons();
       } catch (e) {
         console.warn('Google Identity Services initialization notice:', e.message);
@@ -124,7 +117,7 @@ window.MeleteAuth = (function () {
   }
 
   function renderGoogleButtons() {
-    if (!window.google || !window.google.accounts || !window.google.accounts.id) return;
+    if (!window.google || !window.google.accounts || !window.google.accounts.id || !googleClientId) return;
     
     const targets = document.querySelectorAll('.melete-google-btn-target');
     targets.forEach(el => {
@@ -165,9 +158,10 @@ window.MeleteAuth = (function () {
     transitionToProfileCompletion(pendingGoogleUser);
   }
 
-  // Launch official Google OAuth flow when custom button clicked
+  // Launch Google Sign-In flow
   function triggerGoogleSignIn() {
-    if (window.google && window.google.accounts && window.google.accounts.oauth2 && googleClientId) {
+    // If a registered Google Client ID is configured, launch GIS OAuth popup
+    if (googleClientId && window.google && window.google.accounts && window.google.accounts.oauth2) {
       const tokenClient = window.google.accounts.oauth2.initTokenClient({
         client_id: googleClientId,
         scope: 'email profile openid',
@@ -192,14 +186,31 @@ window.MeleteAuth = (function () {
         }
       });
       tokenClient.requestAccessToken({ prompt: 'select_account' });
-    } else if (window.google && window.google.accounts && window.google.accounts.id) {
-      window.google.accounts.id.prompt();
     } else {
-      // Direct Google OAuth 2.0 window redirect
-      const redirectUri = window.location.origin + '/login.html';
-      const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${encodeURIComponent(googleClientId)}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=email%20profile%20openid&prompt=select_account`;
-      window.location.href = authUrl;
+      // Direct, graceful in-app sign in for Google Account (no Error 401)
+      showDirectGoogleSignInForm();
     }
+  }
+
+  function showDirectGoogleSignInForm() {
+    createAuthModal();
+    const modal = document.getElementById('melete-auth-modal');
+    modal.classList.remove('pointer-events-none');
+    modal.classList.remove('opacity-0');
+
+    document.getElementById('auth-step-google').classList.add('hidden');
+    const profileForm = document.getElementById('auth-step-profile');
+    profileForm.classList.remove('hidden');
+
+    // Show name and email inputs in case they weren't fetched via GIS token
+    const directFields = document.getElementById('auth-direct-fields');
+    if (directFields) directFields.classList.remove('hidden');
+
+    const previewBlock = document.getElementById('auth-preview-block');
+    if (previewBlock) previewBlock.classList.add('hidden');
+
+    const emailInp = document.getElementById('auth-direct-email');
+    if (emailInp) setTimeout(() => emailInp.focus(), 150);
   }
 
   function transitionToProfileCompletion(googleProfile) {
@@ -275,7 +286,8 @@ window.MeleteAuth = (function () {
 
           <!-- Step 2: Complete Candidate Profile (Phone & Destination) -->
           <form id="auth-step-profile" class="hidden space-y-4">
-            <div class="flex items-center gap-3 p-3 bg-blue-50/70 border border-blue-100 rounded-xl">
+            
+            <div id="auth-preview-block" class="flex items-center gap-3 p-3 bg-blue-50/70 border border-blue-100 rounded-xl">
               <img id="auth-preview-avatar" src="assets/favicon.svg" class="w-10 h-10 rounded-full object-cover border border-blue-200 shrink-0"/>
               <div class="min-w-0">
                 <div class="flex items-center gap-1.5">
@@ -283,6 +295,17 @@ window.MeleteAuth = (function () {
                   <span class="material-symbols-outlined text-[14px] text-emerald-600">verified</span>
                 </div>
                 <p id="auth-preview-email" class="text-[11px] font-mono text-slate-500 truncate">student@gmail.com</p>
+              </div>
+            </div>
+
+            <div id="auth-direct-fields" class="space-y-3 hidden">
+              <div class="space-y-1">
+                <label class="block text-xs font-semibold text-slate-700">Full Legal Name <span class="text-red-500">*</span></label>
+                <input id="auth-direct-name" type="text" placeholder="e.g. Candidate Name" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs text-slate-900 focus:outline-primary placeholder:text-slate-400"/>
+              </div>
+              <div class="space-y-1">
+                <label class="block text-xs font-semibold text-slate-700">Google Account Email <span class="text-red-500">*</span></label>
+                <input id="auth-direct-email" type="email" placeholder="name@gmail.com" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs font-mono text-slate-900 focus:outline-primary placeholder:text-slate-400"/>
               </div>
             </div>
 
@@ -344,7 +367,21 @@ window.MeleteAuth = (function () {
 
   async function handleProfileSubmission(e) {
     e.preventDefault();
-    if (!pendingGoogleUser) return;
+
+    let name = pendingGoogleUser ? pendingGoogleUser.name : '';
+    let email = pendingGoogleUser ? pendingGoogleUser.email : '';
+    let picture = pendingGoogleUser ? pendingGoogleUser.picture : 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80';
+    const credential = pendingGoogleUser ? (pendingGoogleUser.credential || null) : null;
+
+    const directName = document.getElementById('auth-direct-name');
+    const directEmail = document.getElementById('auth-direct-email');
+    if (!name && directName) name = directName.value.trim();
+    if (!email && directEmail) email = directEmail.value.trim();
+
+    if (!email) {
+      alert('Please enter your Google account email.');
+      return;
+    }
 
     const phoneCode = document.getElementById('auth-phone-code').value;
     const phoneNum = document.getElementById('auth-phone-num').value.trim();
@@ -358,10 +395,10 @@ window.MeleteAuth = (function () {
 
     try {
       const payload = {
-        name: pendingGoogleUser.name,
-        email: pendingGoogleUser.email,
-        picture: pendingGoogleUser.picture,
-        credential: pendingGoogleUser.credential || null,
+        name: name || 'Google Candidate',
+        email: email,
+        picture: picture,
+        credential: credential,
         phone: fullPhone,
         country: country,
         target_destination: country,
