@@ -80,7 +80,7 @@
     </button>
   </div>
 
-  <div class="flex-1 flex overflow-hidden flex-col md:flex-row">
+  <div class="flex-1 min-h-0 flex overflow-visible md:overflow-hidden flex-col md:flex-row">
 
     <!-- Admin Desktop Sidebar Navigation (Hidden on Mobile) -->
     <aside class="w-64 bg-white border-r border-slate-200 p-4 hidden md:flex flex-col gap-2 shrink-0">
@@ -115,7 +115,7 @@
     </aside>
 
     <!-- Main Workspace Content -->
-    <main class="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8">
+    <main class="flex-1 min-h-0 overflow-y-auto p-4 sm:p-6 md:p-8 overscroll-contain">
       
       <!-- TAB 1: OVERVIEW -->
       <section id="tab-overview" class="space-y-6">

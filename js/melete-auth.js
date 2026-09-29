@@ -288,6 +288,7 @@ window.MeleteAuth = (function () {
     createAuthModal();
     const modal = document.getElementById('melete-auth-modal');
     if (!modal) return;
+    modal.classList.remove('hidden');
     modal.classList.remove('pointer-events-none');
     modal.classList.remove('opacity-0');
 
@@ -322,7 +323,7 @@ window.MeleteAuth = (function () {
 
     const modal = document.createElement('div');
     modal.id = 'melete-auth-modal';
-    modal.className = 'fixed inset-0 z-[9999] bg-slate-900/85 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none';
+    modal.className = 'hidden fixed inset-0 z-[9999] bg-slate-900/85 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none';
     modal.innerHTML = `
       <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full border border-slate-200 overflow-hidden transform transition-all duration-300" id="melete-auth-modal-card">
         
@@ -538,6 +539,7 @@ window.MeleteAuth = (function () {
     document.getElementById('auth-step-google').classList.remove('hidden');
     document.getElementById('auth-step-profile').classList.add('hidden');
 
+    modal.classList.remove('hidden');
     modal.classList.remove('pointer-events-none');
     setTimeout(() => {
       modal.classList.remove('opacity-0');
@@ -550,8 +552,9 @@ window.MeleteAuth = (function () {
     const modal = document.getElementById('melete-auth-modal');
     if (!modal) return;
     modal.classList.add('opacity-0');
+    modal.classList.add('pointer-events-none');
     setTimeout(() => {
-      modal.classList.add('pointer-events-none');
+      modal.classList.add('hidden');
     }, 300);
   }
 
