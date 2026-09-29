@@ -239,6 +239,20 @@
       "recommended_points": "Accreditation details, comparative local vs international salary data, realistic employment timeline in home country."
     }
   ],
-  "users": [],
+  "users": [
+    {
+      "id": "usr_1790681875356",
+      "name": "Samshad",
+      "email": "iamsamshad7@gmail.com",
+      "phone": "+977 9804495970",
+      "country": "Nepal",
+      "target_destination": "United Kingdom",
+      "target_university": "Coventry University",
+      "picture": "https://lh3.googleusercontent.com/a/default-user",
+      "practice_count": 0,
+      "created_at": "2026-09-29T11:37:55.356Z",
+      "last_login": "2026-09-29T11:37:55.356Z"
+    }
+  ],
   "sessions": []
 }

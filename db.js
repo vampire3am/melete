@@ -163,14 +163,16 @@ const defaultData = {
   ],
   users: [
     {
-      id: 'demo_student_1',
-      name: 'Bikash Shrestha',
-      email: 'bikash.shrestha@example.com',
-      picture: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80',
+      id: 'usr_1790681875356',
+      name: 'Samshad',
+      email: 'iamsamshad7@gmail.com',
+      phone: '+977 9804495970',
+      picture: 'https://lh3.googleusercontent.com/a/default-user',
       country: 'Nepal',
       target_destination: 'United Kingdom',
-      practice_count: 4,
-      created_at: new Date(Date.now() - 86400000 * 3).toISOString(),
+      target_university: 'Coventry University',
+      practice_count: 0,
+      created_at: '2026-09-29T11:37:55.356Z',
       last_login: new Date().toISOString()
     }
   ],
@@ -179,19 +181,26 @@ const defaultData = {
 
 function readDb() {
   try {
-    if (fs.existsSync(DB_FILE)) {
-      const raw = fs.readFileSync(DB_FILE, 'utf-8');
-      return JSON.parse(raw);
-    }
+    let bundled = defaultData;
     if (fs.existsSync(BUNDLED_DB)) {
-      const raw = fs.readFileSync(BUNDLED_DB, 'utf-8');
-      const parsed = JSON.parse(raw);
-      if (isVercel) {
-        try { fs.writeFileSync(DB_FILE, JSON.stringify(parsed, null, 2), 'utf-8'); } catch(e){}
-      }
-      return parsed;
+      try {
+        bundled = JSON.parse(fs.readFileSync(BUNDLED_DB, 'utf-8'));
+      } catch (e) {}
     }
-    return defaultData;
+
+    if (fs.existsSync(DB_FILE)) {
+      const active = JSON.parse(fs.readFileSync(DB_FILE, 'utf-8'));
+      const userMap = new Map();
+      (bundled.users || []).forEach(u => userMap.set(u.email, u));
+      (active.users || []).forEach(u => userMap.set(u.email, u));
+      active.users = Array.from(userMap.values());
+      return active;
+    }
+
+    if (isVercel) {
+      try { fs.writeFileSync(DB_FILE, JSON.stringify(bundled, null, 2), 'utf-8'); } catch(e){}
+    }
+    return bundled;
   } catch (err) {
     return defaultData;
   }

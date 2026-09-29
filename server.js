@@ -274,6 +274,7 @@ app.get('/api/admin/stats', (req, res) => {
     countryBreakdown[c] = (countryBreakdown[c] || 0) + 1;
   });
 
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
   res.json({
     totalUsers: users.length,
     totalSessions: sessions.length,
@@ -286,11 +287,13 @@ app.get('/api/admin/stats', (req, res) => {
 });
 
 app.get('/api/admin/users', (req, res) => {
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
   const users = db.getUsers();
   res.json({ users });
 });
 
 app.get('/api/admin/sessions', (req, res) => {
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
   const limit = parseInt(req.query.limit) || 100;
   const sessions = db.getSessions(limit);
   res.json({ sessions });
