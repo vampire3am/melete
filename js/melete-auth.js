@@ -86,12 +86,19 @@ window.MeleteAuth = (function () {
   // Fetch server Google Client ID config
   async function fetchAuthConfig() {
     try {
+      const local = localStorage.getItem('melete_google_client_id');
+      if (local) {
+        googleClientId = local;
+      }
       const res = await fetch('/api/auth/config');
       const data = await res.json();
-      googleClientId = data.googleClientId || '';
+      if (data.googleClientId) {
+        googleClientId = data.googleClientId;
+        localStorage.setItem('melete_google_client_id', googleClientId);
+      }
       return googleClientId;
     } catch (e) {
-      return '';
+      return googleClientId || '';
     }
   }
 
@@ -160,6 +167,11 @@ window.MeleteAuth = (function () {
 
   // Launch Google Sign-In flow
   function triggerGoogleSignIn() {
+    if (!googleClientId) {
+      const local = localStorage.getItem('melete_google_client_id');
+      if (local) googleClientId = local;
+    }
+
     // If a registered Google Client ID is configured, launch GIS OAuth popup
     if (googleClientId && window.google && window.google.accounts && window.google.accounts.oauth2) {
       const tokenClient = window.google.accounts.oauth2.initTokenClient({
@@ -175,7 +187,7 @@ window.MeleteAuth = (function () {
               pendingGoogleUser = {
                 name: profile.name || 'Google Candidate',
                 email: profile.email,
-                picture: profile.picture,
+                picture: profile.picture || 'https://lh3.googleusercontent.com/a/default-user',
                 google_id: profile.sub
               };
               transitionToProfileCompletion(pendingGoogleUser);
@@ -186,48 +198,120 @@ window.MeleteAuth = (function () {
         }
       });
       tokenClient.requestAccessToken({ prompt: 'select_account' });
+    } else if (googleClientId && window.google && window.google.accounts && window.google.accounts.id) {
+      window.google.accounts.id.prompt();
     } else {
-      // Direct, graceful in-app sign in for Google Account (no Error 401)
-      showDirectGoogleSignInForm();
+      // Show Google Identity Services Client ID configuration modal
+      showGoogleClientIdSetupModal();
     }
   }
 
-  function showDirectGoogleSignInForm() {
-    createAuthModal();
-    const modal = document.getElementById('melete-auth-modal');
-    modal.classList.remove('pointer-events-none');
-    modal.classList.remove('opacity-0');
+  function showGoogleClientIdSetupModal() {
+    let setupModal = document.getElementById('melete-gis-setup-modal');
+    if (setupModal) {
+      setupModal.remove();
+    }
 
-    document.getElementById('auth-step-google').classList.add('hidden');
-    const profileForm = document.getElementById('auth-step-profile');
-    profileForm.classList.remove('hidden');
+    setupModal = document.createElement('div');
+    setupModal.id = 'melete-gis-setup-modal';
+    setupModal.className = 'fixed inset-0 z-[10000] bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300';
+    setupModal.innerHTML = `
+      <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full border border-slate-200 overflow-hidden transform transition-all duration-300">
+        <div class="bg-gradient-to-r from-[#1A3C8F] to-[#0d2a60] p-6 text-white text-center relative">
+          <button onclick="document.getElementById('melete-gis-setup-modal').remove()" class="absolute top-4 right-4 text-white/70 hover:text-white p-1 rounded-full hover:bg-white/10" title="Close">
+            <span class="material-symbols-outlined text-[20px]">close</span>
+          </button>
+          <div class="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm mx-auto flex items-center justify-center mb-2.5">
+            <svg class="w-6 h-6" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-widest text-blue-200 font-semibold block">Google Identity Services</span>
+          <h2 class="text-xl font-serif font-bold text-white mt-1">Connect Google Sign-In</h2>
+          <p class="text-xs text-blue-100/90 mt-1 leading-relaxed">
+            To enable actual 1-click Google account login on <span class="underline font-mono">${window.location.host}</span>, paste your Google Cloud OAuth 2.0 Client ID below.
+          </p>
+        </div>
+        <div class="p-6 space-y-4">
+          <div class="space-y-1.5">
+            <label class="block text-xs font-semibold text-slate-800">Google OAuth 2.0 Client ID <span class="text-red-500">*</span></label>
+            <input type="text" id="setup-google-client-id" placeholder="your-client-id.apps.googleusercontent.com" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-lg text-xs font-mono text-slate-900 focus:outline-primary"/>
+            <p class="text-[11px] text-slate-500 leading-normal">
+              Obtained from <strong>Google Cloud Console → APIs & Services → Credentials → OAuth Client ID (Web Application)</strong>.
+            </p>
+          </div>
+          <div class="pt-2 flex items-center justify-between gap-3">
+            <a href="admin.html#tab-settings" class="text-xs text-primary font-medium hover:underline flex items-center gap-1">
+              <span>Admin Console</span>
+              <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+            </a>
+            <button type="button" id="btn-save-gis-setup" class="px-5 py-2.5 bg-primary text-white rounded-lg text-xs font-semibold hover:bg-[#0d2a60] transition-colors shadow-sm flex items-center gap-1.5 cursor-pointer">
+              <span>Activate & Sign In</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(setupModal);
 
-    // Show name and email inputs in case they weren't fetched via GIS token
-    const directFields = document.getElementById('auth-direct-fields');
-    if (directFields) directFields.classList.remove('hidden');
-
-    const previewBlock = document.getElementById('auth-preview-block');
-    if (previewBlock) previewBlock.classList.add('hidden');
-
-    const emailInp = document.getElementById('auth-direct-email');
-    if (emailInp) setTimeout(() => emailInp.focus(), 150);
+    document.getElementById('btn-save-gis-setup').addEventListener('click', async () => {
+      const val = document.getElementById('setup-google-client-id').value.trim();
+      if (!val || !val.includes('.apps.googleusercontent.com')) {
+        alert('Please enter a valid Google OAuth Client ID ending in .apps.googleusercontent.com');
+        return;
+      }
+      try {
+        await fetch('/api/auth/config', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ google_client_id: val })
+        });
+        googleClientId = val;
+        localStorage.setItem('melete_google_client_id', val);
+        setupModal.remove();
+        await initGis();
+        triggerGoogleSignIn();
+      } catch (e) {
+        alert('Error saving Google Client ID: ' + e.message);
+      }
+    });
   }
 
   function transitionToProfileCompletion(googleProfile) {
+    pendingGoogleUser = googleProfile;
+    window.dispatchEvent(new CustomEvent('melete:google-authed', { detail: googleProfile }));
+
     createAuthModal();
     const modal = document.getElementById('melete-auth-modal');
+    if (!modal) return;
     modal.classList.remove('pointer-events-none');
     modal.classList.remove('opacity-0');
 
-    document.getElementById('auth-step-google').classList.add('hidden');
-    const profileForm = document.getElementById('auth-step-profile');
-    profileForm.classList.remove('hidden');
+    const stepGoogle = document.getElementById('auth-step-google');
+    if (stepGoogle) stepGoogle.classList.add('hidden');
 
-    document.getElementById('auth-preview-name').textContent = googleProfile.name;
-    document.getElementById('auth-preview-email').textContent = googleProfile.email;
-    document.getElementById('auth-preview-avatar').src = googleProfile.picture;
-    
-    // Auto-focus phone input
+    const profileForm = document.getElementById('auth-step-profile');
+    if (profileForm) profileForm.classList.remove('hidden');
+
+    const directFields = document.getElementById('auth-direct-fields');
+    if (directFields) directFields.classList.add('hidden');
+
+    const previewBlock = document.getElementById('auth-preview-block');
+    if (previewBlock) previewBlock.classList.remove('hidden');
+
+    const nameEl = document.getElementById('auth-preview-name');
+    if (nameEl) nameEl.textContent = googleProfile.name;
+
+    const emailEl = document.getElementById('auth-preview-email');
+    if (emailEl) emailEl.textContent = googleProfile.email;
+
+    const avatarEl = document.getElementById('auth-preview-avatar');
+    if (avatarEl) avatarEl.src = googleProfile.picture || 'assets/favicon.svg';
+
     const phoneInput = document.getElementById('auth-phone-num');
     if (phoneInput) setTimeout(() => phoneInput.focus(), 150);
   }

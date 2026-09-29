@@ -355,7 +355,7 @@ app.get('/api/admin/settings', (req, res) => {
 
 app.post('/api/admin/settings', (req, res) => {
   try {
-    const { openai_api_key, openai_model, whisper_enabled, free_tier_questions } = req.body;
+    const { openai_api_key, openai_model, whisper_enabled, free_tier_questions, google_client_id } = req.body;
     const updates = {};
     if (openai_api_key !== undefined && openai_api_key.trim() !== '') {
       updates.openai_api_key = openai_api_key.trim();
@@ -363,9 +363,22 @@ app.post('/api/admin/settings', (req, res) => {
     if (openai_model) updates.openai_model = openai_model;
     if (whisper_enabled !== undefined) updates.whisper_enabled = Boolean(whisper_enabled);
     if (free_tier_questions) updates.free_tier_questions = parseInt(free_tier_questions) || 15;
+    if (google_client_id !== undefined) updates.google_client_id = google_client_id.trim();
 
     const saved = db.updateSettings(updates);
     res.json({ success: true, settings: saved });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post('/api/auth/config', (req, res) => {
+  try {
+    const { google_client_id } = req.body;
+    if (google_client_id !== undefined) {
+      db.updateSettings({ google_client_id: google_client_id.trim() });
+    }
+    res.json({ success: true, googleClientId: (google_client_id || '').trim() });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
