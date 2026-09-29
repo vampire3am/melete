@@ -318,6 +318,12 @@
             </label>
           </div>
 
+          <div class="space-y-2 pt-2 border-t border-slate-100">
+            <label class="block text-sm font-semibold text-slate-800">Google OAuth 2.0 Client ID</label>
+            <input type="text" id="input-google-client-id" placeholder="your-client-id.apps.googleusercontent.com" class="w-full px-4 py-2.5 border border-slate-300 rounded-lg text-sm font-mono focus:outline-primary"/>
+            <p class="text-xs text-slate-400">From Google Cloud Console Credentials. Required for real Google Identity Services One Tap and OAuth popups on this domain.</p>
+          </div>
+
           <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
             <span id="settings-save-msg" class="text-xs text-emerald-600 font-medium"></span>
             <button onclick="saveAdminSettings()" class="px-6 py-2.5 bg-primary text-white rounded-lg text-sm font-semibold hover:bg-[#0d2a60] transition-colors shadow-xs">
@@ -662,6 +668,7 @@
         const s = data.settings;
         document.getElementById('select-openai-model').value = s.openai_model || 'gpt-4o-mini';
         document.getElementById('check-whisper-enabled').checked = s.whisper_enabled !== false;
+        document.getElementById('input-google-client-id').value = s.google_client_id || '';
         
         const statusEl = document.getElementById('current-key-status');
         if (s.has_api_key) {
@@ -683,10 +690,12 @@
       const key = document.getElementById('input-openai-key').value.trim();
       const model = document.getElementById('select-openai-model').value;
       const whisper = document.getElementById('check-whisper-enabled').checked;
+      const googleClientId = document.getElementById('input-google-client-id').value.trim();
 
       const payload = {
         openai_model: model,
-        whisper_enabled: whisper
+        whisper_enabled: whisper,
+        google_client_id: googleClientId
       };
       if (key) payload.openai_api_key = key;
 

@@ -63,6 +63,14 @@ app.get('/:page.html', (req, res, next) => {
    AUTHENTICATION & USER TRACKING
    ========================================================================= */
 
+app.get('/api/auth/config', (req, res) => {
+  const settings = db.getSettings();
+  const clientId = settings.google_client_id || process.env.GOOGLE_CLIENT_ID || '';
+  res.json({
+    googleClientId: clientId
+  });
+});
+
 app.post('/api/auth/google', (req, res) => {
   try {
     const { email, name, picture, credential, phone, country, target_destination, target_university } = req.body;

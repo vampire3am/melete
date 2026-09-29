@@ -17,7 +17,8 @@ const defaultData = {
     openai_api_key: process.env.OPENAI_API_KEY || '',
     openai_model: 'gpt-4o-mini',
     whisper_enabled: true,
-    free_tier_questions: 15
+    free_tier_questions: 15,
+    google_client_id: process.env.GOOGLE_CLIENT_ID || ''
   },
   universities: [
     // UK Universities
@@ -211,6 +212,9 @@ const db = {
     const s = data.settings || defaultData.settings;
     if (process.env.OPENAI_API_KEY) {
       s.openai_api_key = process.env.OPENAI_API_KEY;
+    }
+    if (process.env.GOOGLE_CLIENT_ID) {
+      s.google_client_id = process.env.GOOGLE_CLIENT_ID;
     }
     return s;
   },
