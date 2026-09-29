@@ -18,7 +18,7 @@ const defaultData = {
     openai_model: 'gpt-4o-mini',
     whisper_enabled: true,
     free_tier_questions: 15,
-    google_client_id: process.env.GOOGLE_CLIENT_ID || ''
+    google_client_id: process.env.GOOGLE_CLIENT_ID || '13655159589-kv11garo1ln9plpfgubl81stei95ojoq.apps.googleusercontent.com'
   },
   universities: [
     // UK Universities
@@ -215,6 +215,9 @@ const db = {
     }
     if (process.env.GOOGLE_CLIENT_ID) {
       s.google_client_id = process.env.GOOGLE_CLIENT_ID;
+    }
+    if (!s.google_client_id) {
+      s.google_client_id = '13655159589-kv11garo1ln9plpfgubl81stei95ojoq.apps.googleusercontent.com';
     }
     return s;
   },

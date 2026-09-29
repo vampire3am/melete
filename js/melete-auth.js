@@ -96,9 +96,12 @@ window.MeleteAuth = (function () {
         googleClientId = data.googleClientId;
         localStorage.setItem('melete_google_client_id', googleClientId);
       }
+      if (!googleClientId) {
+        googleClientId = '13655159589-kv11garo1ln9plpfgubl81stei95ojoq.apps.googleusercontent.com';
+      }
       return googleClientId;
     } catch (e) {
-      return googleClientId || '';
+      return googleClientId || '13655159589-kv11garo1ln9plpfgubl81stei95ojoq.apps.googleusercontent.com';
     }
   }
 
