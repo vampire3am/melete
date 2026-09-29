@@ -526,3 +526,10 @@ a.melete-link:hover, .melete-link:hover {
     transform: none !important;
   }
 }
+
+/* Ensure only ONE Google button is ever displayed: hide fallback when GIS renders iframe */
+.melete-google-btn-target:not(:empty) + .melete-custom-google-btn,
+.melete-google-btn-target:has(iframe) + .melete-custom-google-btn {
+  display: none !important;
+}
+
