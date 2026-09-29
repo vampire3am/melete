@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"/>
+  <title>Frequently Asked Questions — Melete Interview Preparation</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "royal-blue": "#1A3C8F",
+            "royal-blue-hover": "#0d2a60",
+            "primary": "#1A3C8F",
+            "primary-hover": "#0d2a60",
+            "on-primary": "#ffffff",
+            "black": "#000000",
+            "dark-gray": "#333333",
+            "medium-gray": "#666666",
+            "light-gray": "#888888",
+            "border-gray": "#eeeeee",
+            "bg-light": "#f9f9f9",
+            "white": "#ffffff",
+            "outline": "#888888",
+            "outline-variant": "#eeeeee",
+            "secondary": "#666666",
+            "surface": "#ffffff",
+            "surface-bright": "#ffffff",
+            "surface-dim": "#f3f3f4",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f9f9f9",
+            "surface-container": "#f9f9f9",
+            "surface-container-high": "#eeeeee",
+            "surface-container-highest": "#e8e8e8",
+            "on-surface": "#000000",
+            "on-surface-variant": "#333333",
+            "error": "#ba1a1a"
+          },
+          borderRadius: {
+            "DEFAULT": "4px",
+            "sm": "2px",
+            "md": "4px",
+            "lg": "4px",
+            "xl": "4px",
+            "full": "4px"
+          },
+          spacing: {
+            "gutter-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "margin-mobile": "1.25rem",
+            "margin": "3rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem"
+          },
+          fontFamily: {
+            "sans": ["Inter", "system-ui", "-apple-system", "sans-serif"],
+            "serif": ["Playfair Display", "Georgia", "serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "headline-xl-mobile": ["Playfair Display", "serif"],
+            "label-sm": ["Inter", "sans-serif"],
+            "headline-lg": ["Playfair Display", "serif"],
+            "headline-md": ["Playfair Display", "serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "display-lg-mobile": ["Playfair Display", "serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "title-md": ["Playfair Display", "serif"],
+            "headline-xl": ["Playfair Display", "serif"],
+            "display-lg": ["Playfair Display", "serif"],
+            "mono": ["monospace"]
+          },
+          fontSize: {
+            "body-lg": ["16px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "0em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "display-lg-mobile": ["26px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "28px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "title-md": ["18px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "display-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/melete-motion.css"/>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary selection:text-on-primary">
+  
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/40">
+    <div class="h-16 max-w-7xl mx-auto px-margin flex items-center justify-between">
+      <div class="flex items-center gap-space-lg">
+        <a class="flex items-center gap-space-sm" href="index.html">
+          <img alt="Melete Brand Logo" class="h-8 w-auto object-contain" src="assets/logo.svg"/>
+        </a>
+        <nav class="hidden lg:flex items-center gap-space-lg ml-space-md">
+          <a class="h-16 flex items-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="index.html">Homepage</a>
+          <a class="h-16 flex items-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="interviews.html">Interviews</a>
+          <a class="h-16 flex items-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="how-it-works.html">How It Works</a>
+          <a class="h-16 flex items-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="resources.html">Resources</a>
+          <a class="h-16 flex items-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="about.html">About</a>
+          <a class="h-16 flex items-center transition-colors text-primary font-medium border-b-2 border-primary" href="faq.html">FAQ</a>
+        </nav>
+      </div>
+      <div class="flex items-center gap-space-md">
+        <a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-xs font-label-md text-label-md text-on-surface hover:text-primary transition-colors" href="login.html">Log in</a>
+        <a class="inline-flex items-center justify-center px-space-lg py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-[#0d2a60] transition-colors" href="onboarding.html">Take your first step</a>
+        <a href="login.html" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs text-on-primary">
+          <span class="material-symbols-outlined text-[18px]">person</span>
+        </a>
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-on-surface">
+          <span class="material-symbols-outlined text-[24px]">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden">
+    <div class="fixed top-0 right-0 bottom-0 w-72 max-w-[85vw] bg-surface-container-lowest p-6 flex flex-col justify-between shadow-2xl border-l border-outline-variant">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-outline-variant/40">
+          <img alt="Melete" class="h-7 w-auto" src="assets/logo.svg"/>
+          <button id="mobile-drawer-close" class="p-1 text-on-surface hover:text-primary" aria-label="Close navigation menu">
+            <span class="material-symbols-outlined text-[24px]">close</span>
+          </button>
+        </div>
+        <nav class="flex flex-col space-y-4 pt-6 font-body-md text-body-md">
+          <a class="text-on-surface-variant hover:text-on-surface" href="index.html">Homepage</a>
+          <a class="text-on-surface-variant hover:text-on-surface" href="interviews.html">Interviews</a>
+          <a class="text-on-surface-variant hover:text-on-surface" href="how-it-works.html">How It Works</a>
+          <a class="text-on-surface-variant hover:text-on-surface" href="resources.html">Resources</a>
+          <a class="text-on-surface-variant hover:text-on-surface" href="about.html">About</a>
+          <a class="text-primary font-medium" href="faq.html">FAQ</a>
+        </nav>
+      </div>
+      <div class="pt-6 border-t border-outline-variant/40 flex flex-col gap-3">
+        <a class="w-full text-center py-2.5 rounded bg-primary text-on-primary font-label-md" href="onboarding.html">Take your first step</a>
+        <a class="w-full text-center py-2 border border-outline-variant rounded text-on-surface font-label-md" href="login.html">Log in</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)]">
+    <div class="flex flex-col w-full">
+      
+      <!-- Hero Header -->
+      <section class=\"w-full hero-border-accent bg-surface-container-lowest\">
+        <div class="max-w-7xl mx-auto px-margin py-space-xl sm:py-24">
+          <div class="space-y-space-md max-w-4xl">
+            <div class="inline-flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-mono text-xs uppercase tracking-wider">
+              <span>FAQ Knowledge Base</span>
+              <span class="text-outline-variant">•</span>
+              <span>Updated September 2026</span>
+            </div>
+            <h1 class="font-headline-xl text-3xl sm:text-headline-xl text-on-surface uppercase tracking-tight">
+              Frequently Asked Questions & Support
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+              Find clear answers about how Melete works, what interview types you can practice, how reports are scored, and how to prepare for your visa or university interview.
+            </p>
+          </div>
+
+          <!-- Instant Search & Category Filter Tabs -->
+          <div class="mt-space-xl pt-space-lg border-t border-outline-variant/30 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-lg">
+            <div class="relative flex-1 max-w-md">
+              <span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[20px]">search</span>
+              <input class="w-full pl-10 pr-space-md py-space-sm bg-surface text-on-surface font-body-md text-body-md border border-outline-variant/60 rounded focus:outline-none focus:border-primary transition-colors placeholder:text-outline" id="faq-search-input" placeholder="Search inquiries, keywords, criteria..." type="text"/>
+              <button class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface text-xs font-label-md cursor-pointer" id="search-clear-btn">
+                Clear
+              </button>
+            </div>
+            <!-- Filter Taxonomy Tabs with Smooth Edge-to-Edge Touch Scroll -->
+            <div class="flex items-center gap-space-xs scroll-touch-x max-w-full -mx-4 px-4 sm:mx-0 sm:px-0 pb-1 sm:pb-0" id="filter-tabs-container">
+              <button class="filter-tab px-space-md py-2 font-label-md text-label-md rounded transition-all whitespace-nowrap bg-primary text-on-primary cursor-pointer" data-filter="all">
+                All Questions <span class="ml-1 opacity-70">(20)</span>
+              </button>
+              <button class="filter-tab px-space-md py-2 font-label-md text-label-md rounded transition-all whitespace-nowrap bg-transparent text-secondary hover:text-on-surface cursor-pointer" data-filter="setup">
+                Interview Setup
+              </button>
+              <button class="filter-tab px-space-md py-2 font-label-md text-label-md rounded transition-all whitespace-nowrap bg-transparent text-secondary hover:text-on-surface cursor-pointer" data-filter="practice">
+                Practice & AI
+              </button>
+              <button class="filter-tab px-space-md py-2 font-label-md text-label-md rounded transition-all whitespace-nowrap bg-transparent text-secondary hover:text-on-surface cursor-pointer" data-filter="reports">
+                Reports & Scoring
+              </button>
+              <button class="filter-tab px-space-md py-2 font-label-md text-label-md rounded transition-all whitespace-nowrap bg-transparent text-secondary hover:text-on-surface cursor-pointer" data-filter="policy">
+                Policy & Disclaimer
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Repository Architecture -->
+      <section class="w-full py-space-xl sm:py-20">
+        <div class="max-w-7xl mx-auto px-margin">
+          
+          <!-- Metadata Strip & Controls -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-space-lg mb-space-md border-b border-outline-variant/40 gap-space-sm font-label-sm text-label-sm text-secondary uppercase tracking-wider font-mono">
+            <div class="flex items-center gap-space-md">
+              <span>INDEX: MELETE-DOCS-REF-2025</span>
+              <span class="text-outline-variant">•</span>
+              <span id="active-count-indicator">Showing 20 of 20 inquiries</span>
+            </div>
+            <div class="flex items-center gap-space-md">
+              <button class="hover:text-on-surface transition-colors cursor-pointer" id="expand-all-btn">Expand All</button>
+              <span class="text-outline-variant">/</span>
+              <button class="hover:text-on-surface transition-colors cursor-pointer" id="collapse-all-btn">Collapse All</button>
+            </div>
+          </div>
+
+          <!-- Primary Structured List -->
+          <div class="divide-y divide-outline-variant/40 border-b border-outline-variant/40" id="faq-entries-list">
+            
+            <!-- Item 01 -->
+            <article class="faq-item group" data-category="setup" data-keywords="what is melete platform overview voice video pdf report retake">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">01</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    What is Melete?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">SETUP</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Melete is an interview-practice platform for students preparing to study abroad. You choose an interview type, add details about your university and course, answer questions by voice or video, and receive a detailed PDF report afterward. Then you can retake and improve.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 02 -->
+            <article class="faq-item group" data-category="setup" data-keywords="who is melete for pre-cas ukvi credibility us student visa realistic conditions feedback">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">02</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    Who is Melete for?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">SETUP</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Students preparing for university Pre-CAS interviews, UKVI credibility interviews, US student visa interviews, or custom destination interviews for countries like Germany, Canada, and Australia. Melete helps you practice under realistic conditions and get helpful feedback before your real interview.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 03 -->
+            <article class="faq-item group" data-category="setup" data-keywords="interview types available pre-cas ukvi credibility us student visa germany canada australia custom destination options setup">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">03</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    Which interview types can I practice?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">SETUP</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  We support four main pathways: UK Pre-CAS University interviews, UKVI Credibility interviews, US F-1 Student Visa interviews, and a flexible Custom Destination option for countries like Germany (APS & Blocked Accounts), Canada (GIC & Study Permits), Australia (Genuine Student Requirement), and other global universities.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 04 -->
+            <article class="faq-item group" data-category="setup" data-keywords="real university course details accuracy personalization truthful application match">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">04</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    Do I have to add my real university and course details?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">SETUP</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Yes. That's what makes the practice useful. If you practice with a different university, the questions won't match what you'll actually face. Use your real details so the interview is genuinely personalized to your application.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 05 -->
+            <article class="faq-item group" data-category="setup" data-keywords="deciding between universities multiple institutions comparison practice choice">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">05</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    Can I practice with a university I'm still deciding between?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">SETUP</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Yes. If you're still deciding between universities, you can practice with each one. This helps you clarify which university actually fits you.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 06 -->
+            <article class="faq-item group" data-category="practice" data-keywords="choose voice video practice camera audio phone mode low pressure full experience">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">06</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    How do I choose between voice and video practice?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">PRACTICE</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Choose based on your real interview: Voice - If your real interview is phone or audio-only, or if you want to start with lower pressure. Video - If your real interview will be on camera, or if you want to practice the full experience. You can do both - starting with voice and moving to video.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 07 -->
+            <article class="faq-item group" data-category="practice" data-keywords="ai follow-up questions dynamic listening responsive realistic answers">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">07</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    Does the AI really ask follow-up questions based on what I say?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">PRACTICE</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Yes. The AI listens to your answer and asks follow-ups based on what you actually said. You might get a different follow-up than another student because you gave a different answer. This is what makes it realistic.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 08 -->
+            <article class="faq-item group" data-category="practice" data-keywords="how long typical interview duration time 15-25 minutes length concise balanced">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">08</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    How long is a typical interview?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">PRACTICE</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Most interviews take 15-25 minutes depending on your answers and interview type. Aim for balanced answers: enough detail to be credible, but concise enough to cover multiple questions.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 09 -->
+            <article class="faq-item group" data-category="reports" data-keywords="pdf report content transcription feedback score takeaways clarity consistency credibility">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">09</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    What's in the PDF report I get after?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">REPORTS</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Your report includes: Every question the AI asked (in order), Word-for-word transcription of your answers, Specific feedback on each answer (clarity, consistency, credibility), An overall score reflecting your preparation level, Key takeaways highlighting what to improve.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 10 -->
+            <article class="faq-item group" data-category="reports" data-keywords="download save pdf report file keep offline tracking review">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">10</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    Can I download and save my report?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">REPORTS</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Yes. Download your PDF, save it, and review it anytime. Keep reports from multiple attempts to track your improvement.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 11 -->
+            <article class="faq-item group" data-category="practice" data-keywords="how many times retake unlimited attempts redo repeated practice">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">11</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    How many times can I retake an interview?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">PRACTICE</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Unlimited. You can retake the same interview as many times as you want. This lets you directly measure improvement on the same questions.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 12 -->
+            <article class="faq-item group" data-category="practice" data-keywords="different questions retake follow-up variability adapt repeat">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">12</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    Will the questions be different if I retake the same interview?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">PRACTICE</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Some questions will be the same, but follow-up questions may differ based on your new answers. This is realistic - follow-ups in real interviews adapt to what you say.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 13 -->
+            <article class="faq-item group" data-category="setup" data-keywords="practice different universities same interview type customize institution course">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">13</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    Can I practice different universities with the same interview type?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">SETUP</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Yes. You can practice Pre-CAS interviews for University A, then University B, then University C. Each will be customized to that university and course.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 14 -->
+            <article class="faq-item group" data-category="practice" data-keywords="how many attempts before real interview preparation readiness 2-4 attempts plateau">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">14</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    How many attempts should I do before my real interview?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">PRACTICE</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  Most students do 2-4 attempts before feeling genuinely ready. Your report will show if you're improving. If your score plateaus, you might need to research more or rethink your answers, not just practice more.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 15 -->
+            <article class="faq-item group" data-category="reports" data-keywords="what score to pass grade threshold benchmark improvement confidence">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">15</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    What score do I need to 'pass'?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">REPORTS</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  There's no passing score. Your score is a benchmark showing your current preparation level. The goal is to improve with each attempt until you feel genuinely confident.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 16 -->
+            <article class="faq-item group" data-category="policy" data-keywords="guarantee pass real interview outcome assurance official decision liability">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">16</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    Do you guarantee I'll pass my real interview?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">POLICY</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  No. Melete is a practice tool, not a guarantee. Your real interview depends on your university's or visa authority's decisions. Melete helps you prepare thoroughly so you walk in confident and ready.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 17 -->
+            <article class="faq-item group" data-category="policy" data-keywords="guarantee admission cas issuance visa approval embassy ukvi consulates">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">17</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    Does using Melete guarantee admission, CAS issuance, or visa approval?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">POLICY</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  No. Universities, UKVI, and consulates make final decisions based on your complete application, academic record, and individual circumstances. Melete improves your preparation, not the outcome.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 18 -->
+            <article class="faq-item group" data-category="policy" data-keywords="immigration advice service legal counsel visa rules ukvi us state department">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">18</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    Is Melete an immigration advice service?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">POLICY</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  No. Melete is interview practice only. For visa rules, application requirements, legal questions, or immigration advice, consult official government sources (UKVI, US State Department, your embassy/consulate) or a qualified immigration professional.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 19 -->
+            <article class="faq-item group" data-category="practice" data-keywords="memorize answers natural responses anxiety unexpected questions story funding">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">19</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    Should I memorize my answers?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">PRACTICE</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  No. Memorization creates anxiety and backfires when you get unexpected questions. Instead, understand your story (why your university, why your course, how you're funding) so well that you can explain it naturally in your own words.
+                </p>
+              </div>
+            </article>
+
+            <!-- Item 20 -->
+            <article class="faq-item group" data-category="practice" data-keywords="not happy with answer mistake retake gaps feedback improve practice">
+              <div class="py-space-lg flex flex-col md:flex-row md:items-baseline justify-between cursor-pointer faq-trigger select-none">
+                <div class="flex items-baseline gap-space-md max-w-3xl pr-space-lg">
+                  <span class="font-label-sm text-label-sm text-outline tabular-nums w-6 shrink-0 font-mono">20</span>
+                  <h2 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                    What if I give an answer I'm not happy with?
+                  </h2>
+                </div>
+                <div class="flex items-center gap-space-md mt-space-sm md:mt-0 shrink-0">
+                  <span class="font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded font-mono">PRACTICE</span>
+                  <span class="material-symbols-outlined text-outline group-hover:text-on-surface transition-transform duration-200 faq-icon text-[20px]">add</span>
+                </div>
+              </div>
+              <div class="faq-content hidden pb-space-lg pl-9 sm:pl-10 max-w-3xl">
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  That's why you can retake. Your first attempt shows you where the gaps are. Use the feedback to improve, then practice again.
+                </p>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Search Empty Fallback -->
+          <div class="hidden py-space-xl text-center" id="empty-state">
+            <span class="material-symbols-outlined text-outline text-[40px] mb-space-sm">search_off</span>
+            <p class="font-headline-md text-headline-md text-on-surface">No queries matched your search</p>
+            <p class="font-body-md text-body-md text-secondary mt-1 max-w-md mx-auto">Try checking for typos, clearing filters, or browsing by category above.</p>
+            <button class="mt-space-md px-space-md py-space-xs font-label-md text-label-md border border-outline-variant hover:border-primary text-on-surface transition-colors cursor-pointer" id="reset-search-state-btn">
+              Reset Filter & Search
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Editorial Supplementary Callout & Bottom Action -->
+      <section class="w-full border-t border-outline-variant/40 bg-surface-container-lowest py-space-xl sm:py-24">
+        <div class="max-w-7xl mx-auto px-margin">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+            <div class="lg:col-span-8 space-y-space-sm">
+              <div class="flex items-center gap-space-xs">
+                <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-mono">Unresolved Inquiries</span>
+              </div>
+              <h3 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+                Still have questions about how Melete works?
+              </h3>
+              <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl leading-relaxed">
+                Examine our syllabus guides, interview simulations breakdown, and institutional research frameworks to understand how we replicate university credibility standards.
+              </p>
+            </div>
+            <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-space-md">
+              <a class="w-full sm:w-auto inline-flex items-center justify-center px-space-xl py-3 rounded bg-primary text-on-primary font-label-md text-label-md hover:bg-on-surface transition-colors tracking-wide" href="onboarding.html">
+                Take your first step
+              </a>
+              <a class="w-full sm:w-auto inline-flex items-center justify-center px-space-md py-3 font-label-md text-label-md text-on-surface-variant hover:text-on-surface underline underline-offset-4 decoration-outline-variant hover:decoration-primary transition-all" href="resources.html">
+                Browse All Resources →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/40 pt-space-xl pb-space-xl">
+    <div class="max-w-7xl mx-auto px-margin">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-space-xl pb-space-xl border-b border-outline-variant/30">
+        <div class="md:col-span-5 space-y-space-md pr-space-lg">
+          <div class="flex items-center gap-space-sm">
+            <img alt="Melete Brand Logo" class="h-7 w-auto object-contain" src="assets/logo.svg"/>
+          </div>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-md leading-relaxed">
+            Melete helps students practise study-abroad interviews with their own university, course and interview context in mind.
+          </p>
+        </div>
+        <div class="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-space-lg">
+          <div class="space-y-space-md">
+            <h3 class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface font-semibold">All Pages</h3>
+            <ul class="space-y-space-sm">
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="index.html">Home</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="interviews.html">Interviews</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="how-it-works.html">How It Works</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="resources.html">Resources</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="about.html">About</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="faq.html">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="space-y-space-md">
+            <h3 class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface font-semibold">Account</h3>
+            <ul class="space-y-space-sm">
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="login.html">Log in</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="onboarding.html">Take your first step</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="session.html">Interview Session</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="report.html">Diagnostic Report</a></li>
+            </ul>
+          </div>
+          <div class="space-y-space-md">
+            <h3 class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface font-semibold">Legal</h3>
+            <ul class="space-y-space-sm">
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="privacy-policy.html">Privacy Policy</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="terms-of-use.html">Terms of Use</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="disclaimer.html">Disclaimer</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="pt-space-lg space-y-space-md">
+        <p class="font-body-md text-body-md text-secondary leading-relaxed text-xs">
+          Melete is an independent interview-practice platform. It is not affiliated with universities, UKVI, the U.S. Department of State, embassies or consulates, and it does not guarantee admission, CAS issuance or visa outcomes.
+        </p>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm pt-space-xs font-label-sm text-label-sm text-on-surface-variant">
+          <p>© 2025 Melete Inc. All rights reserved.</p>
+          <div class="flex items-center gap-space-md">
+            <span class="text-outline">Monochrome Discipline</span>
+            <span class="text-outline-variant">•</span>
+            <span class="text-outline">Academic Rigour</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/melete-core.js"></script>
+  <script>
+    (function initFAQSystem() {
+      const items = Array.from(document.querySelectorAll('.faq-item'));
+      const searchInput = document.getElementById('faq-search-input');
+      const clearBtn = document.getElementById('search-clear-btn');
+      const emptyState = document.getElementById('empty-state');
+      const counterIndicator = document.getElementById('active-count-indicator');
+      const filterTabs = Array.from(document.querySelectorAll('.filter-tab'));
+      const expandAllBtn = document.getElementById('expand-all-btn');
+      const collapseAllBtn = document.getElementById('collapse-all-btn');
+      const resetStateBtn = document.getElementById('reset-search-state-btn');
+
+      let currentFilter = 'all';
+      let searchQuery = '';
+
+      // Initialize smooth accordions: remove static 'hidden' so CSS grid handles animated disclosure
+      items.forEach(item => {
+        const content = item.querySelector('.faq-content');
+        if (content) content.classList.remove('hidden');
+      });
+
+      items.forEach(item => {
+        const trigger = item.querySelector('.faq-trigger');
+        trigger.addEventListener('click', () => {
+          item.classList.toggle('is-open');
+        });
+      });
+
+      expandAllBtn.addEventListener('click', () => {
+        items.forEach(item => {
+          item.classList.add('is-open');
+        });
+      });
+
+      collapseAllBtn.addEventListener('click', () => {
+        items.forEach(item => {
+          item.classList.remove('is-open');
+        });
+      });
+
+      function applyFilterAndSearch() {
+        let visibleCount = 0;
+        const term = searchQuery.trim().toLowerCase();
+
+        items.forEach(item => {
+          const category = item.getAttribute('data-category');
+          const keywords = item.getAttribute('data-keywords') || '';
+          const questionText = item.querySelector('h2').textContent.toLowerCase();
+          const answerText = item.querySelector('p').textContent.toLowerCase();
+
+          const matchesCategory = (currentFilter === 'all' || category === currentFilter);
+          const matchesQuery = term === '' || 
+            questionText.includes(term) || 
+            answerText.includes(term) || 
+            keywords.toLowerCase().includes(term);
+
+          if (matchesCategory && matchesQuery) {
+            item.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+
+        counterIndicator.textContent = `Showing ${visibleCount} of ${items.length} inquiries`;
+
+        if (visibleCount === 0) {
+          emptyState.classList.remove('hidden');
+        } else {
+          emptyState.classList.add('hidden');
+        }
+      }
+
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        if (searchQuery.length > 0) {
+          clearBtn.classList.remove('hidden');
+        } else {
+          clearBtn.classList.add('hidden');
+        }
+        applyFilterAndSearch();
+      });
+
+      clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        searchQuery = '';
+        clearBtn.classList.add('hidden');
+        applyFilterAndSearch();
+        searchInput.focus();
+      });
+
+      resetStateBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        searchQuery = '';
+        clearBtn.classList.add('hidden');
+        setActiveCategory('all');
+      });
+
+      function setActiveCategory(cat) {
+        currentFilter = cat;
+        filterTabs.forEach(tab => {
+          if (tab.getAttribute('data-filter') === cat) {
+            tab.className = 'filter-tab px-space-md py-2 font-label-md text-label-md rounded transition-all whitespace-nowrap bg-primary text-on-primary cursor-pointer';
+          } else {
+            tab.className = 'filter-tab px-space-md py-2 font-label-md text-label-md rounded transition-all whitespace-nowrap bg-transparent text-secondary hover:text-on-surface cursor-pointer';
+          }
+        });
+        applyFilterAndSearch();
+      }
+
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const cat = tab.getAttribute('data-filter');
+          setActiveCategory(cat);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

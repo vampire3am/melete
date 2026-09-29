@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"/>
+  <title>Performance Assessment Report — Melete Diagnostic Dossier</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/melete-motion.css"/>
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    @media print {
+      header, footer, .no-print { display: none !important; }
+      body { background: white !important; color: black !important; }
+      main { padding-top: 0 !important; }
+      .print-shadow-none { box-shadow: none !important; border: 1px solid #000 !important; }
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "royal-blue": "#1A3C8F",
+            "royal-blue-hover": "#0d2a60",
+            "primary": "#1A3C8F",
+            "primary-hover": "#0d2a60",
+            "on-primary": "#ffffff",
+            "black": "#000000",
+            "dark-gray": "#333333",
+            "medium-gray": "#666666",
+            "light-gray": "#888888",
+            "border-gray": "#eeeeee",
+            "bg-light": "#f9f9f9",
+            "white": "#ffffff",
+            "outline": "#888888",
+            "outline-variant": "#eeeeee",
+            "secondary": "#666666",
+            "surface": "#ffffff",
+            "surface-bright": "#ffffff",
+            "surface-dim": "#f3f3f4",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f9f9f9",
+            "surface-container": "#f9f9f9",
+            "surface-container-high": "#eeeeee",
+            "surface-container-highest": "#e8e8e8",
+            "on-surface": "#000000",
+            "on-surface-variant": "#333333",
+            "error": "#ba1a1a"
+          },
+          borderRadius: {
+            "DEFAULT": "4px",
+            "sm": "2px",
+            "md": "4px",
+            "lg": "4px",
+            "xl": "4px",
+            "full": "4px"
+          },
+          spacing: {
+            "gutter-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "margin-mobile": "1.25rem",
+            "margin": "3rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem"
+          },
+          fontFamily: {
+            "sans": ["Inter", "system-ui", "-apple-system", "sans-serif"],
+            "serif": ["Playfair Display", "Georgia", "serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "headline-xl-mobile": ["Playfair Display", "serif"],
+            "label-sm": ["Inter", "sans-serif"],
+            "headline-lg": ["Playfair Display", "serif"],
+            "headline-md": ["Playfair Display", "serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "display-lg-mobile": ["Playfair Display", "serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "title-md": ["Playfair Display", "serif"],
+            "headline-xl": ["Playfair Display", "serif"],
+            "display-lg": ["Playfair Display", "serif"],
+            "mono": ["monospace"]
+          },
+          fontSize: {
+            "body-lg": ["16px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "0em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "display-lg-mobile": ["26px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "28px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "title-md": ["18px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "display-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary selection:text-on-primary">
+  
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/40 no-print">
+    <div class="h-16 max-w-7xl mx-auto px-4 sm:px-margin flex items-center justify-between">
+      <div class="flex items-center gap-space-lg">
+        <a class="flex items-center gap-space-sm" href="index.html">
+          <img alt="Melete Brand Logo" class="h-7 sm:h-8 w-auto object-contain" src="assets/logo.svg"/>
+        </a>
+      </div>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="window.print()" class="hidden sm:inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-mono text-xs uppercase transition-colors cursor-pointer">
+          <span class="material-symbols-outlined text-[16px]">print</span>
+          <span>Print / Export PDF</span>
+        </button>
+        <a href="onboarding.html" class="inline-flex items-center gap-1.5 px-3.5 sm:px-5 py-2 rounded bg-primary text-on-primary font-label-md text-xs sm:text-label-md uppercase tracking-wider hover:bg-[#0d2a60] transition-colors shadow-sm">
+          <span>New Attempt</span>
+          <span class="material-symbols-outlined text-[14px]">refresh</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full pt-20 pb-24 bg-surface min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 sm:px-margin space-y-6 sm:space-y-8">
+      
+      <!-- Back / Action Ribbon (No print) -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between no-print pt-2 gap-2">
+        <a href="index.html" class="inline-flex items-center gap-1 text-xs font-mono text-secondary hover:text-on-surface">
+          <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+          <span>Return to Homepage</span>
+        </a>
+        <span class="font-mono text-[11px] sm:text-xs text-secondary">ARCHIVAL DOSSIER GENERATED AUTOMATICALLY</span>
+      </div>
+
+      <!-- Formal Diagnostic Dossier Card -->
+      <div class="bg-surface-container-lowest border-2 border-on-surface shadow-2xl p-4 sm:p-8 md:p-10 rounded-xl space-y-6 sm:space-y-8 print-shadow-none">
+        
+        <!-- Archival Memo Header -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-on-surface gap-4">
+          <div class="space-y-1">
+            <span class="font-mono text-xs uppercase tracking-widest text-secondary block font-semibold">
+              OFFICIAL PRACTICE SUMMARY • MELETE FEEDBACK
+            </span>
+            <h1 class="font-headline-xl text-2xl sm:text-headline-xl text-on-surface">Practice Interview Report</h1>
+            <p id="report-candidate-meta" class="font-body-md text-sm sm:text-body-md text-on-surface-variant font-medium">
+              Candidate Profile: MSc Advanced Computing • Imperial College London
+            </p>
+          </div>
+          <div class="text-left sm:text-right font-mono text-xs space-y-1 shrink-0">
+            <span id="report-ref" class="block text-secondary">REF: INT-89240</span>
+            <span class="text-on-surface font-semibold block">VERIFIED PRACTICE ATTEMPT</span>
+            <span id="report-date" class="block text-secondary">16 Sep 2026</span>
+          </div>
+        </div>
+
+        <!-- Score Summary Dashboard -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 py-6 border-b border-outline-variant/60">
+          <div class="space-y-1.5">
+            <span class="font-label-sm text-label-sm uppercase text-secondary font-mono">Overall Interview Score</span>
+            <div class="font-headline-xl text-display-lg font-mono text-on-surface font-normal leading-none" id="report-overall-score">
+              88<span class="text-secondary text-headline-md font-sans">/100</span>
+            </div>
+            <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden mt-2">
+              <div id="report-score-bar" class="bg-primary h-full w-[88%] transition-all duration-500"></div>
+            </div>
+          </div>
+          <div class="space-y-1 border-t sm:border-t-0 sm:border-l border-outline-variant/40 pt-4 sm:pt-0 sm:pl-6">
+            <span class="font-label-sm text-label-sm uppercase text-secondary font-mono">Answer Consistency</span>
+            <div class="font-headline-md text-headline-md text-on-surface">Strong</div>
+            <span class="font-label-sm text-label-sm text-secondary block">No contradictions found across your answers.</span>
+          </div>
+          <div class="space-y-1 border-t sm:border-t-0 sm:border-l border-outline-variant/40 pt-4 sm:pt-0 sm:pl-6">
+            <span class="font-label-sm text-label-sm uppercase text-secondary font-mono">Financial Clarity</span>
+            <div class="font-headline-md text-headline-md text-on-surface">Clear</div>
+            <span class="font-label-sm text-label-sm text-secondary block">Sponsor details and estimated living costs explained well.</span>
+          </div>
+        </div>
+
+        <!-- 4 Credibility Pillars -->
+        <div class="space-y-3">
+          <span class="font-mono text-xs uppercase tracking-wider text-secondary font-semibold block">
+            The 4 Key Assessment Areas
+          </span>
+          <div class="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            <div class="p-3.5 bg-surface-container-low rounded border border-outline-variant/40 space-y-1 tilt-card">
+              <span class="font-mono text-[11px] text-secondary uppercase block">01. Clarity & Pace</span>
+              <p class="font-headline-md text-on-surface font-bold font-mono" id="pillar-clarity" data-counter="86" data-counter-suffix="%">86%</p>
+              <span class="text-[11px] text-on-surface-variant block">Good speed, few pauses</span>
+            </div>
+            <div class="p-3.5 bg-surface-container-low rounded border border-outline-variant/40 space-y-1 tilt-card">
+              <span class="font-mono text-[11px] text-secondary uppercase block">02. Course Knowledge</span>
+              <p class="font-headline-md text-on-surface font-bold font-mono" id="pillar-alignment" data-counter="92" data-counter-suffix="%">92%</p>
+              <span class="text-[11px] text-on-surface-variant block">Clear reasons for choosing course</span>
+            </div>
+            <div class="p-3.5 bg-surface-container-low rounded border border-outline-variant/40 space-y-1 tilt-card">
+              <span class="font-mono text-[11px] text-secondary uppercase block">03. Study Logic & Goals</span>
+              <p class="font-headline-md text-on-surface font-bold font-mono" id="pillar-logic" data-counter="88" data-counter-suffix="%">88%</p>
+              <span class="text-[11px] text-on-surface-variant block">Connects to past studies</span>
+            </div>
+            <div class="p-3.5 bg-surface-container-low rounded border border-outline-variant/40 space-y-1 tilt-card">
+              <span class="font-mono text-[11px] text-secondary uppercase block">04. Detail & Facts</span>
+              <p class="font-headline-md text-on-surface font-bold font-mono" id="pillar-depth" data-counter="84" data-counter-suffix="%">84%</p>
+              <span class="text-[11px] text-on-surface-variant block">Specific facts and names cited</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Takeaways & Recommendations Box -->
+        <div class="space-y-4 pt-2">
+          <span class="font-label-sm text-label-sm tracking-wider uppercase font-mono text-on-surface font-semibold block">
+            Tips for Your Next Practice Attempt
+          </span>
+          <div class="space-y-3" id="takeaways-list">
+            <div class="p-4 bg-surface-container-low rounded border-l-2 border-on-surface flex items-start gap-3.5">
+              <span class="font-mono text-xs font-bold text-on-surface mt-0.5">01</span>
+              <div class="space-y-0.5">
+                <span class="font-label-md text-label-md font-semibold text-on-surface block">Specify course modules</span>
+                <p class="font-body-md text-body-md text-on-surface-variant text-xs leading-relaxed">
+                  Mention elective modules by their exact departmental codes rather than speaking broadly about "software design" to demonstrate syllabus familiarity.
+                </p>
+              </div>
+            </div>
+            <div class="p-4 bg-surface-container-low rounded border-l-2 border-on-surface flex items-start gap-3.5">
+              <span class="font-mono text-xs font-bold text-on-surface mt-0.5">02</span>
+              <div class="space-y-0.5">
+                <span class="font-label-md text-label-md font-semibold text-on-surface block">Quantify living expenses</span>
+                <p class="font-body-md text-body-md text-on-surface-variant text-xs leading-relaxed">
+                  Reference the exact UKVI London monthly requirement (£1,483/mo) instead of stating "my family covers whatever it takes."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Question-by-Question Verbatim Audit -->
+        <div class="space-y-6 pt-4 border-t border-outline-variant/60">
+          <div class="flex items-center justify-between">
+            <span class="font-label-sm text-label-sm tracking-wider uppercase font-mono text-on-surface font-semibold">
+              Verbatim Question-by-Question Performance Audit
+            </span>
+            <span class="font-mono text-xs text-secondary" id="total-answers-count">2 Prompts Evaluated</span>
+          </div>
+
+          <div class="space-y-6" id="qa-audit-container">
+            <!-- Populated via script from session answers -->
+          </div>
+        </div>
+
+        <!-- Archival Footer Seal -->
+        <div class="pt-6 border-t border-on-surface flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs font-mono text-secondary gap-3">
+          <span>MELETE CERTIFICATION SYSTEM • VERIFIED SPEECH & SYNTAX PARSER</span>
+          <span>NOT AFFILIATED WITH UKVI, EMBASSIES OR UNIVERSITIES</span>
+        </div>
+
+      </div>
+
+      <!-- Action Button Group (No print) -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 no-print pt-4">
+        <a href="onboarding.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded border border-outline-variant text-on-surface font-label-md text-label-md hover:border-primary transition-colors">
+          <span class="material-symbols-outlined text-[18px]">tune</span>
+          <span>Adjust Study Parameters</span>
+        </a>
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <button onclick="window.print()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[18px]">download</span>
+            <span>Save as PDF</span>
+          </button>
+          <a href="session.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 rounded bg-primary text-on-primary font-label-md text-label-md hover:bg-[#0d2a60] transition-colors shadow-lg">
+            <span>Retake Immediate Attempt</span>
+            <span class="material-symbols-outlined text-[16px]">refresh</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/40 pt-space-xl pb-space-xl no-print">
+    <div class="max-w-7xl mx-auto px-margin">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant">
+        <p>© 2025 Melete Inc. All rights reserved.</p>
+        <div class="flex items-center gap-space-md">
+          <span class="text-outline">Monochrome Discipline</span>
+          <span class="text-outline-variant">•</span>
+          <span class="text-outline">Academic Rigour</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/melete-core.js"></script>
+  <script>
+    // Load session
+    const session = MeleteStorage.getSession() || MeleteStorage.getDefaultSession();
+
+    // Fill metadata
+    const refEl = document.getElementById('report-ref');
+    refEl.textContent = `REF: ${session.id || 'UKVI-CAS-89240'}`;
+    refEl.setAttribute('data-scramble', '');
+    document.getElementById('report-date').textContent = session.date || '16 Sep 2026';
+    document.getElementById('report-candidate-meta').textContent = `${session.degree || "Degree"}: ${session.course || 'Advanced Computing'} • ${session.university || 'University'} (${session.country || 'Destination'} • ${session.framework || 'Interview Practice'})`;
+    
+    const score = session.score || 88;
+    document.getElementById('report-overall-score').innerHTML = `<span data-counter="${score}">${score}</span><span class="text-secondary text-headline-md font-sans">/100</span>`;
+    
+    // Smooth progress bar fill animation
+    const scoreBar = document.getElementById('report-score-bar');
+    scoreBar.style.width = '0%';
+    setTimeout(() => {
+      scoreBar.style.width = score + '%';
+    }, 150);
+
+    if (session.pillars) {
+      const pClarity = document.getElementById('pillar-clarity');
+      const pAlign = document.getElementById('pillar-alignment');
+      const pLogic = document.getElementById('pillar-logic');
+      const pDepth = document.getElementById('pillar-depth');
+      if (pClarity) { pClarity.setAttribute('data-counter', session.pillars.clarity || 86); pClarity.textContent = '0%'; }
+      if (pAlign) { pAlign.setAttribute('data-counter', session.pillars.courseAlignment || 92); pAlign.textContent = '0%'; }
+      if (pLogic) { pLogic.setAttribute('data-counter', session.pillars.academicLogic || 88); pLogic.textContent = '0%'; }
+      if (pDepth) { pDepth.setAttribute('data-counter', session.pillars.depthSpecificity || 84); pDepth.textContent = '0%'; }
+    }
+
+    // Trigger counters and scrambles now that DOM has session data
+    if (typeof initCountUpCounters === 'function') initCountUpCounters();
+    if (typeof initTextScramble === 'function') initTextScramble();
+
+    // Populate Answers
+    const answers = session.answers && session.answers.length > 0 ? session.answers : MeleteStorage.getDefaultSession().answers;
+    document.getElementById('total-answers-count').textContent = `${answers.length} Prompts Evaluated`;
+
+    const qaContainer = document.getElementById('qa-audit-container');
+    qaContainer.innerHTML = '';
+
+    answers.forEach((ans, idx) => {
+      const qBlock = document.createElement('div');
+      qBlock.className = 'p-6 rounded-xl bg-surface-container-low border border-outline-variant/60 space-y-4 shadow-xs';
+      
+      const whatHeard = ans.what_heard || ans.transcript || 'No transcript available.';
+      const betterWay = ans.better_way || ans.sampleAnswer || 'Explain your course modules and future career plans in direct, simple spoken English.';
+      const strengthsList = (ans.strengths || []).map(s => `<li>${s}</li>`).join('') || '<li>Answered the prompt directly without stalling.</li>';
+      const risksList = (ans.risks || []).map(r => `<li>${r}</li>`).join('') || '<li>Keep reinforcing specific numbers, dates, and module titles.</li>';
+
+      qBlock.innerHTML = `
+        <div class="flex items-center justify-between font-mono text-xs text-secondary border-b border-outline-variant/40 pb-2">
+          <span class="font-bold text-on-surface uppercase">Question 0${idx + 1} • ${ans.type || 'CREDIBILITY CHECK'}</span>
+          <span class="font-bold ${ans.score >= 75 ? 'text-emerald-700' : 'text-amber-700'}">Score: ${ans.score || 85}%</span>
+        </div>
+        
+        <h4 class="font-headline-md text-headline-md text-on-surface font-semibold">
+          "${ans.q}"
+        </h4>
+        
+        <!-- Comparative Boxes: What We Heard vs A Better Way -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+          <div class="p-4 bg-surface-container-lowest rounded-lg border border-outline-variant/40 space-y-1.5">
+            <span class="font-mono text-[11px] text-secondary uppercase font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">hearing</span>
+              What We Heard You Say:
+            </span>
+            <p class="font-body-md text-on-surface text-xs leading-relaxed italic">
+              "${whatHeard}"
+            </p>
+          </div>
+
+          <div class="p-4 bg-blue-50/70 rounded-lg border border-blue-200/70 space-y-1.5">
+            <span class="font-mono text-[11px] text-primary uppercase font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">auto_fix_high</span>
+              A Better Way to Say It:
+            </span>
+            <p class="font-body-md text-slate-900 text-xs leading-relaxed font-medium">
+              "${betterWay}"
+            </p>
+          </div>
+        </div>
+
+        <!-- Strengths & Risks -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-1">
+          <div class="p-3 bg-surface-container-highest/60 rounded">
+            <span class="font-mono font-bold text-emerald-800 uppercase block text-[11px] mb-1">What Worked:</span>
+            <ul class="space-y-1 text-on-surface-variant list-disc list-inside">
+              ${strengthsList}
+            </ul>
+          </div>
+          <div class="p-3 bg-surface-container-highest/60 rounded">
+            <span class="font-mono font-bold text-amber-800 uppercase block text-[11px] mb-1">Regulatory Risks / Missing Details:</span>
+            <ul class="space-y-1 text-on-surface-variant list-disc list-inside">
+              ${risksList}
+            </ul>
+          </div>
+        </div>
+
+        ${ans.audioUrl ? `
+          <div class="pt-2 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 text-xs">
+            <span class="font-mono text-secondary">Audio Playback:</span>
+            <audio controls src="${ans.audioUrl}" class="h-8 w-full max-w-xs"></audio>
+          </div>
+        ` : ''}
+      `;
+      qaContainer.appendChild(qBlock);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"/>
+  <title>Interviews You Can Prepare For — Melete</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "royal-blue": "#1A3C8F",
+            "royal-blue-hover": "#0d2a60",
+            "primary": "#1A3C8F",
+            "primary-hover": "#0d2a60",
+            "on-primary": "#ffffff",
+            "black": "#000000",
+            "dark-gray": "#333333",
+            "medium-gray": "#666666",
+            "light-gray": "#888888",
+            "border-gray": "#eeeeee",
+            "bg-light": "#f9f9f9",
+            "white": "#ffffff",
+            "outline": "#888888",
+            "outline-variant": "#eeeeee",
+            "secondary": "#666666",
+            "surface": "#ffffff",
+            "surface-bright": "#ffffff",
+            "surface-dim": "#f3f3f4",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f9f9f9",
+            "surface-container": "#f9f9f9",
+            "surface-container-high": "#eeeeee",
+            "surface-container-highest": "#e8e8e8",
+            "on-surface": "#000000",
+            "on-surface-variant": "#333333",
+            "error": "#ba1a1a"
+          },
+          borderRadius: {
+            "DEFAULT": "4px",
+            "sm": "2px",
+            "md": "4px",
+            "lg": "4px",
+            "xl": "4px",
+            "full": "4px"
+          },
+          spacing: {
+            "gutter-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "margin-mobile": "1.25rem",
+            "margin": "3rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem"
+          },
+          fontFamily: {
+            "sans": ["Inter", "system-ui", "-apple-system", "sans-serif"],
+            "serif": ["Playfair Display", "Georgia", "serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "headline-xl-mobile": ["Playfair Display", "serif"],
+            "label-sm": ["Inter", "sans-serif"],
+            "headline-lg": ["Playfair Display", "serif"],
+            "headline-md": ["Playfair Display", "serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "display-lg-mobile": ["Playfair Display", "serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "title-md": ["Playfair Display", "serif"],
+            "headline-xl": ["Playfair Display", "serif"],
+            "display-lg": ["Playfair Display", "serif"],
+            "mono": ["monospace"]
+          },
+          fontSize: {
+            "body-lg": ["16px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "0em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "display-lg-mobile": ["26px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "28px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "title-md": ["18px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "display-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/melete-motion.css"/>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary selection:text-on-primary">
+  
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/40">
+    <div class="h-16 max-w-7xl mx-auto px-margin flex items-center justify-between">
+      <div class="flex items-center gap-space-lg">
+        <a class="flex items-center gap-space-sm" href="index.html">
+          <img alt="Melete Brand Logo" class="h-8 w-auto object-contain" src="assets/logo.svg"/>
+        </a>
+        <nav class="hidden lg:flex items-center gap-space-lg ml-space-md">
+          <a class="h-16 flex items-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="index.html">Homepage</a>
+          <a class="h-16 flex items-center transition-colors text-primary font-medium border-b-2 border-primary" href="interviews.html">Interviews</a>
+          <a class="h-16 flex items-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="how-it-works.html">How It Works</a>
+          <a class="h-16 flex items-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="resources.html">Resources</a>
+          <a class="h-16 flex items-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="about.html">About</a>
+          <a class="h-16 flex items-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="faq.html">FAQ</a>
+        </nav>
+      </div>
+      <div class="flex items-center gap-space-md">
+        <a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-xs font-label-md text-label-md text-on-surface hover:text-primary transition-colors" href="login.html">Log in</a>
+        <a class="hidden sm:inline-flex items-center justify-center px-space-lg py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-[#0d2a60] transition-colors" href="onboarding.html">Take your first step</a>
+        <a href="login.html" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs text-on-primary">
+          <span class="material-symbols-outlined text-[18px]">person</span>
+        </a>
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-on-surface" aria-label="Toggle navigation menu">
+          <span class="material-symbols-outlined text-[24px]">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden">
+    <div class="fixed top-0 right-0 bottom-0 w-72 max-w-[85vw] bg-surface-container-lowest p-6 flex flex-col justify-between shadow-2xl border-l border-outline-variant">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-outline-variant/40">
+          <img alt="Melete" class="h-7 w-auto" src="assets/logo.svg"/>
+          <button id="mobile-drawer-close" class="p-1 text-on-surface hover:text-primary" aria-label="Close navigation menu">
+            <span class="material-symbols-outlined text-[24px]">close</span>
+          </button>
+        </div>
+        <nav class="flex flex-col space-y-4 pt-6">
+          <a class="text-on-surface-variant hover:text-on-surface" href="index.html">Homepage</a>
+          <a class="text-primary font-medium" href="interviews.html">Interviews</a>
+          <a class="text-on-surface-variant hover:text-on-surface" href="how-it-works.html">How It Works</a>
+          <a class="text-on-surface-variant hover:text-on-surface" href="resources.html">Resources</a>
+          <a class="text-on-surface-variant hover:text-on-surface" href="about.html">About</a>
+          <a class="text-on-surface-variant hover:text-on-surface" href="faq.html">FAQ</a>
+        </nav>
+      </div>
+      <div class="pt-6 border-t border-outline-variant/40 flex flex-col gap-3">
+        <a class="w-full text-center py-2.5 rounded bg-primary text-on-primary font-label-md" href="onboarding.html">Take your first step</a>
+        <a class="w-full text-center py-2 border border-outline-variant rounded text-on-surface font-label-md" href="login.html">Log in</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)]">
+    <div class="flex flex-col w-full">
+      
+      <!-- Hero -->
+      <section class=\"w-full bg-surface-container-lowest px-margin pt-space-xl pb-space-xl hero-border-accent\">
+        <div class="max-w-7xl mx-auto space-y-space-md">
+          <div class="inline-flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-mono text-xs uppercase tracking-wider">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            Curated Assessment Pathways
+          </div>
+          <h1 class="font-headline-xl sm:text-display-lg text-headline-xl text-on-surface uppercase tracking-tight">
+            Interviews You Can Prepare For
+          </h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Every interview track is engineered around specific jurisdictional rubrics, regulatory guidelines, and actual admissions committee expectations.
+          </p>
+        </div>
+      </section>
+
+      <!-- Pathway 1: Pre-CAS Interview -->
+      <section class="w-full py-16 px-margin border-b border-outline-variant/40 bg-surface">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-5 space-y-6">
+            <span class="font-mono text-xs uppercase px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-semibold">
+              Track 01 • UK Higher Education
+            </span>
+            <h2 class="font-headline-xl text-headline-xl text-on-surface">Pre-CAS Interview</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+              Conducted directly by UK universities prior to assigning your Confirmation of Acceptance for Studies. Universities hold Tier 4 / Student Sponsor licenses and must verify that you are academically capable and committed before taking on institutional sponsorship risk.
+            </p>
+            <div class="space-y-3 pt-2">
+              <div class="flex items-center gap-2 font-mono text-xs text-secondary">
+                <span class="material-symbols-outlined text-[16px] text-primary">check</span>
+                Typical Duration: 15–20 minutes
+              </div>
+              <div class="flex items-center gap-2 font-mono text-xs text-secondary">
+                <span class="material-symbols-outlined text-[16px] text-primary">check</span>
+                Format: Live spoken video or automated audio call
+              </div>
+              <div class="flex items-center gap-2 font-mono text-xs text-secondary">
+                <span class="material-symbols-outlined text-[16px] text-primary">check</span>
+                Pass threshold: High factual consistency across application documents
+              </div>
+            </div>
+            <div class="pt-4">
+              <a href="onboarding.html?type=pre-cas" class="inline-flex items-center gap-2 px-6 py-3 rounded bg-primary text-on-primary font-label-md text-label-md hover:bg-[#0d2a60] transition-colors shadow-sm">
+                <span>Configure Pre-CAS Practice</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-surface-container-lowest p-6 md:p-8 rounded-xl border border-outline-variant/60 shadow-sm space-y-6">
+            <span class="font-mono text-xs uppercase text-secondary tracking-widest block font-semibold">
+              Evaluation Matrix • 4 Pillars Tested
+            </span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="p-4 rounded bg-surface-container-low border border-outline-variant/40 space-y-1">
+                <h4 class="font-title-md text-title-md text-on-surface font-bold">1. Course Module Recall</h4>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Knowing exact departmental module names, credit breakdowns, and dissertation topics rather than generic summaries.</p>
+              </div>
+              <div class="p-4 rounded bg-surface-container-low border border-outline-variant/40 space-y-1">
+                <h4 class="font-title-md text-title-md text-on-surface font-bold">2. University Selection</h4>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Explaining specific reasons for choosing this university over 2–3 competing institutions in the UK and your home country.</p>
+              </div>
+              <div class="p-4 rounded bg-surface-container-low border border-outline-variant/40 space-y-1">
+                <h4 class="font-title-md text-title-md text-on-surface font-bold">3. Financial Sponsorship</h4>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Verifying who is paying tuition and living costs, deposit amounts already settled, and sponsor occupation.</p>
+              </div>
+              <div class="p-4 rounded bg-surface-container-low border border-outline-variant/40 space-y-1">
+                <h4 class="font-title-md text-title-md text-on-surface font-bold">4. Future Career Value</h4>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Specific job roles, companies, and expected salary in your home market that justify the financial investment.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pathway 2: UKVI Credibility Interview -->
+      <section class="w-full py-16 px-margin border-b border-outline-variant/40 bg-surface-container-lowest">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-5 space-y-6">
+            <span class="font-mono text-xs uppercase px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-semibold">
+              Track 02 • Home Office & UKVI
+            </span>
+            <h2 class="font-headline-xl text-headline-xl text-on-surface">UKVI Credibility Interview</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+              Conducted by UK Visas and Immigration caseworkers to test whether an applicant is a 'genuine student'. Focuses strictly on legal compliance, immigration history, accommodation realism, and financial transparency.
+            </p>
+            <div class="space-y-3 pt-2">
+              <div class="flex items-center gap-2 font-mono text-xs text-secondary">
+                <span class="material-symbols-outlined text-[16px] text-primary">check</span>
+                Typical Duration: 15–30 minutes
+              </div>
+              <div class="flex items-center gap-2 font-mono text-xs text-secondary">
+                <span class="material-symbols-outlined text-[16px] text-primary">check</span>
+                Format: Video link at Visa Application Centre (VAC)
+              </div>
+              <div class="flex items-center gap-2 font-mono text-xs text-secondary">
+                <span class="material-symbols-outlined text-[16px] text-primary">check</span>
+                Transcript audited by Sheffield / UKVI central casework teams
+              </div>
+            </div>
+            <div class="pt-4">
+              <a href="onboarding.html?type=ukvi" class="inline-flex items-center gap-2 px-6 py-3 rounded bg-primary text-on-primary font-label-md text-label-md hover:bg-[#0d2a60] transition-colors shadow-sm">
+                <span>Configure UKVI Practice</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-surface-container-low p-6 md:p-8 rounded-xl border border-outline-variant/60 shadow-sm space-y-6">
+            <span class="font-mono text-xs uppercase text-secondary tracking-widest block font-semibold">
+              Critical Scrutiny Vectors
+            </span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="p-4 rounded bg-surface-container-lowest border border-outline-variant/40 space-y-1">
+                <h4 class="font-title-md text-title-md text-on-surface font-bold">Immigration Track Record</h4>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Full clarity on previous travel history, visa refusals anywhere in the world, and academic progression.</p>
+              </div>
+              <div class="p-4 rounded bg-surface-container-lowest border border-outline-variant/40 space-y-1">
+                <h4 class="font-title-md text-title-md text-on-surface font-bold">Accommodation & Transit</h4>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Exact location, monthly rent amount, realistic travel time, and daily commute cost to campus.</p>
+              </div>
+              <div class="p-4 rounded bg-surface-container-lowest border border-outline-variant/40 space-y-1">
+                <h4 class="font-title-md text-title-md text-on-surface font-bold">Work Hour Boundaries</h4>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Understanding the strict 20 hours/week cap during term time and demonstrating zero reliance on part-time wages for tuition.</p>
+              </div>
+              <div class="p-4 rounded bg-surface-container-lowest border border-outline-variant/40 space-y-1">
+                <h4 class="font-title-md text-title-md text-on-surface font-bold">Genuine Student Intent</h4>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Proving you are not using education as an immigration vehicle to enter the UK labor market.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pathway 3: US Student Visa -->
+      <section class="w-full py-16 px-margin border-b border-outline-variant/40 bg-surface">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-5 space-y-6">
+            <span class="font-mono text-xs uppercase px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-semibold">
+              Track 03 • US Department of State
+            </span>
+            <h2 class="font-headline-xl text-headline-xl text-on-surface">US F-1 Visa Interview</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+              Conducted in person at the U.S. Embassy or Consulate. Because US consular officers must presume immigrant intent under Section 214(b) by default, you have only 120–180 seconds to demonstrate bona fide nonimmigrant intent.
+            </p>
+            <div class="space-y-3 pt-2">
+              <div class="flex items-center gap-2 font-mono text-xs text-secondary">
+                <span class="material-symbols-outlined text-[16px] text-primary">check</span>
+                Typical Duration: 2–4 minutes
+              </div>
+              <div class="flex items-center gap-2 font-mono text-xs text-secondary">
+                <span class="material-symbols-outlined text-[16px] text-primary">check</span>
+                Format: In-person window interview
+              </div>
+              <div class="flex items-center gap-2 font-mono text-xs text-secondary">
+                <span class="material-symbols-outlined text-[16px] text-primary">check</span>
+                Decisive Factor: Concise spoken conviction under 45 seconds per response
+              </div>
+            </div>
+            <div class="pt-4">
+              <a href="onboarding.html?type=us-visa" class="inline-flex items-center gap-2 px-6 py-3 rounded bg-primary text-on-primary font-label-md text-label-md hover:bg-[#0d2a60] transition-colors shadow-sm">
+                <span>Configure US Visa Practice</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-surface-container-lowest p-6 md:p-8 rounded-xl border border-outline-variant/60 shadow-sm space-y-6">
+            <span class="font-mono text-xs uppercase text-secondary tracking-widest block font-semibold">
+              What Visa Officers Look For
+            </span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="p-4 rounded bg-surface-container-low border border-outline-variant/40 space-y-1">
+                <h4 class="font-title-md text-title-md text-on-surface font-bold">Intent to Return Home</h4>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Clearly explaining your family, property, and career opportunities at home under Section 214(b).</p>
+              </div>
+              <div class="p-4 rounded bg-surface-container-low border border-outline-variant/40 space-y-1">
+                <h4 class="font-title-md text-title-md text-on-surface font-bold">Financial Proof</h4>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Knowing your family savings, approved loan letters, and annual sponsor income without hesitation.</p>
+              </div>
+              <div class="p-4 rounded bg-surface-container-low border border-outline-variant/40 space-y-1">
+                <h4 class="font-title-md text-title-md text-on-surface font-bold">Academic Purpose</h4>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Explaining why this specific US university and course fit your future plans better than local options.</p>
+              </div>
+              <div class="p-4 rounded bg-surface-container-low border border-outline-variant/40 space-y-1">
+                <h4 class="font-title-md text-title-md text-on-surface font-bold">Clear, Quick Answers</h4>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Direct, polite answers delivered in under 60 seconds without memorized speeches.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pathway 4: Canada, Germany, Australia & Other Countries -->
+      <section class="w-full py-16 px-margin border-b border-outline-variant/40 bg-surface">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-5 space-y-6">
+            <span class="font-mono text-xs uppercase px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-semibold">
+              Track 04 • Canada, Germany, Australia & Global
+            </span>
+            <h2 class="font-headline-xl text-headline-xl text-on-surface">Custom Destination Interview</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+              Going to Germany, Canada, Australia, Ireland, France, or any other country? You can type your exact destination country, target university, degree level, and course to practice questions tailored to your specific application.
+            </p>
+            <div class="space-y-3 pt-2">
+              <div class="flex items-center gap-2 font-mono text-xs text-secondary">
+                <span class="material-symbols-outlined text-[16px] text-primary">check</span>
+                Typical Duration: 10–20 minutes
+              </div>
+              <div class="flex items-center gap-2 font-mono text-xs text-secondary">
+                <span class="material-symbols-outlined text-[16px] text-primary">check</span>
+                Formats: Embassy visa interview, university admission, or APS evaluation
+              </div>
+              <div class="flex items-center gap-2 font-mono text-xs text-secondary">
+                <span class="material-symbols-outlined text-[16px] text-primary">check</span>
+                Key Goal: Clear study reasons, proof of funds, and plans after graduation
+              </div>
+            </div>
+            <div class="pt-4">
+              <a href="onboarding.html?type=custom" class="inline-flex items-center gap-2 px-6 py-3 rounded bg-primary text-on-primary font-label-md text-label-md hover:bg-[#0d2a60] transition-colors shadow-sm">
+                <span>Configure Custom Track</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-surface-container-lowest p-6 md:p-8 rounded-xl border border-outline-variant/60 shadow-sm space-y-6">
+            <span class="font-mono text-xs uppercase text-secondary tracking-widest block font-semibold">
+              Key Requirements Across Destinations
+            </span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="p-4 rounded bg-surface-container-low border border-outline-variant/40 space-y-1">
+                <h4 class="font-title-md text-title-md text-on-surface font-bold">Germany (Embassy / APS)</h4>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Explaining your blocked account (Sperrkonto), why you chose an English-taught course, and why you picked this German university.</p>
+              </div>
+              <div class="p-4 rounded bg-surface-container-low border border-outline-variant/40 space-y-1">
+                <h4 class="font-title-md text-title-md text-on-surface font-bold">Canada (Study Permit / IRCC)</h4>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Explaining your GIC certificate, why this program matches your past background, and showing clear intent to leave Canada after studies.</p>
+              </div>
+              <div class="p-4 rounded bg-surface-container-low border border-outline-variant/40 space-y-1">
+                <h4 class="font-title-md text-title-md text-on-surface font-bold">Australia (Genuine Student)</h4>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Proving you are a Genuine Student (GS requirement) with clear career goals and verified financial support.</p>
+              </div>
+              <div class="p-4 rounded bg-surface-container-low border border-outline-variant/40 space-y-1">
+                <h4 class="font-title-md text-title-md text-on-surface font-bold">Other Destinations</h4>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Covers admission interviews and visa credibility for Ireland, France, New Zealand, and European universities.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom CTA Strip -->
+      <section class="w-full bg-primary text-on-primary py-20">
+        <div class="max-w-4xl mx-auto px-margin text-center space-y-6">
+          <h2 class="font-headline-xl text-headline-xl sm:text-display-lg text-on-primary">
+            Ready to test your answers against real criteria?
+          </h2>
+          <p class="font-body-lg text-body-lg text-outline-variant max-w-xl mx-auto">
+            Choose your university, course, and interview type in 60 seconds. Start responding aloud right now.
+          </p>
+          <div class="pt-4">
+            <a href="onboarding.html" class="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors shadow-lg">
+              <span>Start practice session</span>
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/40 pt-space-xl pb-space-xl">
+    <div class="max-w-7xl mx-auto px-margin">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-space-xl pb-space-xl border-b border-outline-variant/30">
+        <div class="md:col-span-5 space-y-space-md pr-space-lg">
+          <div class="flex items-center gap-space-sm">
+            <img alt="Melete Brand Logo" class="h-7 w-auto object-contain" src="assets/logo.svg"/>
+          </div>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-md leading-relaxed">
+            Melete helps students practise study-abroad interviews with their own university, course and interview context in mind.
+          </p>
+        </div>
+        <div class="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-space-lg">
+          <div class="space-y-space-md">
+            <h3 class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface font-semibold">All Pages</h3>
+            <ul class="space-y-space-sm">
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="index.html">Home</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="interviews.html">Interviews</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="how-it-works.html">How It Works</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="resources.html">Resources</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="about.html">About</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="faq.html">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="space-y-space-md">
+            <h3 class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface font-semibold">Account</h3>
+            <ul class="space-y-space-sm">
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="login.html">Log in</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="onboarding.html">Take your first step</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="session.html">Interview Session</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="report.html">Diagnostic Report</a></li>
+            </ul>
+          </div>
+          <div class="space-y-space-md">
+            <h3 class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface font-semibold">Legal</h3>
+            <ul class="space-y-space-sm">
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="privacy-policy.html">Privacy Policy</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="terms-of-use.html">Terms of Use</a></li>
+              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="disclaimer.html">Disclaimer</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="pt-space-lg space-y-space-md">
+        <p class="font-body-md text-body-md text-secondary leading-relaxed text-xs">
+          Melete is an independent interview-practice platform. It is not affiliated with universities, UKVI, the U.S. Department of State, embassies or consulates, and it does not guarantee admission, CAS issuance or visa outcomes.
+        </p>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm pt-space-xs font-label-sm text-label-sm text-on-surface-variant">
+          <p>© 2025 Melete Inc. All rights reserved.</p>
+          <div class="flex items-center gap-space-md">
+            <span class="text-outline">Monochrome Discipline</span>
+            <span class="text-outline-variant">•</span>
+            <span class="text-outline">Academic Rigour</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/melete-core.js"></script>
+</body>
+</html>

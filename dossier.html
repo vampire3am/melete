@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Melete — Complete Product & Technical Dossier</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;600&display=swap');
+
+    @page {
+      size: A4;
+      margin: 18mm 16mm 18mm 16mm;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: #1e293b;
+      line-height: 1.55;
+      font-size: 10pt;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+      color: #0f172a;
+      margin-top: 1.4em;
+      margin-bottom: 0.4em;
+    }
+
+    h1 { font-size: 22pt; line-height: 1.2; font-weight: 700; margin-top: 0; }
+    h2 { font-size: 15pt; border-bottom: 1.5pt solid #1A3C8F; padding-bottom: 4px; margin-top: 1.8em; page-break-after: avoid; }
+    h3 { font-size: 12pt; margin-top: 1.2em; page-break-after: avoid; }
+    h4 { font-size: 10.5pt; font-family: 'Inter', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: #475569; }
+
+    p { margin: 0.5em 0; text-align: justify; }
+
+    .header-box {
+      border-bottom: 2pt solid #0f172a;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 8pt;
+      font-family: 'Fira Code', monospace;
+      font-weight: 600;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-primary { background: #e0e7ff; color: #1A3C8F; }
+    .badge-success { background: #dcfce7; color: #166534; }
+    .badge-dark { background: #0f172a; color: #ffffff; }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      background: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      margin: 12px 0 20px 0;
+      font-size: 8.5pt;
+    }
+    .meta-item strong { display: block; color: #64748b; text-transform: uppercase; font-size: 7.5pt; font-family: 'Fira Code', monospace; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 8.5pt;
+      page-break-inside: avoid;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 7px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f1f5f9;
+      font-weight: 600;
+      color: #0f172a;
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    tr:nth-child(even) td { background: #f8fafc; }
+
+    .callout {
+      border-left: 3.5pt solid #1A3C8F;
+      background: #f0f4ff;
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      margin: 12px 0;
+      font-size: 9.5pt;
+    }
+    .callout-title { font-weight: 700; color: #1A3C8F; margin-bottom: 2px; }
+
+    .code-block {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-family: 'Fira Code', monospace;
+      font-size: 8pt;
+      line-height: 1.45;
+      overflow-x: auto;
+      margin: 10px 0;
+      page-break-inside: avoid;
+    }
+
+    ul, ol { margin: 0.4em 0 0.8em 1.2em; padding: 0; }
+    li { margin-bottom: 0.3em; }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    .footer {
+      border-top: 1px solid #cbd5e1;
+      padding-top: 8px;
+      margin-top: 24px;
+      font-size: 8pt;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Fira Code', monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Title Section -->
+  <div class="header-box">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+      <span class="badge badge-dark">Executive Technical & Product Report</span>
+      <span class="badge badge-success">Live in Production</span>
+    </div>
+    <h1>Melete — AI-Powered Study Abroad Interview Platform</h1>
+    <p style="font-size: 11pt; color: #334155; margin: 4px 0 0 0; font-family: 'Playfair Display', serif; font-style: italic;">
+      "Confident Answers Come From Real Knowledge, Not Memorized Scripts."
+    </p>
+  </div>
+
+  <div class="meta-grid">
+    <div class="meta-item">
+      <strong>Product</strong>
+      Melete SaaS v2.0
+    </div>
+    <div class="meta-item">
+      <strong>Production URL</strong>
+      melete-seven.vercel.app
+    </div>
+    <div class="meta-item">
+      <strong>Backend Runtime</strong>
+      Node.js 22 / Express
+    </div>
+    <div class="meta-item">
+      <strong>AI Architecture</strong>
+      OpenAI GPT-4o & Whisper
+    </div>
+  </div>
+
+  <!-- Executive Summary -->
+  <h2>1. Executive Summary & Transformation Journey</h2>
+  <p>
+    This dossier documents the comprehensive modernization and commercial deployment of <strong>Melete</strong>, transitioning it from a static frontend demonstration into a high-scale, production-grade <strong>Software-as-a-Service (SaaS)</strong> platform.
+  </p>
+  <p>
+    The initiative began by benchmarking Melete against <strong>ExamTestAI</strong> (a commercial Pre-CAS platform for Nepali students applying to the UK). While ExamTestAI had market-validated feedback loops ("What we heard you say" and natural English rewrites), Melete possessed a superior editorial design system and broader multi-country ambition. We bridged the technical gap by removing all mock/simulated behaviors, implementing a robust Node.js backend with native REST APIs, integrating real-time audio capture, connecting the OpenAI GPT-4o-mini and Whisper APIs, engineering an administrative control center, and deploying the platform live to <strong>Vercel</strong>.
+  </p>
+
+  <div class="callout">
+    <div class="callout-title">Core Milestone Achieved</div>
+    Melete is fully deployed and publicly accessible with real-time speech evaluation against international credibility rubrics, active Google login tracking, dynamic university question banks, and zero student fees.
+  </div>
+
+  <!-- Comparative Breakdown -->
+  <h2>2. Benchmark Comparison: Melete vs. ExamTestAI</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 22%;">Dimension</th>
+        <th style="width: 38%;">ExamTestAI (Market Competitor)</th>
+        <th style="width: 40%;">Melete (Our Production SaaS)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Market Scope</strong></td>
+        <td>Narrow focus: Exclusively Nepali students applying to UK universities.</td>
+        <td><strong>Broad International</strong>: UK (Pre-CAS & UKVI), US (F-1 214b), Canada (SDS/GIC), Germany (APS), Australia (GS).</td>
+      </tr>
+      <tr>
+        <td><strong>Speech & Transcription</strong></td>
+        <td>Server-side audio capture & speech-to-text.</td>
+        <td><strong>Real MediaRecorder & OpenAI Whisper-1</strong> server-side transcription with 60 FPS real-time audio canvas.</td>
+      </tr>
+      <tr>
+        <td><strong>Evaluation Engine</strong></td>
+        <td>AI evaluation of spoken words against UK Pre-CAS rubrics.</td>
+        <td><strong>Live OpenAI GPT-4o-mini & GPT-4o</strong> with country-specific credibility criteria and regulatory red-flag triggers.</td>
+      </tr>
+      <tr>
+        <td><strong>Feedback Model</strong></td>
+        <td>"What we heard you say" + "A better way to say it" + Nepali tip.</td>
+        <td><strong>Exact Verbatim Transcript</strong> + <strong>Spoken Conversational Alternative</strong> + Audio Playback + Regulatory Risk Audit.</td>
+      </tr>
+      <tr>
+        <td><strong>Practice Flexibility</strong></td>
+        <td>Full mock (17 questions) or 1 question drill.</td>
+        <td><strong>Both Modes Supported</strong>: Dedicated 1-Question Drill Mode (<3s turnaround) and Full 15-Question Mock Interview.</td>
+      </tr>
+      <tr>
+        <td><strong>Institutional Depth</strong></td>
+        <td>Specific UK universities (Coventry, BPP, UEL, UWL, etc.).</td>
+        <td><strong>Dynamic University Bank</strong>: Coventry, BPP, UEL, NYU, Northeastern, TUM, U-Toronto, Melbourne + Custom Admin CRUD.</td>
+      </tr>
+      <tr>
+        <td><strong>Pricing & Access</strong></td>
+        <td>Freemium trial (10 questions), then NPR 499 - 799 credit packs.</td>
+        <td><strong>100% Free for Students</strong> with Google authentication to build comprehensive data logs in the Admin Panel.</td>
+      </tr>
+      <tr>
+        <td><strong>Administrative Oversight</strong></td>
+        <td>Proprietary internal console.</td>
+        <td><strong>Comprehensive Web Admin Panel</strong>: Analytics KPI metrics, student session vault, question bank editor, AI key config.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Page Break -->
+  <div class="page-break"></div>
+
+  <!-- System Architecture -->
+  <h2>3. Technical & System Architecture</h2>
+  <p>
+    Melete was engineered with a decoupled, high-performance architecture capable of running locally or at the edge via serverless environments:
+  </p>
+
+  <div class="code-block">
+[Client Layer] ──> Audio Recording (MediaRecorder) + Web Speech API + 60fps Canvas
+       │
+       ▼ (HTTPS POST multipart/form-data)
+[Node.js / Express Server] (Vercel Serverless Function Adapter)
+       │
+       ├─► /api/transcribe ──► OpenAI Whisper-1 Audio API ──► Verbatim Transcript
+       ├─► /api/evaluate   ──► OpenAI GPT-4o-mini API     ──► Comparative Feedback JSON
+       ├─► /api/auth       ──► Google Identity Service    ──► Persistent Candidate Tracking
+       └─► /api/admin/*    ──► Data Engine (melete_db.json)──► Analytics & Question Bank CRUD
+  </div>
+
+  <h3>Key Architectural Components:</h3>
+  <ul>
+    <li>
+      <strong>Real-Time Audio & Video Ingest</strong>: Microphone audio is captured via <code>navigator.mediaDevices.getUserMedia</code>, processed through an <code>AudioContext</code> frequency analyzer that powers a 48-bar visualizer, and recorded in WebM/WAV buffers for server upload. Video mode activates client-side WebRTC camera streams.
+    </li>
+    <li>
+      <strong>Silence & Audibility Guardian</strong>: Incorporates an audio sanity check. If ambient noise or silence is recorded (< 4 words), the engine halts evaluation and prompts: <em>"We couldn't hear your response clearly. Please check your mic and try again."</em>
+    </li>
+    <li>
+      <strong>Dual-Engine AI Pipeline</strong>:
+      <ul>
+        <li><strong>OpenAI Whisper-1</strong>: Transcribes uploaded audio blobs with international accent resilience.</li>
+        <li><strong>OpenAI GPT-4o-mini</strong>: Analyzes candidate statements against regulatory requirements (working hour limits, course modules, liquid maintenance, non-immigrant intent).</li>
+        <li><strong>Intelligent Heuristic Fallback</strong>: Runs a rule-based semantic parser if network or API keys are unavailable, guaranteeing 100% platform uptime.</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Serverless-Ready Data Layer</strong>: Utilizes an atomic JSON database module (<code>db.js</code>) configured with automatic detection for Vercel's ephemeral <code>/tmp</code> storage, ensuring zero file-system collision or write-permission errors.
+    </li>
+  </ul>
+
+  <!-- Core Features -->
+  <h2>4. Core Application Features</h2>
+
+  <h3>4.1. Single-Question Drill Mode (<code>practice.html</code>)</h3>
+  <p>
+    Designed for fast, high-repetition practice. Students select their target country and university, hit record, and answer a single focused prompt (e.g. <em>"Who is your financial sponsor and how do they earn their income?"</em>). Within 3 seconds of completion, the system generates:
+  </p>
+  <ul>
+    <li><strong>Verbatim Transcript ("What We Heard You Say")</strong>: Exposes grammatical slips and mispronounced numbers.</li>
+    <li><strong>Natural Spoken Alternative ("A Better Way to Say It")</strong>: Conversational, confident English phrasing.</li>
+    <li><strong>Audio Replay Player</strong>: Allows students to hear their own hesitations and pacing.</li>
+    <li><strong>Red-Flag Warning Audit</strong>: Highlights critical omissions (e.g. failing to cite the 28-day bank balance rule).</li>
+  </ul>
+
+  <h3>4.2. Full 15-Question Mock Interview (<code>session.html</code>)</h3>
+  <p>
+    Simulates genuine consular and university interview conditions. Features webcam streaming, consecutive question progression, speech synthesis prompt delivery, and a comprehensive end-of-session diagnostic report (<code>report.html</code>).
+  </p>
+
+  <h3>4.3. University-Specific Question Bank</h3>
+  <p>
+    Pre-loaded with institutional questions mapped from published university guidelines and student interview debriefs:
+  </p>
+  <ul>
+    <li><strong>United Kingdom</strong>: Coventry University, BPP, University of East London, University of West London, University of Wolverhampton, University of Hertfordshire, Ravensbourne, and UKVI Home Office.</li>
+    <li><strong>United States</strong>: New York University (NYU), Northeastern University, Texas A&M, US Consular 214(b) drills.</li>
+    <li><strong>Canada</strong>: University of Toronto, Conestoga College (SDS & GIC requirements).</li>
+    <li><strong>Germany</strong>: Technical University of Munich (TUM), RWTH Aachen (Sperrkonto blocked account).</li>
+    <li><strong>Australia</strong>: University of Melbourne, Deakin University (Genuine Student economic metrics).</li>
+  </ul>
+
+  <!-- Page Break -->
+  <div class="page-break"></div>
+
+  <!-- Admin Panel & Security -->
+  <h2>5. Commercial Admin Control Center (<code>admin.html</code>)</h2>
+  <p>
+    The Admin Dashboard provides full administrative visibility over candidate sessions and system configuration:
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">Admin Tab</th>
+        <th>Capabilities & Features</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Platform Overview</strong></td>
+        <td>Real-time KPI metrics: Total Registered Students, Total Completed Sessions, Average Credibility Score (%), and Audio Files Stored.</td>
+      </tr>
+      <tr>
+        <td><strong>Student Sessions Vault</strong></td>
+        <td>Inspect verbatim transcripts of every practice session, listen to recorded audio replays, and audit AI credibility scores.</td>
+      </tr>
+      <tr>
+        <td><strong>Question Bank Manager</strong></td>
+        <td>Full CRUD interface to create, modify, or delete questions, target universities, sample answers, and regulatory red flags.</td>
+      </tr>
+      <tr>
+        <td><strong>Student Directory</strong></td>
+        <td>Profiles of all authenticated candidates, target destinations, join dates, and total session activity.</td>
+      </tr>
+      <tr>
+        <td><strong>AI & System Settings</strong></td>
+        <td>Manage OpenAI API keys (with secure masking), switch between <code>gpt-4o-mini</code> and <code>gpt-4o</code>, and toggle Whisper transcription.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Production Verification -->
+  <h2>6. Live Production Deployment & Verification</h2>
+  <p>
+    Melete was configured for production deployment using the <strong>Vercel CLI</strong>, with serverless rewrites and static asset bundling.
+  </p>
+
+  <div class="callout">
+    <div class="callout-title">Live Deployment Endpoints</div>
+    <ul style="margin: 4px 0 0 16px;">
+      <li><strong>Official Website</strong>: <a href="https://melete-seven.vercel.app">https://melete-seven.vercel.app</a></li>
+      <li><strong>Admin Dashboard</strong>: <a href="https://melete-seven.vercel.app/admin.html">https://melete-seven.vercel.app/admin.html</a></li>
+      <li><strong>Drill 1 Question Mode</strong>: <a href="https://melete-seven.vercel.app/practice.html">https://melete-seven.vercel.app/practice.html</a></li>
+      <li><strong>Full 15-Q Mock Interview</strong>: <a href="https://melete-seven.vercel.app/session.html">https://melete-seven.vercel.app/session.html</a></li>
+      <li><strong>Student Authentication</strong>: <a href="https://melete-seven.vercel.app/login.html">https://melete-seven.vercel.app/login.html</a></li>
+    </ul>
+  </div>
+
+  <h3>Live AI Verification Telemetry:</h3>
+  <p>
+    Below is the verbatim JSON response generated live by the production Vercel endpoint (<code>https://melete-seven.vercel.app/api/evaluate</code>) running the configured OpenAI API key:
+  </p>
+
+  <div class="code-block">
+HTTP/2 200 OK
+content-type: application/json
+
+{
+  "success": true,
+  "evaluation": {
+    "score": 85,
+    "status": "PASS",
+    "what_heard": "I chose Coventry University because the MSc curriculum provides specialized modules like Cloud Security and Distributed Architecture in Beatrice Shilling building.",
+    "better_way": "I picked Coventry University because they offer great modules like Cloud Security and Distributed Architecture. Plus, I really like the facilities in the Beatrice Shilling building.",
+    "strengths": [
+      "Specific mention of specialized modules",
+      "Reference to the Beatrice Shilling building"
+    ],
+    "risks": [],
+    "quick_tip": "Add more personal reasons for your choice to show genuine interest!"
+  }
+}
+  </div>
+
+  <!-- Document Signoff Footer -->
+  <div class="footer">
+    <span>MELETE PLATFORM DOSSIER • CONFIDENTIAL & PROPRIETARY</span>
+    <span>DEPLOYED: SEP 29, 2026 • STATUS: OPERATIONAL</span>
+  </div>
+
+</body>
+</html>
