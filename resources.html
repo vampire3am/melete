@@ -107,32 +107,48 @@
 </head>
 <body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary selection:text-on-primary">
   
-  <!-- Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/40">
-    <div class="h-16 max-w-7xl mx-auto px-margin flex items-center justify-between">
-      <div class="flex items-center gap-space-lg">
-        <a class="flex items-center gap-space-sm" href="index.html">
+  <!-- Global Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <div class="h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo & Main Nav -->
+      <div class="flex items-center gap-6 xl:gap-8 min-w-0">
+        <a class="flex items-center gap-2 shrink-0" href="index.html">
           <img alt="Melete Brand Logo" class="h-8 w-auto object-contain" src="assets/logo.svg"/>
         </a>
-        <nav class="hidden lg:flex items-center gap-space-lg ml-space-md">
-          <a class="h-16 flex items-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="index.html">Homepage</a>
-          <a class="h-16 flex items-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="interviews.html">Interviews</a>
-          <a class="h-16 flex items-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="how-it-works.html">How It Works</a>
-          <a class="h-16 flex items-center transition-colors text-primary font-medium border-b-2 border-primary" href="resources.html">Resources</a>
-          <a class="h-16 flex items-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="about.html">About</a>
-          <a class="h-16 flex items-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="faq.html">FAQ</a>
+        <nav class="hidden lg:flex items-center gap-5 xl:gap-7 shrink-0">
+          <a class="h-16 flex items-center font-sans text-sm text-slate-600 hover:text-primary transition-colors whitespace-nowrap" href="index.html">Homepage</a>
+          <a class="h-16 flex items-center font-sans text-sm text-slate-600 hover:text-primary transition-colors whitespace-nowrap" href="interviews.html">Interviews</a>
+          <a class="h-16 flex items-center font-sans text-sm text-slate-600 hover:text-primary transition-colors whitespace-nowrap" href="how-it-works.html">How It Works</a>
+          <a class="h-16 flex items-center font-sans text-sm font-semibold whitespace-nowrap text-primary border-b-2 border-primary" href="resources.html">Resources</a>
+          <a class="h-16 flex items-center font-sans text-sm text-slate-600 hover:text-primary transition-colors whitespace-nowrap" href="about.html">About</a>
+          <a class="h-16 flex items-center font-sans text-sm text-slate-600 hover:text-primary transition-colors whitespace-nowrap" href="faq.html">FAQ</a>
         </nav>
       </div>
-      <div class="flex items-center gap-space-md">
-        <a class="hidden sm:inline-flex items-center justify-center px-space-md py-space-xs font-label-md text-label-md text-on-surface hover:text-primary transition-colors" href="login.html">Log in</a>
-        <a class="inline-flex items-center justify-center px-space-lg py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-[#0d2a60] transition-colors" href="onboarding.html">Take your first step</a>
-        <a href="login.html" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs text-on-primary">
-          <span class="material-symbols-outlined text-[18px]">person</span>
-        </a>
-        <button id="mobile-menu-btn" class="lg:hidden p-2 text-on-surface">
+
+      <!-- Right Action Area -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a class="hidden xl:inline-flex items-center text-xs font-mono uppercase tracking-wider text-slate-400 hover:text-primary transition-colors px-2 py-1" href="admin.html">Admin</a>
+        
+        <!-- Log in link (shown when logged out) -->
+        <a id="header-auth-login" class="hidden sm:inline-flex items-center justify-center px-3 py-1.5 text-sm font-medium text-slate-700 hover:text-primary transition-colors whitespace-nowrap" href="login.html">Log in</a>
+
+        <!-- Candidate Account Pill (shown when logged in) -->
+        <div id="header-user-badge" class="hidden items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-medium text-slate-800 hover:bg-blue-100 transition-colors cursor-pointer whitespace-nowrap shrink-0" title="Click to view profile / sign out">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+          <span id="user-display-name" class="font-semibold text-primary truncate max-w-[120px]">Candidate</span>
+          <span class="material-symbols-outlined text-[15px] text-slate-400">logout</span>
+        </div>
+
+        <!-- Practice Free Button -->
+        <a class="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#0d2a60] transition-colors whitespace-nowrap shadow-sm shrink-0" href="practice.html">Practice Free</a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-700 hover:text-primary flex items-center justify-center shrink-0" aria-label="Toggle navigation menu">
           <span class="material-symbols-outlined text-[24px]">menu</span>
         </button>
       </div>
+
     </div>
   </header>
 
@@ -156,8 +172,8 @@
         </nav>
       </div>
       <div class="pt-6 border-t border-outline-variant/40 flex flex-col gap-3">
-        <a class="w-full text-center py-2.5 rounded bg-primary text-on-primary font-label-md" href="onboarding.html">Take your first step</a>
-        <a class="w-full text-center py-2 border border-outline-variant rounded text-on-surface font-label-md" href="login.html">Log in</a>
+        <a class="w-full text-center py-2.5 rounded-full bg-primary text-white text-xs font-semibold uppercase tracking-wider shadow-sm hover:bg-[#0d2a60] transition-colors" href="practice.html">Practice Free</a>
+        <a class="drawer-login-link w-full text-center py-2 border border-slate-300 rounded text-slate-700 text-xs font-medium hover:border-primary transition-colors" href="login.html">Log in</a>
       </div>
     </div>
   </div>

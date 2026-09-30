@@ -578,25 +578,49 @@ window.MeleteAuth = (function () {
 
   function syncHeader() {
     const user = getUser();
-    const userBadges = document.querySelectorAll('#user-badge, #user-display-name, #user-display-name-mobile');
-    userBadges.forEach(el => {
+    const firstName = user && user.name ? user.name.split(' ')[0] : 'Candidate';
+
+    // 1. Update text displays (e.g. #user-display-name, #user-display-name-mobile)
+    document.querySelectorAll('#user-display-name, #user-display-name-mobile').forEach(el => {
+      el.textContent = user ? firstName : 'Candidate';
+    });
+
+    // 2. Header user badges
+    const userBadges = document.querySelectorAll('#header-user-badge, #user-badge');
+    userBadges.forEach(badge => {
       if (user) {
-        el.textContent = user.name.split(' ')[0];
+        badge.classList.remove('hidden');
+        badge.classList.add('flex');
+        badge.onclick = (e) => {
+          e.preventDefault();
+          if (confirm(`Candidate Profile:\n• Name: ${user.name}\n• Email: ${user.email}\n• WhatsApp: ${user.phone || 'N/A'}\n\nDo you wish to sign out?`)) {
+            signOut();
+          }
+        };
       } else {
-        el.textContent = 'Sign In';
+        badge.classList.add('hidden');
+        badge.classList.remove('flex');
+        badge.onclick = null;
       }
     });
 
-    const loginLinks = document.querySelectorAll('a[href="login.html"]');
-    loginLinks.forEach(link => {
+    // 3. Header log-in text links (show when logged out, hide when logged in)
+    const headerLoginLinks = document.querySelectorAll('#header-auth-login');
+    headerLoginLinks.forEach(link => {
       if (user) {
-        link.textContent = 'Account (' + user.name.split(' ')[0] + ')';
-        link.title = 'Signed in as ' + user.email;
+        link.classList.add('hidden');
+      } else {
+        link.classList.remove('hidden');
+      }
+    });
+
+    // 4. Drawer & footer login links
+    document.querySelectorAll('.drawer-login-link, .footer-login-link').forEach(link => {
+      if (user) {
+        link.textContent = 'Sign Out (' + firstName + ')';
         link.onclick = (e) => {
           e.preventDefault();
-          if (confirm(`Logged in as: ${user.name}\nEmail: ${user.email}\nPhone: ${user.phone || 'N/A'}\n\nDo you want to sign out?`)) {
-            signOut();
-          }
+          signOut();
         };
       } else {
         link.textContent = 'Log in';
