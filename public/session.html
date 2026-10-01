@@ -4,6 +4,8 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"/>
   <title>Live Simulation Session — Melete</title>
+  <meta name="description" content="Complete a private mock study-abroad interview session.">
+  <link rel="canonical" href="https://melete-seven.vercel.app/session.html">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -17,95 +19,11 @@
     }
     ::-webkit-scrollbar { display: none; }
   </style>
-  <script src="https://cdn.tailwindcss.com"></script>
-    <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "royal-blue": "#1A3C8F",
-            "royal-blue-hover": "#0d2a60",
-            "primary": "#1A3C8F",
-            "primary-hover": "#0d2a60",
-            "on-primary": "#ffffff",
-            "black": "#000000",
-            "dark-gray": "#333333",
-            "medium-gray": "#666666",
-            "light-gray": "#888888",
-            "border-gray": "#eeeeee",
-            "bg-light": "#f9f9f9",
-            "white": "#ffffff",
-            "outline": "#888888",
-            "outline-variant": "#eeeeee",
-            "secondary": "#666666",
-            "surface": "#ffffff",
-            "surface-bright": "#ffffff",
-            "surface-dim": "#f3f3f4",
-            "surface-container-lowest": "#ffffff",
-            "surface-container-low": "#f9f9f9",
-            "surface-container": "#f9f9f9",
-            "surface-container-high": "#eeeeee",
-            "surface-container-highest": "#e8e8e8",
-            "on-surface": "#000000",
-            "on-surface-variant": "#333333",
-            "error": "#ba1a1a"
-          },
-          borderRadius: {
-            "DEFAULT": "4px",
-            "sm": "2px",
-            "md": "4px",
-            "lg": "4px",
-            "xl": "4px",
-            "full": "4px"
-          },
-          spacing: {
-            "gutter-mobile": "1rem",
-            "space-xl": "2.5rem",
-            "margin-mobile": "1.25rem",
-            "margin": "3rem",
-            "space-sm": "0.5rem",
-            "space-lg": "1.5rem",
-            "space-xs": "0.25rem",
-            "gutter": "1.5rem",
-            "space-md": "1rem"
-          },
-          fontFamily: {
-            "sans": ["Inter", "system-ui", "-apple-system", "sans-serif"],
-            "serif": ["Playfair Display", "Georgia", "serif"],
-            "body-lg": ["Inter", "sans-serif"],
-            "headline-xl-mobile": ["Playfair Display", "serif"],
-            "label-sm": ["Inter", "sans-serif"],
-            "headline-lg": ["Playfair Display", "serif"],
-            "headline-md": ["Playfair Display", "serif"],
-            "label-md": ["Inter", "sans-serif"],
-            "display-lg-mobile": ["Playfair Display", "serif"],
-            "body-md": ["Inter", "sans-serif"],
-            "title-md": ["Playfair Display", "serif"],
-            "headline-xl": ["Playfair Display", "serif"],
-            "display-lg": ["Playfair Display", "serif"],
-            "mono": ["monospace"]
-          },
-          fontSize: {
-            "body-lg": ["16px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
-            "headline-xl-mobile": ["26px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700" }],
-            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
-            "headline-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.015em", "fontWeight": "700" }],
-            "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "0em", "fontWeight": "600" }],
-            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
-            "display-lg-mobile": ["26px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700" }],
-            "body-md": ["16px", { "lineHeight": "28px", "letterSpacing": "0.005em", "fontWeight": "400" }],
-            "title-md": ["18px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-            "headline-xl": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.015em", "fontWeight": "700" }],
-            "display-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "700" }]
-          }
-        }
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="css/tailwind.css"/>
   <link rel="stylesheet" href="css/melete-motion.css"/>
 </head>
 <body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary selection:text-on-primary">
+  <h1 class="sr-only">Melete interview practice</h1>
   
   <!-- Minimal Header -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/40">
@@ -267,7 +185,7 @@
     }
 
     // Load session or fallback
-    const currentSession = MeleteStorage.getSession() || MeleteStorage.getDefaultSession();
+    const currentSession = MeleteStorage.getSession() || { framework: 'Custom Destination Interview', country: 'Destination', university: 'University', course: 'Course', mode: 'voice' };
 
     // Populate header info
     const badgeEl = document.getElementById('session-framework-badge');
@@ -298,83 +216,68 @@
         {
           q: `Why did you choose the ${currentSession.course || 'course'} at ${currentSession.university || 'this university'} rather than other universities?`,
           tag: 'CHOOSING YOUR COURSE & UNIVERSITY',
-          sampleAnswer: `I chose ${currentSession.university || 'Imperial College London'} because the syllabus for ${currentSession.course || 'Advanced Computing'} covers modern practical modules like distributed systems and laboratory research that match my career goals.`
         },
         {
           q: "Can you name two main modules you will study in this course, and explain what you will learn in them?",
           tag: 'COURSE MODULES & SYLLABUS',
-          sampleAnswer: "I will study Advanced Algorithm Design, which covers high-scale computational efficiency, and Distributed Systems, which includes hands-on cluster architecture projects."
         },
         {
           q: `How are you paying for your tuition fees and living costs during your studies?`,
           tag: 'TUITION & LIVING COSTS',
-          sampleAnswer: "My family savings cover my remaining tuition balance and the required living maintenance costs, supported by verified 28-day bank statements."
         },
         {
           q: "What exact job do you plan to do in your home country after you complete your degree?",
           tag: 'CAREER PLANS AFTER GRADUATION',
-          sampleAnswer: "I will return to my home country to work as a Senior Systems Engineer at a technology firm, where starting salaries range between competitive industry standards."
         }
       ],
       'UKVI Credibility Interview': [
         {
           q: "Why have you chosen to study in the United Kingdom instead of completing your degree in your home country?",
           tag: 'WHY STUDY IN THE UK',
-          sampleAnswer: "The UK offers focused one-year master's degrees with intensive practical research, allowing me to enter the professional job market faster than a domestic degree."
         },
         {
           q: "Who is sponsoring your education, what is their job or business, and how do they earn their income?",
           tag: 'FINANCIAL SPONSOR',
-          sampleAnswer: "My father is sponsoring my education. He runs a registered business with documented annual revenue proven by official tax returns and certified bank statements."
         },
         {
           q: "Do you know the work limits on a UK Student Visa during your studies?",
           tag: 'VISA WORK RULES',
-          sampleAnswer: "Yes. I am allowed to work a maximum of 20 hours per week during term time, and full-time during official university breaks. I cannot be self-employed or run a business."
         },
         {
           q: "How does this course build upon what you studied in your previous undergraduate degree?",
           tag: 'ACADEMIC BACKGROUND',
-          sampleAnswer: "My bachelor's degree gave me core computer science skills. This postgraduate degree provides advanced specialization in cloud computing and scalable system design."
         }
       ],
       'US Student Visa Interview': [
         {
           q: "Why are you going to the United States to study this specific major?",
           tag: 'WHY STUDY IN THE USA',
-          sampleAnswer: "US universities offer industry-leading research labs and hands-on elective modules that are not available in my home country, preparing me directly for leadership roles."
         },
         {
           q: "Who will pay for your education and living expenses as shown on your Form I-20?",
           tag: 'FINANCIAL PROOF',
-          sampleAnswer: "My family is paying for my studies through verified liquid savings and an approved educational bank loan sanction letter covering all first-year expenses."
         },
         {
           q: "Do you plan to return home after completing your studies?",
           tag: 'TIES TO YOUR HOME COUNTRY',
-          sampleAnswer: "Yes, definitely. My entire family lives in my home country, and my goal is to return home to work in our fast-growing regional technology sector."
         }
       ],
       'Custom Destination Interview': [
         {
           q: `Why did you choose to study in ${currentSession.country || 'this country'}, and what made you choose ${currentSession.university || 'this university'} for your ${currentSession.course || 'course'}?`,
           tag: 'COUNTRY & UNIVERSITY CHOICE',
-          sampleAnswer: `I chose ${currentSession.country || 'to study abroad'} because of its high educational standards, practical industry connections, and globally respected degrees. ${currentSession.university || 'The university'} offers hands-on curriculum in ${currentSession.course || 'my subject'} that directly matches my career targets.`
         },
         {
           q: `How does studying ${currentSession.course || 'this programme'} connect to your previous academic studies or job experience?`,
           tag: 'PREVIOUS STUDIES & CONTINUITY',
-          sampleAnswer: `My previous degree gave me a strong foundation. This ${currentSession.degree || 'degree'} in ${currentSession.course || 'this course'} provides the specialized technical knowledge and laboratory experience I need to move into advanced roles.`
         },
         {
           q: `How will you pay for your tuition fees and monthly living costs while studying in ${currentSession.country || 'your destination country'}?`,
           tag: 'TUITION & LIVING COSTS',
-          sampleAnswer: `My studies and living costs are fully funded through ${currentSession.funding || 'family savings and approved bank accounts'}, fulfilling all required visa and living maintenance rules.`
         },
         {
           q: `What career position or job do you plan to take in your home country after graduating from ${currentSession.university || 'university'}?`,
           tag: 'FUTURE CAREER & RETURNING HOME',
-          sampleAnswer: `After graduating, I plan to return home to work as a ${currentSession.career || 'specialist in my industry'}, where there is strong employer demand for candidates with international qualifications and practical project skills.`
         }
       ]
     };
@@ -475,37 +378,6 @@
       window.speechSynthesis.speak(utterance);
     }
 
-    // Initialize First Question
-    function loadQuestion(index) {
-      const qObj = questions[index];
-      const qTextEl = document.getElementById('current-question-text');
-      qTextEl.style.opacity = '0';
-      qTextEl.style.transform = 'translateY(8px)';
-      qTextEl.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-
-      setTimeout(() => {
-        qTextEl.textContent = `"${qObj.q}"`;
-        qTextEl.style.opacity = '1';
-        qTextEl.style.transform = 'translateY(0)';
-      }, 150);
-
-      triggerScramble(document.getElementById('question-tag'), qObj.tag);
-      triggerScramble(document.getElementById('question-progress-indicator'), `QUESTION ${index + 1} OF ${questions.length}`);
-      
-      const speechBox = document.getElementById('live-speech-box');
-      speechBox.value = '';
-      speechBox.placeholder = `Speak your answer out loud. For example: "${qObj.sampleAnswer.substring(0, 70)}..."`;
-      
-      // Simulate real-time speech transcription after brief pause
-      setTimeout(() => {
-        if (!isMicMuted && speechBox.value === '') {
-          typewriterSimulation(qObj.sampleAnswer);
-        }
-      }, 2000);
-
-      speakQuestion(qObj.q);
-    }
-
     // Real Speech & Audio Ingest Engine
     let liveRecognition = null;
     let spokenTranscript = '';
@@ -541,6 +413,14 @@
       }
     }
     initMicrophoneAndSpeech();
+
+    function finishRecordedAudio() {
+      return new Promise(resolve => {
+        if (!mediaRecorder || mediaRecorder.state !== 'recording') return resolve(null);
+        mediaRecorder.addEventListener('stop', () => resolve(new Blob(recordedAudioChunks, { type: mediaRecorder.mimeType || 'audio/webm' })), { once: true });
+        mediaRecorder.stop();
+      });
+    }
 
     // Speech Synthesis
     function speakQuestion(text) {
@@ -639,7 +519,31 @@
       }
 
       const qObj = questions[currentQIndex];
-      const answer = document.getElementById('live-speech-box').value.trim() || qObj.sampleAnswer;
+      let answer = document.getElementById('live-speech-box').value.trim();
+      const recording = await finishRecordedAudio();
+      if (recording && recording.size) {
+        try {
+          const form = new FormData();
+          form.append('audio', recording, 'interview-answer.webm');
+          const transcription = await fetch('/api/transcribe', { method: 'POST', body: form });
+          const result = await transcription.json();
+          if (!transcription.ok || !result.transcript) throw new Error(result.error || 'Audio could not be transcribed');
+          answer = result.transcript.trim();
+          document.getElementById('live-speech-box').value = answer;
+        } catch (error) {
+          alert(error.message || 'Audio could not be transcribed. Please try again.');
+          nextBtn.disabled = false;
+          btnText.textContent = originalText;
+          loadQuestion(currentQIndex);
+          return;
+        }
+      }
+      if (answer.split(/\s+/).filter(Boolean).length < 3) {
+        alert('Please give a complete spoken answer before continuing.');
+        nextBtn.disabled = false;
+        btnText.textContent = originalText;
+        return;
+      }
 
       // Real AI Evaluation Call
       let aiResult = null;
@@ -653,20 +557,24 @@
             university: currentSession.university,
             country: currentSession.country,
             category: qObj.tag,
-            sampleAnswer: qObj.sampleAnswer,
             redFlags: '',
             recommendedPoints: ''
           })
         });
         const evalData = await evalRes.json();
-        if (evalData.success) aiResult = evalData.evaluation;
+        if (!evalRes.ok || !evalData.success || !evalData.evaluationToken) throw new Error(evalData.error || 'Evaluation failed');
+        aiResult = evalData.evaluation;
+        aiResult.evaluationToken = evalData.evaluationToken;
       } catch (err) {
-        console.warn('Evaluation fallback:', err);
+        alert(err.message || 'Evaluation failed. Please try again.');
+        nextBtn.disabled = false;
+        btnText.textContent = originalText;
+        return;
       }
 
-      const score = aiResult ? aiResult.score : Math.floor(Math.random() * 8 + 84);
-      const whatHeard = aiResult ? aiResult.what_heard : answer;
-      const betterWay = aiResult ? aiResult.better_way : qObj.sampleAnswer;
+      const score = aiResult.score;
+      const whatHeard = aiResult.what_heard;
+      const betterWay = aiResult.better_way;
 
       recordedAnswers.push({
         q: qObj.q,
@@ -677,7 +585,8 @@
         transcript: whatHeard,
         strengths: aiResult ? aiResult.strengths : ['Spoke clearly without major pauses.'],
         risks: aiResult ? aiResult.risks : ['Ensure exact dates and figures are referenced.'],
-        quick_tip: aiResult ? aiResult.quick_tip : 'Keep answers concrete and fact-focused.'
+        quick_tip: aiResult.quick_tip,
+        evaluationToken: aiResult.evaluationToken
       });
 
       currentQIndex++;
@@ -698,34 +607,29 @@
         currentSession.duration = document.getElementById('session-timer').textContent;
         currentSession.answers = recordedAnswers;
         
-        // Calculate true aggregate score
-        const totalScore = recordedAnswers.reduce((acc, a) => acc + (a.score || 85), 0);
-        currentSession.score = Math.round(totalScore / recordedAnswers.length);
-        
-        // Save to server
-        const user = MeleteAuth.getUser() || { name: 'Candidate', email: 'candidate@gmail.com', phone: '' };
         try {
-          await fetch('/api/sessions', {
+          const saveRes = await fetch('/api/sessions', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              user_id: user.id || 'usr_guest',
-              user_name: user.name,
-              user_email: user.email,
-              user_phone: user.phone || '',
               university: currentSession.university,
               country: currentSession.country,
               framework: currentSession.framework,
               practice_type: 'mock',
               duration: currentSession.duration,
-              score: currentSession.score,
-              answers: currentSession.answers
+              answers: recordedAnswers.map(a => ({ evaluationToken: a.evaluationToken }))
             })
           });
-        } catch(e) {}
-
-        MeleteStorage.saveSession(currentSession);
-        window.location.href = 'report.html';
+          const saved = await saveRes.json();
+          if (!saveRes.ok || !saved.session) throw new Error(saved.error || 'Could not save session');
+          sessionStorage.removeItem('melete_last_session');
+          if (micStream) micStream.getTracks().forEach(track => track.stop());
+          window.location.href = `report.html?id=${encodeURIComponent(saved.session.id)}`;
+        } catch(e) {
+          alert(e.message || 'Could not save your report. Please try again.');
+          nextBtn.disabled = false;
+          btnText.textContent = originalText;
+        }
       }
     });
 
@@ -734,12 +638,11 @@
         clearInterval(timerInterval);
         window.speechSynthesis.cancel();
         
-        currentSession.duration = document.getElementById('session-timer').textContent;
-        currentSession.answers = recordedAnswers.length > 0 ? recordedAnswers : MeleteStorage.getDefaultSession().answers;
-        currentSession.score = 85;
-        MeleteStorage.saveSession(currentSession);
-        
-        window.location.href = 'report.html';
+        if (!recordedAnswers.length) {
+          alert('Answer at least one question before generating a report.');
+          return;
+        }
+        alert('Use the Continue button to save the evaluated answers in your report.');
       }
     }
 
@@ -754,6 +657,7 @@
     } else {
       loadQuestion(0);
     }
+    window.addEventListener('pagehide', () => { if (micStream) micStream.getTracks().forEach(track => track.stop()); });
   </script>
 </body>
 </html>
