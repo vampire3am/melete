@@ -4,35 +4,16 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"/>
   <title>Practice 1 Question at a Time (Drill Mode) — Melete</title>
+  <meta name="description" content="Practice one study-abroad interview question and receive AI-assisted feedback.">
+  <link rel="canonical" href="https://melete-seven.vercel.app/practice.html">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            "royal-blue": "#1A3C8F",
-            "royal-blue-hover": "#0d2a60",
-            "primary": "#1A3C8F",
-            "primary-hover": "#0d2a60",
-            "surface": "#ffffff",
-            "surface-dim": "#f8f9fc",
-            "outline-variant": "#e2e8f0"
-          },
-          fontFamily: {
-            "sans": ["Inter", "sans-serif"],
-            "serif": ["Playfair Display", "serif"],
-            "mono": ["monospace"]
-          }
-        }
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="css/tailwind.css"/>
   <link rel="stylesheet" href="css/melete-motion.css"/>
 </head>
 <body class="bg-[#fcfcfd] text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+  <h1 class="sr-only">Melete interview practice</h1>
 
   <!-- Responsive Header -->
   <header class="h-16 bg-white border-b border-slate-200 px-4 sm:px-6 flex items-center justify-between sticky top-0 z-40">
@@ -52,9 +33,6 @@
       <a href="session.html" class="text-xs font-medium text-slate-600 hover:text-primary transition-colors flex items-center gap-1">
         <span class="material-symbols-outlined text-[16px]">videocam</span>
         <span>Switch to Full 15-Q Mock</span>
-      </a>
-      <a href="admin.html" class="text-xs font-medium px-3 py-1.5 rounded border border-slate-200 hover:border-primary text-slate-600 hover:text-primary transition-colors">
-        Admin Panel
       </a>
       <div id="user-badge" class="flex items-center gap-2 text-xs font-medium text-slate-700 bg-slate-100 px-2.5 py-1 rounded-full">
         <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
@@ -92,10 +70,6 @@
             <span class="material-symbols-outlined text-[16px] text-slate-400">videocam</span>
           </a>
           <a href="interviews.html" class="px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50">All Country Tracks</a>
-          <a href="admin.html" class="px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 flex items-center justify-between">
-            <span>Admin Control Panel</span>
-            <span class="material-symbols-outlined text-[16px] text-slate-400">tune</span>
-          </a>
         </nav>
       </div>
       <div class="pt-4 border-t border-slate-100 space-y-2">
@@ -117,7 +91,7 @@
           <select id="country-select" onchange="onCountryChange()" class="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs font-medium bg-slate-50 text-slate-800 focus:outline-primary min-h-[44px]">
             <option value="United Kingdom">United Kingdom (Pre-CAS / UKVI)</option>
             <option value="United States">United States (F-1 Visa)</option>
-            <option value="Canada">Canada (SDS / GIC)</option>
+            <option value="Canada">Canada (Study Permit)</option>
             <option value="Germany">Germany (APS / Sperrkonto)</option>
             <option value="Australia">Australia (Genuine Student)</option>
           </select>
@@ -259,7 +233,7 @@
 
       </div>
 
-      <!-- Strengths & Regulatory Red Flags -->
+      <!-- Strengths & Areas to Review -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
         <div class="space-y-2">
           <h4 class="text-xs font-mono uppercase tracking-wider text-slate-500 font-semibold flex items-center gap-1">
@@ -335,10 +309,9 @@
     // Initialize Page
     document.addEventListener('DOMContentLoaded', async () => {
       // Check user session
-      const storedUser = localStorage.getItem('melete_user');
-      if (storedUser) {
+      const u = await MeleteAuth.ready;
+      if (u) {
         try {
-          const u = JSON.parse(storedUser);
           const firstName = u.name.split(' ')[0];
           document.getElementById('user-display-name').textContent = firstName;
           const mobEl = document.getElementById('user-display-name-mobile');
@@ -356,9 +329,16 @@
       const res = await fetch('/api/universities?country=' + encodeURIComponent(country));
       const data = await res.json();
       const select = document.getElementById('uni-select');
-      select.innerHTML = '<option value="">All Universities / General Track</option>';
+      select.replaceChildren();
+      const general = document.createElement('option');
+      general.value = '';
+      general.textContent = 'All Universities / General Track';
+      select.appendChild(general);
       (data.universities || []).forEach(u => {
-        select.innerHTML += `<option value="${u.id}">${u.name}</option>`;
+        const option = document.createElement('option');
+        option.value = u.id;
+        option.textContent = u.name;
+        select.appendChild(option);
       });
     }
 
@@ -608,7 +588,6 @@
 
     async function processAndEvaluateAudio(audioBlob) {
       let finalTranscript = liveSpokenTranscript;
-      let recordedAudioUrl = '';
 
       // 1. Send Audio to Server Whisper STT
       try {
@@ -621,9 +600,6 @@
         const transData = await transRes.json();
         if (transData.success && transData.transcript) {
           finalTranscript = transData.transcript;
-        }
-        if (transData.audioUrl) {
-          recordedAudioUrl = transData.audioUrl;
         }
       } catch (err) {
         console.warn('Server whisper failed, using client transcript:', err);
@@ -647,7 +623,6 @@
             university: document.getElementById('uni-select').options[document.getElementById('uni-select').selectedIndex].text,
             country: document.getElementById('country-select').value,
             category: currentQ.category || 'General Credibility',
-            sampleAnswer: currentQ.sample_answer,
             redFlags: currentQ.red_flags,
             recommendedPoints: currentQ.recommended_points
           })
@@ -656,16 +631,15 @@
         const evalData = await evalRes.json();
         document.getElementById('evaluating-indicator').classList.add('hidden');
 
-        if (evalData.success && evalData.evaluation) {
-          renderFeedback(evalData.evaluation, finalTranscript, recordedAudioUrl);
-        }
+        if (!evalRes.ok || !evalData.success || !evalData.evaluationToken) throw new Error(evalData.error || 'Evaluation failed');
+        renderFeedback(evalData.evaluation, finalTranscript, evalData.evaluationToken);
       } catch (err) {
         document.getElementById('evaluating-indicator').classList.add('hidden');
         console.error('Evaluation failed:', err);
       }
     }
 
-    function renderFeedback(evalObj, verbatimTranscript, audioUrl) {
+    function renderFeedback(evalObj, verbatimTranscript, evaluationToken) {
       const card = document.getElementById('feedback-card');
       card.classList.remove('hidden');
 
@@ -687,45 +661,31 @@
 
       // Strengths
       const strengthsUl = document.getElementById('fb-strengths');
-      strengthsUl.innerHTML = '';
+      strengthsUl.replaceChildren();
       (evalObj.strengths || []).forEach(s => {
-        strengthsUl.innerHTML += `<li>${s}</li>`;
+        const li = document.createElement('li'); li.textContent = s; strengthsUl.appendChild(li);
       });
 
       // Risks
       const risksUl = document.getElementById('fb-risks');
-      risksUl.innerHTML = '';
+      risksUl.replaceChildren();
       (evalObj.risks || []).forEach(r => {
-        risksUl.innerHTML += `<li>${r}</li>`;
+        const li = document.createElement('li'); li.textContent = r; risksUl.appendChild(li);
       });
 
       document.getElementById('fb-quick-tip').textContent = evalObj.quick_tip || 'Keep practicing with concrete numbers and names.';
 
       // Save session to backend
-      const user = JSON.parse(localStorage.getItem('melete_user') || '{"name":"Candidate","email":"student@melete.ai"}');
       fetch('/api/sessions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          user_id: user.id || 'usr_guest',
-          user_name: user.name,
-          user_email: user.email,
           university: document.getElementById('uni-select').options[document.getElementById('uni-select').selectedIndex].text,
           country: document.getElementById('country-select').value,
           framework: 'Drill Practice',
           practice_type: 'drill',
           duration: document.getElementById('drill-timer').textContent,
-          score: evalObj.score,
-          answers: [
-            {
-              q: currentQ.question_text,
-              tag: currentQ.tag || 'DRILL',
-              what_heard: evalObj.what_heard || verbatimTranscript,
-              better_way: evalObj.better_way,
-              score: evalObj.score,
-              audioUrl: audioUrl
-            }
-          ]
+          answers: [{ evaluationToken }]
         })
       });
 

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /onboarding.html
+Disallow: /practice.html
+Disallow: /session.html
+Disallow: /report.html
+Sitemap: https://melete-seven.vercel.app/sitemap.xml

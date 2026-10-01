@@ -473,64 +473,16 @@ function initCanvasVisualizer() {
 // 6. Storage Helpers for Interview Practice Sessions
 const MeleteStorage = {
   saveSession(sessionData) {
-    localStorage.setItem('melete_last_session', JSON.stringify(sessionData));
+    sessionStorage.setItem('melete_last_session', JSON.stringify(sessionData));
   },
   getSession() {
-    const data = localStorage.getItem('melete_last_session');
+    const data = sessionStorage.getItem('melete_last_session');
     if (data) {
       try { return JSON.parse(data); } catch (e) { return null; }
     }
     return null;
   },
   getDefaultSession() {
-    return {
-      id: 'UKVI-CAS-' + Math.floor(10000 + Math.random() * 90000),
-      date: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
-      framework: 'Pre-CAS Interview',
-      country: 'United Kingdom',
-      university: 'Imperial College London',
-      course: 'MSc Advanced Computing',
-      mode: 'voice',
-      duration: '18:42',
-      score: 88,
-      consistency: 'High',
-      funding: 'Clear',
-      pillars: {
-        clarity: 86,
-        courseAlignment: 92,
-        academicLogic: 88,
-        depthSpecificity: 84
-      },
-      takeaways: [
-        {
-          title: "Name your course modules",
-          text: "Mention exact module names and subjects rather than talking generally about 'computer science' to show you know your syllabus."
-        },
-        {
-          title: "Know your exact living costs",
-          text: "State the exact monthly living cost requirement instead of saying 'my family will pay whatever it costs.'"
-        }
-      ],
-      answers: [
-        {
-          q: "Why did you choose this university over other options?",
-          type: "University Choice",
-          audioLength: "48s",
-          transcript: "I chose Imperial because of its advanced labs and practical courses in distributed systems, which teach the exact skills I need for my career...",
-          alignment: "Strong. You gave clear, specific reasons instead of generic marketing phrases.",
-          delivery: "Good pace. Slight hesitation in the middle; try to reduce the filler word 'um'.",
-          action: "Mention specific courses or projects you look forward to joining."
-        },
-        {
-          q: "How will this course help your career when you return to your home country?",
-          type: "Career Goals",
-          audioLength: "52s",
-          transcript: "When I return home, I plan to work as a lead systems architect at a technology company, where there is strong demand for engineers with practical distributed systems knowledge...",
-          alignment: "Clear and realistic career goal tied to your home country's job market.",
-          delivery: "Confident and natural voice without sounding memorized.",
-          action: "Keep this clear and direct way of answering."
-        }
-      ]
-    };
+    return null;
   }
 };

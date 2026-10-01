@@ -1,11 +1,5 @@
 {
-  "settings": {
-    "openai_api_key": "",
-    "openai_model": "gpt-4o-mini",
-    "whisper_enabled": true,
-    "free_tier_questions": 15,
-    "google_client_id": "13655159589-kv11garo1ln9plpfgubl81stei95ojoq.apps.googleusercontent.com"
-  },
+  "settings": {},
   "universities": [
     {
       "id": "coventry",
@@ -157,9 +151,9 @@
       "category": "Finance & Maintenance",
       "tag": "TUITION & LIVING COSTS",
       "question_text": "How much are your total tuition fees, how much have you already paid, and how will you pay the remaining balance and living expenses?",
-      "sample_answer": "My total tuition fee is £16,500. I have paid a deposit of £5,000, leaving a remaining balance of £11,500. For living costs outside London, the UKVI requirement is £9,207. My parents are funding my studies through family savings held in an approved commercial bank for over 28 consecutive days.",
+      "sample_answer": "I know the tuition fee shown on my CAS, the deposit already paid, and the exact remaining balance. My documented funds cover that balance and the current living-cost requirement that applies to my study location, and I can explain the evidence and holding period.",
       "red_flags": "Not knowing the exact tuition fee or deposit paid, relying on unofficial funds, saying you will work in the UK to pay fees.",
-      "recommended_points": "Exact figures for tuition fee, deposit paid, remaining fee, UKVI maintenance requirement (£1,023/month outside London or £1,334/month in London), 28-day rule compliance."
+      "recommended_points": "Exact figures for tuition fee, deposit paid, remaining fee, the current UKVI maintenance requirement checked on GOV.UK, and 28-day rule compliance."
     },
     {
       "id": "q_uk_4",
@@ -168,9 +162,9 @@
       "category": "Visa Rules & Immigration Compliance",
       "tag": "VISA WORK RESTRICTIONS",
       "question_text": "Are you allowed to work in the UK while studying on a Student Visa, and what are the specific restrictions?",
-      "sample_answer": "Yes, on a UK Student Visa for degree-level studies, I am allowed to work a maximum of 20 hours per week during term time, and full-time during official vacations. I cannot be self-employed, run a business, or work as a professional sportsperson or entertainer.",
-      "red_flags": "Saying you can work full-time to cover tuition fees, not knowing the 20 hours per week limit, mentioning freelancing or self-employment.",
-      "recommended_points": "20 hours/week limit in term time, full-time in holidays, strictly prohibited from business/self-employment."
+      "sample_answer": "I will follow the work conditions stated on my immigration permission. I have checked the current Student route rules for my course and understand that employment cannot be the plan for paying my tuition or required living funds.",
+      "red_flags": "Assuming every student has identical work conditions, planning to fund tuition through work, or describing work that the immigration conditions prohibit.",
+      "recommended_points": "State the conditions shown on your own permission, distinguish term time from official vacations where applicable, and verify current GOV.UK rules."
     },
     {
       "id": "q_uk_5",
@@ -212,9 +206,9 @@
       "category": "Study Permit & GIC",
       "tag": "CANADA GIC & TIES",
       "question_text": "How will you support yourself financially in Canada, and what evidence have you provided of your funds?",
-      "sample_answer": "I have paid my full first-year tuition fee of CAD 18,200 directly to the institution. For living expenses, I have purchased a Guaranteed Investment Certificate (GIC) of CAD 20,635 with Scotiabank under the SDS stream, ensuring guaranteed monthly payouts.",
-      "red_flags": "Unaware of the GIC requirement amount, lack of proof for tuition payment, relying on informal promises of support.",
-      "recommended_points": "Proof of paid tuition receipt, CAD GIC certificate confirmation, family assets in home country."
+      "sample_answer": "I have paid my documented first-year tuition amount directly to the institution. My living expenses are covered by documented funds that meet the current study-permit requirements published by IRCC.",
+      "red_flags": "Lack of proof for tuition payment or living funds, unexplained deposits, or relying on informal promises of support.",
+      "recommended_points": "Use current IRCC financial requirements, documented tuition receipts, and traceable evidence for the source and availability of funds."
     },
     {
       "id": "q_de_1",
@@ -223,9 +217,9 @@
       "category": "APS & Blocked Account",
       "tag": "SPERRKONTO & CURRICULUM",
       "question_text": "Why did you choose Germany over other tuition-free or low-cost European countries, and how is your blocked account organized?",
-      "sample_answer": "Germany’s dual-system higher education combines theoretical depth with mandatory industrial internships. I have deposited the required €11,208 into a verified Sperrkonto (blocked account) with Expatrio, which dispenses €934 monthly for living maintenance.",
+      "sample_answer": "I chose Germany for the programme's academic and industry fit. I have deposited the current amount required for my application into a verified blocked account and can show the confirmation documents.",
       "red_flags": "Not knowing the monthly disbursement amount of Sperrkonto, applying to German-taught programs without German B1/B2 skills.",
-      "recommended_points": "Knowledge of Sperrkonto amount (€11,208/year), exact modular credit points (ECTS), reason for choosing public research university."
+      "recommended_points": "Know the blocked-account amount current on the date of application, exact modular credit points (ECTS), and the specific reason for choosing the university."
     },
     {
       "id": "q_au_1",
@@ -239,20 +233,6 @@
       "recommended_points": "Accreditation details, comparative local vs international salary data, realistic employment timeline in home country."
     }
   ],
-  "users": [
-    {
-      "id": "usr_1790681875356",
-      "name": "Samshad",
-      "email": "iamsamshad7@gmail.com",
-      "phone": "+977 9804495970",
-      "country": "Nepal",
-      "target_destination": "United Kingdom",
-      "target_university": "Coventry University",
-      "picture": "https://lh3.googleusercontent.com/a/default-user",
-      "practice_count": 0,
-      "created_at": "2026-09-29T11:37:55.356Z",
-      "last_login": "2026-09-29T11:37:55.356Z"
-    }
-  ],
+  "users": [],
   "sessions": []
 }
