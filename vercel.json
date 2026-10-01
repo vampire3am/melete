@@ -2,7 +2,7 @@
   "version": 2,
   "functions": {
     "api/index.js": {
-      "includeFiles": "{public/**,data/melete_db.json,services/**,auth.js,storage.js,server.js}"
+      "includeFiles": "{public/**,views/**,data/melete_db.json,services/**,auth.js,storage.js,server.js}"
     }
   },
   "rewrites": [
