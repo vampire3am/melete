@@ -1,5 +1,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
 
 process.env.SESSION_SECRET = 'test-only-secret-abcdefghijklmnopqrstuvwxyz';
 process.env.GOOGLE_CLIENT_ID = 'test.apps.googleusercontent.com';
@@ -38,6 +40,13 @@ test('the model status cannot override the score status', async t => {
   const result = await ai.evaluateAnswer({ question: 'Why?', transcript: 'This is my complete answer.' });
   assert.equal(result.score, 0);
   assert.equal(result.status, 'HIGH_RISK');
+});
+
+test('HTML templates cannot bypass Express through Vercel static hosting', () => {
+  const publicDirectory = path.join(__dirname, '..', 'public');
+  const publicHtmlFiles = fs.readdirSync(publicDirectory).filter(file => file.endsWith('.html'));
+  assert.deepEqual(publicHtmlFiles, []);
+  assert.equal(fs.existsSync(path.join(__dirname, '..', 'views', 'admin.html')), true);
 });
 
 test('HTTP routes keep source, admin data, and forged sessions private', async t => {

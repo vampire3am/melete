@@ -15,6 +15,7 @@ const auth = require('./auth');
 const app = express();
 const PORT = Number(process.env.PORT || 8080);
 const publicRoot = path.join(__dirname, 'public');
+const templatesRoot = path.join(__dirname, 'views');
 const isProduction = process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL);
 const allowedOrigin = (process.env.APP_ORIGIN || (isProduction ? 'https://melete-seven.vercel.app' : `http://localhost:${PORT}`)).replace(/\/$/, '');
 const allowedPages = new Set(['index','interviews','how-it-works','resources','about','faq','login','onboarding','practice','session','report','privacy-policy','terms-of-use','disclaimer']);
@@ -148,7 +149,7 @@ function servePage(page) {
     if(page==='admin'){
       const user=auth.readSession(req); if(!user)return res.redirect(302,`/login.html?redirect=${encodeURIComponent('/admin.html')}`);if(user.role!=='admin')return res.status(403).send('Administrator access required');
     }
-    fs.readFile(path.join(publicRoot,`${page}.html`),'utf8',(error,html)=>{
+    fs.readFile(path.join(templatesRoot,`${page}.html`),'utf8',(error,html)=>{
       if(error)return next(error);
       const nonce=String(res.locals.cspNonce).replace(/[^A-Za-z0-9+/=]/g,'');
       res.type('html').set('Cache-Control','no-store').send(html.replace(/<script(?=\s|>)/gi,`<script nonce="${nonce}"`));
