@@ -60,6 +60,7 @@ test('HTTP routes keep source, admin data, and forged sessions private', async t
   const csp = home.headers.get('content-security-policy') || '';
   const homeHtml = await home.text();
   assert.equal(home.status, 200);
+  assert.equal(home.headers.get('cross-origin-opener-policy'), 'same-origin-allow-popups');
   assert.match(csp, /script-src 'self' 'nonce-/);
   assert.doesNotMatch(csp.split(';').find(part => part.trim().startsWith('script-src ')), /unsafe-inline/);
   assert.match(homeHtml, /<script nonce="[^"]+"/);

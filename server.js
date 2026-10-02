@@ -25,6 +25,7 @@ app.set('trust proxy', 1);
 app.use((_req,res,next)=>{res.locals.cspNonce=crypto.randomBytes(18).toString('base64');next();});
 app.use(helmet({
   crossOriginEmbedderPolicy: false,
+  crossOriginOpenerPolicy: { policy: 'same-origin-allow-popups' },
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
