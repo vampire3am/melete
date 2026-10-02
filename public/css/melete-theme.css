@@ -1,0 +1,452 @@
+/* Hallmark · genre: editorial · macrostructure: shared page families · design-system: design.md · designed-as-app
+ * pre-emit critique: P5 H5 E4 S5 R5 V5 · theme: Melete warm editorial · contrast: pass (40–41)
+ */
+@import url("../../tokens.css");
+
+html,
+body.melete-theme {
+  overflow-x: clip;
+}
+
+body.melete-theme {
+  min-height: 100vh;
+  color: var(--color-ink);
+  background: var(--color-paper);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.melete-theme *,
+body.melete-theme *::before,
+body.melete-theme *::after {
+  box-sizing: border-box;
+}
+
+body.melete-theme ::selection {
+  color: var(--color-accent-ink);
+  background: var(--color-accent);
+}
+
+body.melete-theme h1,
+body.melete-theme h2,
+body.melete-theme h3,
+body.melete-theme h4 {
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-style: normal;
+  letter-spacing: -.025em;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+body.melete-theme h1 {
+  font-size: clamp(2.5rem, 5vw, 4.75rem);
+  font-weight: 600;
+  line-height: 1.02;
+}
+
+body.melete-theme h2 {
+  font-size: clamp(1.75rem, 3.2vw, 3rem);
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+body.melete-theme h3 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+body.melete-theme p {
+  color: var(--color-ink-2);
+}
+
+body.melete-theme a {
+  text-underline-offset: var(--space-3xs);
+}
+
+body.melete-theme a:hover {
+  color: var(--color-accent);
+}
+
+body.melete-theme :focus-visible {
+  outline: 3px solid var(--color-focus) !important;
+  outline-offset: 3px !important;
+}
+
+body.melete-theme a:active,
+body.melete-theme button:active {
+  opacity: .72;
+}
+
+body.melete-theme button:disabled,
+body.melete-theme [aria-disabled="true"] {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+body.melete-theme > header {
+  color: var(--color-ink);
+  background: color-mix(in oklch, var(--color-paper) 94%, transparent) !important;
+  border-color: var(--color-rule) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(16px);
+}
+
+body.melete-theme > header > div {
+  width: min(100% - 2rem, 76rem);
+  margin-inline: auto;
+}
+
+body.melete-theme > header img {
+  max-width: 8rem;
+}
+
+body.melete-theme > header nav a,
+body.melete-theme > header > div > a:last-child {
+  color: var(--color-ink-2) !important;
+  white-space: nowrap;
+}
+
+body.melete-theme > header nav a:hover,
+body.melete-theme > header nav a.text-primary {
+  color: var(--color-accent) !important;
+}
+
+body.melete-theme main {
+  color: var(--color-ink);
+  background-color: var(--color-paper) !important;
+}
+
+body.melete-theme main > .flex > section:first-of-type,
+body.melete-theme.page-marketing main > section:first-of-type {
+  position: relative;
+  background: var(--color-paper) !important;
+  border-bottom: var(--rule-thin) solid var(--color-rule);
+}
+
+body.melete-theme main > .flex > section:first-of-type::after,
+body.melete-theme.page-marketing main > section:first-of-type::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: var(--space-3xs);
+  background: var(--color-accent);
+}
+
+body.melete-theme .bg-surface,
+body.melete-theme .bg-white,
+body.melete-theme .bg-surface-container-lowest {
+  background-color: var(--color-paper) !important;
+}
+
+body.melete-theme .bg-bg-light,
+body.melete-theme .bg-slate-50,
+body.melete-theme .bg-surface-container-low,
+body.melete-theme .bg-surface-container {
+  background-color: var(--color-paper-2) !important;
+}
+
+body.melete-theme .bg-slate-100,
+body.melete-theme .bg-surface-container-high,
+body.melete-theme .bg-surface-container-highest {
+  background-color: var(--color-paper-3) !important;
+}
+
+body.melete-theme .text-slate-900,
+body.melete-theme .text-slate-800,
+body.melete-theme .text-on-surface {
+  color: var(--color-ink) !important;
+}
+
+body.melete-theme .text-slate-700,
+body.melete-theme .text-slate-600,
+body.melete-theme .text-slate-500,
+body.melete-theme .text-on-surface-variant,
+body.melete-theme .text-secondary {
+  color: var(--color-ink-2) !important;
+}
+
+body.melete-theme .text-slate-400,
+body.melete-theme .text-outline {
+  color: var(--color-muted) !important;
+}
+
+body.melete-theme .text-primary {
+  color: var(--color-accent) !important;
+}
+
+body.melete-theme .bg-primary,
+body.melete-theme button[type="submit"],
+body.melete-theme #next-question-btn,
+body.melete-theme #record-btn {
+  color: var(--color-accent-ink) !important;
+  background: var(--color-accent) !important;
+}
+
+body.melete-theme .bg-primary:hover,
+body.melete-theme button[type="submit"]:hover,
+body.melete-theme #next-question-btn:hover,
+body.melete-theme #record-btn:hover {
+  background: var(--color-accent-hover) !important;
+}
+
+body.melete-theme .border-slate-100,
+body.melete-theme .border-slate-200,
+body.melete-theme .border-slate-300,
+body.melete-theme .border-outline,
+body.melete-theme .border-outline-variant,
+body.melete-theme [class*="border-outline-variant/"] {
+  border-color: var(--color-rule) !important;
+}
+
+body.melete-theme .rounded-xl,
+body.melete-theme .rounded-2xl,
+body.melete-theme .rounded-lg,
+body.melete-theme .rounded-md {
+  border-radius: var(--radius-card) !important;
+}
+
+body.melete-theme .rounded-full {
+  border-radius: var(--radius-pill) !important;
+}
+
+body.melete-theme .shadow-sm,
+body.melete-theme .shadow-md,
+body.melete-theme .shadow-lg,
+body.melete-theme .shadow-xl,
+body.melete-theme .shadow-2xl,
+body.melete-theme .shadow-xs {
+  box-shadow: 0 .75rem 2rem var(--color-shadow) !important;
+}
+
+body.melete-theme input,
+body.melete-theme textarea,
+body.melete-theme select {
+  min-height: 2.75rem;
+  color: var(--color-ink) !important;
+  background: var(--color-paper) !important;
+  border: var(--rule-thin) solid var(--color-rule) !important;
+  border-radius: var(--radius-sm) !important;
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+}
+
+body.melete-theme textarea {
+  min-height: 7rem;
+}
+
+body.melete-theme input:hover,
+body.melete-theme textarea:hover,
+body.melete-theme select:hover {
+  border-color: var(--color-ink-2) !important;
+}
+
+body.melete-theme input:focus,
+body.melete-theme textarea:focus,
+body.melete-theme select:focus {
+  border-color: var(--color-accent) !important;
+  outline-color: var(--color-focus) !important;
+}
+
+body.melete-theme button,
+body.melete-theme [role="button"] {
+  transition: transform var(--dur-short) var(--ease-out), opacity var(--dur-short) var(--ease-out);
+}
+
+body.melete-theme button:hover:not(:disabled),
+body.melete-theme [role="button"]:hover {
+  transform: translateY(-2px);
+}
+
+body.melete-theme button:active,
+body.melete-theme [role="button"]:active {
+  transform: translateY(0);
+}
+
+body.melete-theme .tilt-card,
+body.melete-theme .btn-magnetic,
+body.melete-theme .spotlight-card {
+  transform: none !important;
+}
+
+body.melete-theme .spotlight-card::before,
+body.melete-theme .tilt-card::after,
+body.melete-theme .melete-ripple {
+  display: none !important;
+}
+
+body.melete-theme.page-marketing main section {
+  border-color: var(--color-rule) !important;
+}
+
+body.melete-theme.page-marketing main section:nth-of-type(even) {
+  background-color: var(--color-paper-2) !important;
+}
+
+body.melete-theme.page-marketing main article,
+body.melete-theme.page-marketing .category-block,
+body.melete-theme.page-marketing .faq-item,
+body.melete-theme.page-workbench main > div > div[class*="bg-"],
+body.melete-theme.page-workbench main > div > section,
+body.melete-theme.page-workbench main form,
+body.melete-theme.page-report main article {
+  border-color: var(--color-rule) !important;
+}
+
+body.melete-theme.page-marketing .hero-border-accent {
+  border-top: 0 !important;
+}
+
+body.melete-theme.page-content main {
+  width: min(100% - 2rem, 52rem) !important;
+  margin-inline: auto !important;
+  padding-block: var(--space-2xl) !important;
+}
+
+body.melete-theme.page-content main > div:first-child {
+  padding-bottom: var(--space-lg) !important;
+  border-bottom: var(--rule-strong) solid var(--color-ink) !important;
+}
+
+body.melete-theme.page-content main section {
+  padding-block: var(--space-md);
+  border-bottom: var(--rule-thin) solid var(--color-rule);
+}
+
+body.melete-theme.page-content main section:last-child {
+  border-bottom: 0;
+}
+
+body.melete-theme.page-content main h2 {
+  font-size: var(--text-xl);
+}
+
+body.melete-theme.page-content main p,
+body.melete-theme.page-content main li {
+  max-width: 68ch;
+}
+
+body.melete-theme.page-login main {
+  background: linear-gradient(112deg, var(--color-paper) 0 58%, var(--color-paper-2) 58% 100%) !important;
+}
+
+body.melete-theme.page-login main > div > div:first-child {
+  text-align: left !important;
+}
+
+body.melete-theme.page-login #login-step-google,
+body.melete-theme.page-login #login-step-profile {
+  align-items: stretch;
+}
+
+body.melete-theme.page-login main > div > div:nth-child(2),
+body.melete-theme.page-onboarding #onboarding-form,
+body.melete-theme.page-session main > div > div,
+body.melete-theme.page-report main > div > section,
+body.melete-theme.page-report main > div > article,
+body.melete-theme.page-practice main > div {
+  color: var(--color-ink);
+  background: var(--color-paper) !important;
+  border-color: var(--color-rule) !important;
+}
+
+body.melete-theme.page-session main > div > div {
+  border: var(--rule-strong) solid var(--color-ink) !important;
+  box-shadow: var(--space-sm) var(--space-sm) 0 var(--color-accent-soft) !important;
+}
+
+body.melete-theme.page-report main > div > section,
+body.melete-theme.page-report main > div > article {
+  box-shadow: none !important;
+}
+
+body.melete-theme.page-report #report-score-bar {
+  background: var(--color-accent) !important;
+}
+
+body.melete-theme.page-admin {
+  --paper: var(--color-paper);
+  --panel: var(--color-paper-2);
+  --ink: var(--color-ink);
+  --muted: var(--color-ink-2);
+  --line: var(--color-rule);
+  --accent: var(--color-accent);
+}
+
+body.melete-theme.page-admin > header {
+  width: 100%;
+  max-width: none;
+}
+
+body.melete-theme.page-admin main {
+  width: min(100% - 2rem, 76rem);
+  margin-inline: auto;
+}
+
+body.melete-theme.page-admin .card {
+  background: var(--color-paper) !important;
+  border-color: var(--color-rule) !important;
+  border-radius: var(--radius-card) !important;
+  box-shadow: none !important;
+}
+
+body.melete-theme.page-admin .metric {
+  color: var(--color-accent);
+  font-family: var(--font-display);
+}
+
+body.melete-theme > footer {
+  color: var(--color-ink-2);
+  background: var(--color-paper-2) !important;
+  border-color: var(--color-rule) !important;
+}
+
+body.melete-theme > footer h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+body.melete-theme > footer a {
+  color: var(--color-ink-2) !important;
+  white-space: nowrap;
+}
+
+@media (max-width: 48rem) {
+  body.melete-theme h1 {
+    font-size: clamp(2.35rem, 12vw, 3.7rem);
+  }
+
+  body.melete-theme > header > div {
+    width: min(100% - 1.5rem, 42rem);
+  }
+
+  body.melete-theme.page-content main {
+    width: min(100% - 1.5rem, 42rem) !important;
+    padding-block: var(--space-xl) !important;
+  }
+
+  body.melete-theme.page-marketing main section > div[class*="grid-cols-12"],
+  body.melete-theme.page-marketing main section > div > div[class*="grid-cols-12"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.melete-theme *,
+  body.melete-theme *::before,
+  body.melete-theme *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: var(--dur-short) !important;
+    transition-property: opacity !important;
+  }
+}
+
+@media print {
+  body.melete-theme.page-report {
+    background: var(--color-paper) !important;
+  }
+}

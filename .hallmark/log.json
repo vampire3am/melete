@@ -1,6 +1,16 @@
 [
   {
     "date": "2026-10-02",
+    "scope": "app",
+    "macrostructure": "Editorial Product Walkthrough / Workbench / Long Document",
+    "theme": "custom",
+    "theme_axes": "warm-paper / editorial-display / royal-blue",
+    "vibe": "assured scholarly warm precise",
+    "enrichment": "homepage Tier-A interactive practice room",
+    "brief": "Apply the Melete homepage design system consistently across all routes"
+  },
+  {
+    "date": "2026-10-02",
     "macrostructure": "Editorial Product Walkthrough",
     "theme": "custom",
     "theme_axes": "warm-paper / editorial-display / royal-blue",
