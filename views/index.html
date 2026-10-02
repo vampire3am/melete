@@ -4,769 +4,147 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"/>
   <title>Melete — Precision Interview Practice for Study-Abroad Students</title>
-  <meta name="description" content="Practice study-abroad university and visa interviews with private, AI-assisted feedback.">
-  <link rel="canonical" href="https://melete-seven.vercel.app/index.html">
+  <meta name="description" content="Practice study-abroad university and visa interviews with private, AI-assisted feedback."/>
+  <link rel="canonical" href="https://melete-seven.vercel.app/index.html"/>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="css/melete-motion.css"/>
-  <style>
-    @layer base {
-      html, body { margin: 0; padding: 0; }
-      body { overscroll-behavior: none; }
-      main > :first-child { margin-top: 0 !important; }
-      main > :last-child { margin-bottom: 0 !important; }
-    }
-    ::-webkit-scrollbar { display: none; }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400,0,0&amp;display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/tailwind.css"/>
+  <link rel="stylesheet" href="css/home.css"/>
 </head>
-<body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary selection:text-on-primary">
-  
-  <!-- Global Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
-    <div class="h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
-      
-      <!-- Brand Logo & Main Nav -->
-      <div class="flex items-center gap-6 xl:gap-8 min-w-0">
-        <a class="flex items-center gap-2 shrink-0" href="index.html">
-          <img alt="Melete Brand Logo" class="h-8 w-auto object-contain" src="assets/logo.svg"/>
-        </a>
-        <nav class="hidden lg:flex items-center gap-5 xl:gap-7 shrink-0">
-          <a class="h-16 flex items-center font-sans text-sm font-semibold whitespace-nowrap text-primary border-b-2 border-primary" href="index.html">Homepage</a>
-          <a class="h-16 flex items-center font-sans text-sm text-slate-600 hover:text-primary transition-colors whitespace-nowrap" href="interviews.html">Interviews</a>
-          <a class="h-16 flex items-center font-sans text-sm text-slate-600 hover:text-primary transition-colors whitespace-nowrap" href="how-it-works.html">How It Works</a>
-          <a class="h-16 flex items-center font-sans text-sm text-slate-600 hover:text-primary transition-colors whitespace-nowrap" href="resources.html">Resources</a>
-          <a class="h-16 flex items-center font-sans text-sm text-slate-600 hover:text-primary transition-colors whitespace-nowrap" href="about.html">About</a>
-          <a class="h-16 flex items-center font-sans text-sm text-slate-600 hover:text-primary transition-colors whitespace-nowrap" href="faq.html">FAQ</a>
-        </nav>
+<body class="home-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand-link" href="index.html" aria-label="Melete home"><img src="assets/logo.svg" alt="Melete"/></a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a aria-current="page" href="index.html">Home</a><a href="interviews.html">Interviews</a><a href="how-it-works.html">How it works</a><a href="resources.html">Resources</a><a href="about.html">About</a><a href="faq.html">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a id="header-auth-login" class="login-link" href="login.html">Log in</a>
+        <div id="header-user-badge" class="hidden user-badge" title="Click to sign out"><span class="status-dot" aria-hidden="true"></span><span id="user-display-name">Candidate</span></div>
+        <a class="button button-small button-primary" href="practice.html">Practice free</a>
+        <button id="mobile-menu-btn" class="menu-button" type="button" aria-label="Open navigation" aria-controls="mobile-drawer" aria-expanded="false"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
       </div>
-
-      <!-- Right Action Area -->
-      <div class="flex items-center gap-3 shrink-0">
-        
-        <!-- Log in link (shown when logged out) -->
-        <a id="header-auth-login" class="hidden sm:inline-flex items-center justify-center px-3 py-1.5 text-sm font-medium text-slate-700 hover:text-primary transition-colors whitespace-nowrap" href="login.html">Log in</a>
-
-        <!-- Candidate Account Pill (shown when logged in) -->
-        <div id="header-user-badge" class="hidden items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-medium text-slate-800 hover:bg-blue-100 transition-colors cursor-pointer whitespace-nowrap shrink-0" title="Click to view profile / sign out">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
-          <span id="user-display-name" class="font-semibold text-primary truncate max-w-[120px]">Candidate</span>
-          <span class="material-symbols-outlined text-[15px] text-slate-400">logout</span>
-        </div>
-
-        <!-- Practice Free Button -->
-        <a class="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#0d2a60] transition-colors whitespace-nowrap shadow-sm shrink-0" href="practice.html">Practice Free</a>
-
-        <!-- Mobile Menu Hamburger -->
-        <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-700 hover:text-primary flex items-center justify-center shrink-0" aria-label="Toggle navigation menu">
-          <span class="material-symbols-outlined text-[24px]">menu</span>
-        </button>
-      </div>
-
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
-  <div id="mobile-drawer" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden">
-    <div class="fixed top-0 right-0 bottom-0 w-72 max-w-[85vw] bg-surface-container-lowest p-6 flex flex-col justify-between shadow-2xl border-l border-outline-variant">
-      <div>
-        <div class="flex items-center justify-between pb-6 border-b border-outline-variant/40">
-          <img alt="Melete" class="h-7 w-auto" src="assets/logo.svg"/>
-          <button id="mobile-drawer-close" class="p-1 text-on-surface hover:text-primary">
-            <span class="material-symbols-outlined text-[24px]">close</span>
-          </button>
-        </div>
-        <nav class="flex flex-col space-y-4 pt-6">
-          <a class="text-primary font-medium" href="index.html">Homepage</a>
-          <a class="text-on-surface-variant hover:text-on-surface" href="interviews.html">Interviews</a>
-          <a class="text-on-surface-variant hover:text-on-surface" href="how-it-works.html">How It Works</a>
-          <a class="text-on-surface-variant hover:text-on-surface" href="resources.html">Resources</a>
-          <a class="text-on-surface-variant hover:text-on-surface" href="about.html">About</a>
-          <a class="text-on-surface-variant hover:text-on-surface" href="faq.html">FAQ</a>
-        </nav>
-      </div>
-      <div class="pt-6 border-t border-outline-variant/40 flex flex-col gap-3">
-        <a class="w-full text-center py-2.5 rounded-full bg-primary text-white text-xs font-semibold uppercase tracking-wider shadow-sm hover:bg-[#0d2a60] transition-colors" href="practice.html">Practice Free</a>
-        <a class="drawer-login-link w-full text-center py-2 border border-slate-300 rounded text-slate-700 text-xs font-medium hover:border-primary transition-colors" href="login.html">Log in</a>
-      </div>
+  <div id="mobile-drawer" class="hidden mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="drawer-panel">
+      <div class="drawer-top"><img src="assets/logo.svg" alt="Melete"/><button id="mobile-drawer-close" class="menu-button" type="button" aria-label="Close navigation"><span class="material-symbols-outlined" aria-hidden="true">close</span></button></div>
+      <nav aria-label="Mobile navigation"><a aria-current="page" href="index.html">Home</a><a href="interviews.html">Interviews</a><a href="how-it-works.html">How it works</a><a href="resources.html">Resources</a><a href="about.html">About</a><a href="faq.html">FAQ</a></nav>
+      <div class="drawer-actions"><a class="button button-primary" href="practice.html">Practice free</a><a class="drawer-login-link button button-secondary" href="login.html">Log in</a></div>
     </div>
   </div>
 
-  <main class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)]">
-    <div class="flex flex-col w-full">
-      
-      <!-- Top Subtle Grid Pattern Ambient Scrim -->
-      <section class="relative w-full overflow-hidden bg-surface-container-lowest ambient-grid-bg hero-border-accent">
-        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin pt-12 pb-24 lg:pt-16 lg:pb-32">
-          
-          <!-- Grid Layout: Editorial Header & Session Preview -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-y-12 lg:gap-x-12 items-start">
-            
-            <!-- Left Col: Editorial Authority -->
-            <div class="lg:col-span-7 flex flex-col space-y-6 lg:pr-6">
-              <div class="space-y-6">
-              <span class="font-label-sm text-label-sm tracking-widest uppercase text-secondary font-mono">Study Abroad Interview Practice</span>
-              <h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl lg:text-display-md text-on-surface font-normal leading-tight tracking-tight">
-                Practice your interview before you face the officer.
-              </h1>
-              <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
-                Practice university and student visa interviews for the UK, USA, Canada, Germany, Australia, and other countries. Answer realistic questions out loud by voice or video, and get clear feedback to improve.
-              </p>
-              <div class="pt-4 flex flex-wrap items-center gap-4">
-                <a class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary text-on-primary font-label-md text-label-md rounded-lg shadow-sm hover:bg-[#0d2a60] transition-colors group" href="onboarding.html">
-                  <span>Start Practice Now</span>
-                  <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                </a>
-                <a class="inline-flex items-center justify-center px-6 py-3.5 bg-transparent text-on-surface font-label-md text-label-md border border-outline-variant rounded-lg hover:border-primary hover:bg-surface-container-low transition-colors" href="interviews.html">
-                  <span>Explore All Interviews</span>
-                </a>
-              </div>
-              
-              <!-- Quick Overview Ticker -->
-              <div class="pt-8 border-t border-outline-variant/40 grid grid-cols-3 gap-4 max-w-lg">
-                <div>
-                  <span class="font-label-sm text-label-sm uppercase text-secondary tracking-widest block font-mono">Coverage</span>
-                  <span class="font-title-md text-title-md text-on-surface font-medium">Any Country</span>
-                </div>
-                <div>
-                  <span class="font-label-sm text-label-sm uppercase text-secondary tracking-widest block font-mono">Practice Mode</span>
-                  <span class="font-title-md text-title-md text-on-surface font-medium">Voice & Video</span>
-                </div>
-                <div>
-                  <span class="font-label-sm text-label-sm uppercase text-secondary tracking-widest block font-mono">Feedback</span>
-                  <span class="font-title-md text-title-md text-on-surface font-medium">Score & Report</span>
-                </div>
-              </div>
-            </div>
-            </div>
-
-            <!-- Right Col: Interactive High-Precision Simulator Terminal -->
-            <div class="lg:col-span-5 relative">
-              <div class="w-full bg-surface-container-lowest border-2 border-on-surface shadow-2xl rounded-lg overflow-hidden flex flex-col terminal-glow tilt-card">
-                
-                <!-- Terminal Header -->
-                <div class="px-5 py-3.5 bg-surface-container-low border-b border-outline-variant flex items-center justify-between">
-                  <div class="flex items-center gap-2">
-                    <span id="session-dot" class="w-2.5 h-2.5 rounded-full bg-on-surface animate-pulse"></span>
-                    <span class="font-label-sm text-label-sm tracking-widest uppercase font-semibold text-on-surface">PRODUCT PREVIEW</span>
-                  </div>
-                  <div class="flex items-center gap-3">
-                    <span class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant font-mono">
-                      <span class="material-symbols-outlined text-[14px]">timer</span>
-                      <span id="terminal-timer">00:00</span>
-                    </span>
-                    <div class="h-3 w-px bg-outline-variant"></div>
-                    <div class="flex bg-surface-container-highest p-0.5 rounded border border-outline-variant">
-                      <button id="mode-voice-btn" class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-xs font-medium transition-colors">Voice</button>
-                      <button id="mode-video-btn" class="px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors">Video</button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Program Specifier Strip -->
-                <div class="px-5 py-2.5 bg-surface-container-lowest border-b border-outline-variant/60 flex items-center justify-between text-xs">
-                  <div class="flex items-center gap-2 truncate">
-                    <span class="material-symbols-outlined text-secondary text-[16px]">school</span>
-                    <span class="font-label-md text-label-md text-on-surface font-medium truncate">Example university • Example programme</span>
-                  </div>
-                  <span data-scramble class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded text-secondary shrink-0 font-mono cursor-pointer">UKVI / CAS</span>
-                </div>
-
-                <!-- Terminal Video Viewport (Hidden in Voice mode by default) -->
-                <div id="terminal-video-preview" class="hidden relative h-40 bg-neutral-900 border-b border-outline-variant flex items-center justify-center text-center p-4">
-                  <div class="space-y-1 text-white/70">
-                    <span class="material-symbols-outlined text-[32px] text-white/50 block">videocam</span>
-                    <p class="font-label-sm text-xs">Camera preview</p>
-                    <p class="font-mono text-[10px] text-white/40">Example interface</p>
-                  </div>
-                  <div class="absolute bottom-2 left-3 px-2 py-0.5 rounded bg-black/60 text-white font-mono text-[10px] flex items-center gap-1.5">
-                    <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                    <span>HD 30FPS</span>
-                  </div>
-                </div>
-
-                <!-- Active Prompt & Audio Visualization Body -->
-                <div class="p-4 sm:p-6 flex flex-col space-y-5 sm:space-y-6">
-                  <div class="space-y-2">
-                    <div class="flex items-center justify-between">
-                      <div class="flex items-center gap-1.5 text-secondary">
-                        <span class="material-symbols-outlined text-[16px]">record_voice_over</span>
-                        <span class="font-label-sm text-label-sm uppercase tracking-wider">Practice interviewer</span>
-                      </div>
-                      <span data-scramble class="font-mono text-[11px] text-secondary cursor-pointer">PROMPT 03 / 08</span>
-                    </div>
-                    <blockquote id="terminal-prompt-text" class="text-base sm:text-xl md:text-headline-md text-on-surface leading-snug font-normal">
-                      "Why did you choose this programme and university?"
-                    </blockquote>
-                  </div>
-
-                  <!-- Audio Waveform Live Spectrum -->
-                  <div class="p-3.5 sm:p-4 bg-surface-container-low rounded border border-outline-variant/50 flex flex-col gap-2.5 sm:gap-3">
-                    <div class="flex items-center justify-between text-xs">
-                      <span class="font-label-sm text-[11px] sm:text-label-sm text-secondary tracking-wider truncate">EXAMPLE AUDIO INPUT</span>
-                      <span id="audio-status-pill" data-scramble class="font-label-sm text-[11px] sm:text-label-sm font-mono text-on-surface flex items-center gap-1 cursor-pointer shrink-0">
-                        <span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
-                        LIVE
-                      </span>
-                    </div>
-                    <!-- Real-Time Dynamic Canvas Waveform -->
-                    <div class="w-full h-10 sm:h-12 relative flex items-center overflow-hidden min-w-0">
-                      <canvas id="live-waveform-canvas" class="waveform-canvas"></canvas>
-                    </div>
-                  </div>
-
-                  <!-- Contextual Transcript Real-time preview -->
-                  <div class="space-y-1 text-xs">
-                    <span class="font-label-sm text-[11px] sm:text-label-sm text-secondary">EXAMPLE TRANSCRIPT</span>
-                    <p id="terminal-transcript" class="font-body-md text-xs sm:text-body-md text-on-surface-variant bg-surface-container-lowest border-l-2 border-primary pl-3 py-1 italic leading-relaxed">
-                      "I chose this programme because its modules and final project match the skills I need for my stated career plan."
-                    </p>
-                  </div>
-                </div>
-
-                <!-- Terminal Actions Bar -->
-                <div class="p-3.5 sm:p-4 bg-surface-container-low border-t border-outline-variant flex items-center justify-between gap-2 sm:gap-3">
-                  <div class="flex items-center gap-2">
-                    <button id="terminal-mic-btn" title="Toggle microphone" class="p-2 sm:p-2.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors min-h-[38px] min-w-[38px] flex items-center justify-center" aria-label="Toggle microphone">
-                      <span class="material-symbols-outlined text-[18px]">mic</span>
-                    </button>
-                    <button id="terminal-cam-btn" title="Toggle camera" class="p-2 sm:p-2.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors min-h-[38px] min-w-[38px] flex items-center justify-center" aria-label="Toggle camera">
-                      <span class="material-symbols-outlined text-[18px]">videocam_off</span>
-                    </button>
-                  </div>
-                  <a href="session.html" class="px-3 sm:px-4 py-2 bg-on-surface text-on-primary rounded font-label-sm text-xs sm:text-label-sm font-semibold tracking-wider uppercase hover:bg-[#0d2a60] transition-colors flex items-center gap-1.5 shadow-sm min-h-[38px]">
-                    <span>Try Full Session</span>
-                    <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-                  </a>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
+  <main id="main-content">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Interview practice for study-abroad students</p>
+          <h1>Know your answer.<br/><span>Then say it like you mean it.</span></h1>
+          <p class="hero-lede">Build answers around your actual university, course, funding and destination. Practise them out loud, then get direct feedback you can use.</p>
+          <div class="hero-actions"><a class="button button-primary" href="onboarding.html">Start your practice <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a><a class="text-link" href="interviews.html">Explore interview types</a></div>
+          <div class="hero-notes" aria-label="Service details"><span>Voice or video</span><span>Private sessions</span><span>No card to begin</span></div>
         </div>
-      </section>
-
-      <!-- Section: Practice for your interview, not a generic one -->
-      <section class="w-full bg-surface py-20 border-t border-outline-variant/40">
-        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin space-y-12">
-          
-          <div class="max-w-3xl space-y-4">
-            <span class="font-label-sm text-label-sm tracking-widest uppercase text-secondary font-mono">Precision Preparation</span>
-            <h2 class="font-headline-xl text-headline-xl text-on-surface font-normal">
-              Practice for your interview, not a generic one
-            </h2>
-            <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-              Your course, university and interview type change the conversation. Melete lets you build practice around the details that matter to your own application, so your preparation is connected to the interview you are actually expecting.
-            </p>
+        <div class="practice-stage" aria-label="Interactive interview preview">
+          <div class="stage-header"><div><span class="stage-label">Live practice room</span><strong>Pre-CAS interview</strong></div><div class="stage-status"><span id="session-dot"></span><span id="terminal-timer">00:00</span></div></div>
+          <div class="mode-switch" aria-label="Practice mode"><button id="mode-voice-btn" type="button" aria-pressed="true">Voice</button><button id="mode-video-btn" type="button" aria-pressed="false">Video</button></div>
+          <div id="terminal-video-preview" class="hidden video-preview"><span class="material-symbols-outlined" aria-hidden="true">person</span><span>Camera preview</span></div>
+          <div class="prompt-panel"><span>Question 03</span><blockquote id="terminal-prompt-text">Why did you choose this university and this particular course?</blockquote></div>
+          <div class="response-panel">
+            <div class="response-meta"><span>Your answer</span><span id="audio-status-pill"><i aria-hidden="true"></i> Live capture</span></div>
+            <div id="waveform-bars" class="waveform" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
+            <canvas id="live-waveform-canvas" class="waveform-canvas" aria-hidden="true"></canvas>
+            <p id="terminal-transcript">“I chose this course because its modules connect directly to the work I plan to do after graduation…”</p>
           </div>
-
-          <!-- Architectural Bento Grid: 3 Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Card 1 -->
-            <div class="p-8 bg-surface-container-lowest border border-outline-variant/60 rounded-lg flex flex-col justify-between hover:border-primary transition-colors group tilt-card">
-              <div class="space-y-4">
-                <div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-on-surface group-hover:bg-primary group-hover:text-on-primary transition-colors">
-                  <span class="material-symbols-outlined text-[22px]">tune</span>
-                </div>
-                <h3 class="font-headline-md text-headline-md text-on-surface">Personalized to your plans</h3>
-                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                  Choose your exact destination country (UK, USA, Canada, Germany, Australia, or anywhere else), target university, and course.
-                </p>
-              </div>
-              <div class="pt-8 mt-6 border-t border-outline-variant/30 flex items-center justify-between text-xs font-mono text-secondary">
-                <span>SETUP</span>
-                <span class="font-semibold text-on-surface">01 // YOUR DETAILS</span>
-              </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="p-8 bg-surface-container-lowest border border-outline-variant/60 rounded-lg flex flex-col justify-between hover:border-primary transition-colors group tilt-card">
-              <div class="space-y-4">
-                <div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-on-surface group-hover:bg-primary group-hover:text-on-primary transition-colors">
-                  <span class="material-symbols-outlined text-[22px]">forum</span>
-                </div>
-                <h3 class="font-headline-md text-headline-md text-on-surface">Real conversation, not just a list</h3>
-                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                  Speak your answers out loud by voice or on camera. The AI listens and asks natural follow-up questions.
-                </p>
-              </div>
-              <div class="pt-8 mt-6 border-t border-outline-variant/30 flex items-center justify-between text-xs font-mono text-secondary">
-                <span>INTERACTIVE</span>
-                <span class="font-semibold text-on-surface">02 // REAL PRACTICE</span>
-              </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="p-8 bg-surface-container-lowest border border-outline-variant/60 rounded-lg flex flex-col justify-between hover:border-primary transition-colors group tilt-card">
-              <div class="space-y-4">
-                <div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-on-surface group-hover:bg-primary group-hover:text-on-primary transition-colors">
-                  <span class="material-symbols-outlined text-[22px]">description</span>
-                </div>
-                <h3 class="font-headline-md text-headline-md text-on-surface">Clear report you can learn from</h3>
-                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                  Get a complete feedback report with your overall score, full transcript, and simple tips to do better on your next attempt.
-                </p>
-              </div>
-              <div class="pt-8 mt-6 border-t border-outline-variant/30 flex items-center justify-between text-xs font-mono text-secondary">
-                <span>FEEDBACK</span>
-                <span class="font-semibold text-on-surface">03 // SCORE & TIPS</span>
-              </div>
-            </div>
-          </div>
-
+          <div class="stage-controls"><div><button id="terminal-mic-btn" type="button" aria-label="Toggle microphone" title="Toggle microphone"><span class="material-symbols-outlined">mic</span></button><button id="terminal-cam-btn" type="button" aria-label="Toggle camera" title="Toggle camera"><span class="material-symbols-outlined">videocam</span></button></div><a href="session.html">Enter session <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Section: Interviews you can prepare for -->
-      <section class="w-full bg-surface-container-lowest py-20 border-t border-outline-variant/40">
-        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin space-y-12">
-          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-outline-variant/50 pb-6">
-            <div>
-              <span class="font-label-sm text-label-sm tracking-widest uppercase text-secondary font-mono">Curated Pathways</span>
-              <h2 class="font-headline-xl text-headline-xl text-on-surface font-normal">
-                Interviews you can prepare for
-              </h2>
-            </div>
-            <p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
-              Practice questions tailored to actual university standards and visa guidelines across top study destinations.
-            </p>
-          </div>
-
-          <!-- 4 Column Grid with Hairline Dividers -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-outline-variant/60 border-y border-outline-variant/60">
-            
-            <!-- Interview 1 -->
-            <div class="py-8 md:py-10 md:px-6 first:pl-0 flex flex-col justify-between space-y-6">
-              <div class="space-y-3">
-                <span data-scramble class="font-label-sm text-label-sm px-2 py-0.5 bg-surface-container-high rounded text-on-surface font-mono cursor-pointer">UK UNIVERSITIES</span>
-                <h3 class="font-headline-md text-headline-md text-on-surface">Pre-CAS Interview</h3>
-                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                  Practice explaining your syllabus, why you chose this university, and your academic background before getting your CAS.
-                </p>
-              </div>
-              <ul class="space-y-2 text-xs text-secondary font-mono border-t border-outline-variant/30 pt-4">
-                <li class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[14px] text-on-surface">check</span>
-                  Specific course modules & syllabus
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[14px] text-on-surface">check</span>
-                  Career goals after graduation
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[14px] text-on-surface">check</span>
-                  Tuition fees & living cost proof
-                </li>
-              </ul>
-              <a href="onboarding.html?type=pre-cas" class="inline-flex items-center gap-1 font-label-sm font-semibold uppercase text-primary hover:underline">
-                <span>Start Pre-CAS Track</span>
-                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-              </a>
-            </div>
-
-            <!-- Interview 2 -->
-            <div class="py-8 md:py-10 md:px-6 flex flex-col justify-between space-y-6">
-              <div class="space-y-3">
-                <span data-scramble class="font-label-sm text-label-sm px-2 py-0.5 bg-surface-container-high rounded text-on-surface font-mono cursor-pointer">UK VISA / HOME OFFICE</span>
-                <h3 class="font-headline-md text-headline-md text-on-surface">UKVI Credibility</h3>
-                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                  Prepare to explain your genuine study plans, sponsor income, and understanding of student visa rules.
-                </p>
-              </div>
-              <ul class="space-y-2 text-xs text-secondary font-mono border-t border-outline-variant/30 pt-4">
-                <li class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[14px] text-on-surface">check</span>
-                  Why study in the UK vs at home
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[14px] text-on-surface">check</span>
-                  Sponsor business & bank statements
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[14px] text-on-surface">check</span>
-                  Visa work restrictions (20 hrs/week)
-                </li>
-              </ul>
-              <a href="onboarding.html?type=ukvi" class="inline-flex items-center gap-1 font-label-sm font-semibold uppercase text-primary hover:underline">
-                <span>Start UKVI Track</span>
-                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-              </a>
-            </div>
-
-            <!-- Interview 3 -->
-            <div class="py-8 md:py-10 md:px-6 flex flex-col justify-between space-y-6">
-              <div class="space-y-3">
-                <span data-scramble class="font-label-sm text-label-sm px-2 py-0.5 bg-surface-container-high rounded text-on-surface font-mono cursor-pointer">US CONSULAR / F-1</span>
-                <h3 class="font-headline-md text-headline-md text-on-surface">US Student Visa</h3>
-                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                  Practice quick, direct answers under 60 seconds about your Form I-20, academic plans, and ties to your home country.
-                </p>
-              </div>
-              <ul class="space-y-2 text-xs text-secondary font-mono border-t border-outline-variant/30 pt-4">
-                <li class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[14px] text-on-surface">check</span>
-                  Section 214(b) intent to return home
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[14px] text-on-surface">check</span>
-                  Strong family & job ties at home
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[14px] text-on-surface">check</span>
-                  Clear spoken answers in under 1 min
-                </li>
-              </ul>
-              <a href="onboarding.html?type=us-visa" class="inline-flex items-center gap-1 font-label-sm font-semibold uppercase text-primary hover:underline">
-                <span>Start US Visa Track</span>
-                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-              </a>
-            </div>
-
-            <!-- Interview 4: Other / Custom -->
-            <div class="py-8 md:py-10 md:px-6 last:pr-0 flex flex-col justify-between space-y-6">
-              <div class="space-y-3">
-                <span data-scramble class="font-label-sm text-label-sm px-2 py-0.5 bg-surface-container-high rounded text-on-surface font-mono cursor-pointer">CANADA • GERMANY • AUSTRALIA</span>
-                <h3 class="font-headline-md text-headline-md text-on-surface">Other Destinations</h3>
-                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                  Heading to Germany, Canada, Australia, Ireland, or elsewhere? Type your exact country, degree, university, and course.
-                </p>
-              </div>
-              <ul class="space-y-2 text-xs text-secondary font-mono border-t border-outline-variant/30 pt-4">
-                <li class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[14px] text-on-surface">check</span>
-                  Country & university choice rationale
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[14px] text-on-surface">check</span>
-                  Blocked account / GIC & funding proof
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[14px] text-on-surface">check</span>
-                  Post-study career plans in home country
-                </li>
-              </ul>
-              <a href="onboarding.html?type=custom" class="inline-flex items-center gap-1 font-label-sm font-semibold uppercase text-primary hover:underline">
-                <span>Start Custom Track</span>
-                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-              </a>
-            </div>
-
-          </div>
+    <section class="difference-section">
+      <div class="shell difference-grid">
+        <div class="difference-heading"><h2>Preparation built around your story, not a generic script.</h2></div>
+        <div class="difference-list">
+          <article><span>01</span><div><h3>Personalised to your plans</h3><p>Questions use the university, course, country and funding details you provide.</p></div></article>
+          <article><span>02</span><div><h3>A real spoken conversation</h3><p>Practise answering aloud in a session that follows up instead of showing a static question list.</p></div></article>
+          <article><span>03</span><div><h3>Feedback you can act on</h3><p>Review your transcript, pacing, consistency and the exact parts of each answer that need work.</p></div></article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Section: How it works -->
-      <section class="w-full bg-surface py-20 border-t border-outline-variant/40">
-        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin space-y-16">
-          <div class="max-w-2xl space-y-3">
-            <span class="font-label-sm text-label-sm tracking-widest uppercase text-secondary font-mono">Simple Process</span>
-            <h2 class="font-headline-xl text-headline-xl text-on-surface font-normal">
-              How it works
-            </h2>
-            <p class="font-body-lg text-body-lg text-on-surface-variant">
-              A 5-step practice method designed to help you speak naturally and confidently.
-            </p>
-          </div>
-
-          <!-- Linear Step Sequence -->
-          <div class="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
-            <!-- Step 1 -->
-            <div class="flex flex-col space-y-3 relative group">
-              <div class="font-headline-lg text-headline-lg font-mono text-outline-variant group-hover:text-primary transition-colors">01</div>
-              <div class="w-full h-px bg-outline-variant/60 my-2"></div>
-              <h4 class="font-title-md text-title-md text-on-surface font-medium">Choose Interview</h4>
-              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                Pick your target interview or select Custom for any country.
-              </p>
-            </div>
-            <!-- Step 2 -->
-            <div class="flex flex-col space-y-3 relative group">
-              <div class="font-headline-lg text-headline-lg font-mono text-outline-variant group-hover:text-primary transition-colors">02</div>
-              <div class="w-full h-px bg-outline-variant/60 my-2"></div>
-              <h4 class="font-title-md text-title-md text-on-surface font-medium">Add Your Details</h4>
-              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                Type your country, university, degree, course, and funding source.
-              </p>
-            </div>
-            <!-- Step 3 -->
-            <div class="flex flex-col space-y-3 relative group">
-              <div class="font-headline-lg text-headline-lg font-mono text-outline-variant group-hover:text-primary transition-colors">03</div>
-              <div class="w-full h-px bg-outline-variant/60 my-2"></div>
-              <h4 class="font-title-md text-title-md text-on-surface font-medium">Practice Out Loud</h4>
-              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                Answer realistic spoken questions by voice or on camera.
-              </p>
-            </div>
-            <!-- Step 4 -->
-            <div class="flex flex-col space-y-3 relative group">
-              <div class="font-headline-lg text-headline-lg font-mono text-outline-variant group-hover:text-primary transition-colors">04</div>
-              <div class="w-full h-px bg-outline-variant/60 my-2"></div>
-              <h4 class="font-title-md text-title-md text-on-surface font-medium">Get Feedback</h4>
-              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                See your overall score, word-for-word transcript, and clear advice.
-              </p>
-            </div>
-            <!-- Step 5 -->
-            <div class="flex flex-col space-y-3 relative group">
-              <div class="font-headline-lg text-headline-lg font-mono text-outline-variant group-hover:text-primary transition-colors">05</div>
-              <div class="w-full h-px bg-outline-variant/60 my-2"></div>
-              <h4 class="font-title-md text-title-md text-on-surface font-medium">Improve & Repeat</h4>
-              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                Fix any weak answers and practice again until you feel completely ready.
-              </p>
-            </div>
-          </div>
-          
-          <div class="pt-4">
-            <a href="how-it-works.html" class="inline-flex items-center gap-1.5 font-label-md font-semibold text-primary underline underline-offset-4 decoration-outline hover:decoration-primary">
-              <span>See how the full 5-step practice system works</span>
-              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-            </a>
-          </div>
+    <section class="interview-section">
+      <div class="shell">
+        <div class="section-intro"><div><h2>Practise for the interview in front of you.</h2></div><p>Each route adapts the questions to the purpose of the interview while keeping your personal context at the centre.</p></div>
+        <div class="interview-ledger">
+          <a href="onboarding.html?type=pre-cas"><span class="ledger-number">01</span><div><h3>Pre-CAS interview</h3><p>Explain your course choice, academic fit, finances and plans with clarity.</p></div><span class="ledger-action">Begin <i class="material-symbols-outlined">arrow_outward</i></span></a>
+          <a href="onboarding.html?type=ukvi"><span class="ledger-number">02</span><div><h3>UKVI credibility</h3><p>Prepare for questions about genuine study intent, funding and post-study plans.</p></div><span class="ledger-action">Begin <i class="material-symbols-outlined">arrow_outward</i></span></a>
+          <a href="onboarding.html?type=us-visa"><span class="ledger-number">03</span><div><h3>US student visa</h3><p>Practise concise answers about your programme, sponsor and ties to home.</p></div><span class="ledger-action">Begin <i class="material-symbols-outlined">arrow_outward</i></span></a>
+          <a href="onboarding.html?type=custom"><span class="ledger-number">04</span><div><h3>Other destinations</h3><p>Create a custom practice session for another country, institution or interview.</p></div><span class="ledger-action">Customise <i class="material-symbols-outlined">arrow_outward</i></span></a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Section: Learn from the interview you just gave (PDF Report Preview) -->
-      <section class="w-full bg-surface-container-lowest py-20 border-t border-outline-variant/40">
-        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <!-- Left Explanatory Text -->
-            <div class="lg:col-span-5 space-y-6">
-              <div class="inline-flex items-center px-3 py-1 bg-surface-container text-on-surface font-label-sm text-label-sm uppercase tracking-widest rounded-full font-mono">
-                Clear Feedback
-              </div>
-              <h2 class="font-headline-xl text-headline-xl text-on-surface font-normal leading-tight">
-                Learn from the practice interview you just gave
-              </h2>
-              <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                Preparation should not stop when the last question ends. Your report gives you an honest record of your practice attempt: what you said, where you paused, and clear advice on how to improve before facing a real interviewer.
-              </p>
-              <div class="pt-4 space-y-3">
-                <div class="flex items-start gap-3">
-                  <span class="material-symbols-outlined text-on-surface text-[20px] mt-0.5">check_circle</span>
-                  <span class="font-body-md text-body-md text-on-surface">Word-for-word transcript checking your pace and filler words (um, uh)</span>
-                </div>
-                <div class="flex items-start gap-3">
-                  <span class="material-symbols-outlined text-on-surface text-[20px] mt-0.5">check_circle</span>
-                  <span class="font-body-md text-body-md text-on-surface">Evaluation matching actual university and visa officer criteria</span>
-                </div>
-                <div class="flex items-start gap-3">
-                  <span class="material-symbols-outlined text-on-surface text-[20px] mt-0.5">check_circle</span>
-                  <span class="font-body-md text-body-md text-on-surface">Practical tips to fix weak answers before your next practice</span>
-                </div>
-              </div>
-            </div>
+    <section class="process-section">
+      <div class="shell process-grid">
+        <div class="process-sticky"><h2>From uncertain ideas to answers you trust.</h2><p>You bring the facts. Melete gives you a realistic place to organise them, speak them and improve them.</p><a class="text-link" href="how-it-works.html">See how the full system works</a></div>
+        <ol class="process-list">
+          <li><span>01</span><div><h3>Choose the interview</h3><p>Select your target interview or create a custom one for any destination.</p></div></li>
+          <li><span>02</span><div><h3>Add the details that matter</h3><p>Tell us your country, institution, degree, course and funding source.</p></div></li>
+          <li><span>03</span><div><h3>Practise out loud</h3><p>Answer realistic questions by voice or on camera, in your own words.</p></div></li>
+          <li><span>04</span><div><h3>Read the evidence</h3><p>See a word-for-word transcript, an overall score and direct advice.</p></div></li>
+          <li><span>05</span><div><h3>Improve and repeat</h3><p>Rework weak answers and practise again until the logic and delivery feel natural.</p></div></li>
+        </ol>
+      </div>
+    </section>
 
-            <!-- Right: Stark Minimalist PDF Report Card Artifact -->
-            <div class="lg:col-span-7">
-              <div class="bg-surface-container-lowest border-2 border-on-surface shadow-2xl p-6 sm:p-8 rounded-lg relative overflow-hidden tilt-card">
-                <!-- Archival Header -->
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-on-surface gap-4">
-                  <div>
-                    <span class="font-label-sm text-label-sm font-mono uppercase tracking-widest text-secondary block">OFFICIAL PRACTICE SUMMARY • MELETE FEEDBACK</span>
-                    <h3 class="font-headline-lg text-headline-lg text-on-surface">Practice Interview Report</h3>
-                  </div>
-                  <div class="text-left sm:text-right font-mono text-xs">
-                    <span class="block text-secondary">REF: INT-89240</span>
-                    <span class="text-on-surface font-semibold">VERIFIED ATTEMPT</span>
-                  </div>
-                </div>
+    <section class="report-section">
+      <div class="shell report-grid">
+        <div class="report-copy"><p class="eyebrow">After the final question</p><h2>Your interview becomes a working document.</h2><p>The report keeps an honest record of what you said, how clearly you said it and where your reasoning needs more work.</p><ul><li><span class="material-symbols-outlined">check</span> Word-for-word transcript with pacing and filler-word review</li><li><span class="material-symbols-outlined">check</span> Evaluation aligned with university and visa interview criteria</li><li><span class="material-symbols-outlined">check</span> Practical advice for the next practice attempt</li></ul><a class="text-link" href="report.html">Open the sample report</a></div>
+        <article class="report-paper">
+          <header><div><span>Melete feedback</span><h3>Practice interview report</h3></div><span>Attempt summary</span></header>
+          <div class="score-row"><div><small>Overall score</small><strong><span data-counter="88">88</span><em>/100</em></strong></div><div><small>Consistency</small><strong>Strong</strong><p>No contradictions found</p></div><div><small>Financial proof</small><strong>Clear</strong><p>Sponsor accounts explained</p></div></div>
+          <div class="report-notes"><span>Priority revisions</span><div><b>01</b><p><strong>Specify course modules</strong> Name the modules that connect the programme to your career plan.</p></div><div><b>02</b><p><strong>Quantify living expenses</strong> Verify the current requirement and state the figure that applies.</p></div></div>
+          <footer><span>Generated after your session</span><a href="report.html">View full report →</a></footer>
+        </article>
+      </div>
+    </section>
 
-                <!-- Score Summary Dashboard -->
-                <div class="grid grid-cols-3 gap-4 py-6 border-b border-outline-variant/60">
-                  <div class="space-y-1">
-                    <span class="font-label-sm text-label-sm uppercase text-secondary font-mono">Overall Score</span>
-                    <div class="font-headline-xl text-headline-xl font-mono text-on-surface font-normal"><span data-counter="88">88</span><span class="text-secondary text-headline-md">/100</span></div>
-                    <div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
-                      <div class="bg-on-surface h-full w-[88%] transition-all duration-1000 ease-out"></div>
-                    </div>
-                  </div>
-                  <div class="space-y-1">
-                    <span class="font-label-sm text-label-sm uppercase text-secondary font-mono">Consistency</span>
-                    <div class="font-headline-md text-headline-md text-on-surface">Strong</div>
-                    <span class="font-label-sm text-label-sm text-secondary block">No contradictions found</span>
-                  </div>
-                  <div class="space-y-1">
-                    <span class="font-label-sm text-label-sm uppercase text-secondary font-mono">Financial Proof</span>
-                    <div class="font-headline-md text-headline-md text-on-surface">Clear</div>
-                    <span class="font-label-sm text-label-sm text-secondary block">Sponsor accounts explained</span>
-                  </div>
-                </div>
-
-                <!-- Key Takeaways & Recommendations Box -->
-                <div class="pt-6 space-y-4">
-                  <span class="font-label-sm text-label-sm tracking-wider uppercase font-mono text-on-surface font-semibold block">Tips for Your Next Practice Attempt</span>
-                  <div class="space-y-3">
-                    <div class="p-3.5 bg-surface-container-low rounded border-l-2 border-on-surface flex items-start gap-3">
-                      <span class="font-mono text-xs font-bold text-on-surface mt-0.5">01</span>
-                      <div class="space-y-0.5">
-                        <span class="font-label-md text-label-md font-semibold text-on-surface block">Specify course modules</span>
-                        <p class="font-body-md text-body-md text-on-surface-variant text-xs leading-relaxed">
-                          Mention elective modules by their exact departmental codes rather than speaking broadly about "software design" to demonstrate syllabus familiarity.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="p-3.5 bg-surface-container-low rounded border-l-2 border-on-surface flex items-start gap-3">
-                      <span class="font-mono text-xs font-bold text-on-surface mt-0.5">02</span>
-                      <div class="space-y-0.5">
-                        <span class="font-label-md text-label-md font-semibold text-on-surface block">Quantify living expenses</span>
-                        <p class="font-body-md text-body-md text-on-surface-variant text-xs leading-relaxed">
-                          Verify the current UKVI financial requirement on GOV.UK and state the figure that applies to your application.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Visual PDF Watermark Stamp -->
-                <div class="mt-6 pt-4 border-t border-outline-variant/40 flex items-center justify-between font-mono text-[11px] text-secondary">
-                  <span>GENERATED POST-SESSION • VOICE & VIDEO INGEST</span>
-                  <a href="report.html" class="underline cursor-pointer hover:text-on-surface font-medium">Download Sample Dossier (PDF) →</a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- Final Call to Action Section -->
-      <section class="w-full bg-primary text-on-primary py-24 border-t border-outline">
-        <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin text-center space-y-8">
-          <span class="font-label-sm text-label-sm font-mono tracking-widest uppercase text-secondary-fixed-dim block">
-            Direct Articulation
-          </span>
-          <h2 class="font-headline-xl lg:text-display-lg text-headline-xl font-normal leading-tight max-w-3xl mx-auto">
-            Your real interview should not be the first time you say these answers out loud.
-          </h2>
-          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded-lg hover:bg-surface-container transition-colors shadow-lg group" href="onboarding.html">
-              <span>Take your first step</span>
-              <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-            </a>
-          </div>
-          <p class="font-body-md text-body-md text-secondary-fixed-dim text-xs pt-4 font-mono">
-            Instant practice access • No credit card required to begin onboarding
-          </p>
-        </div>
-      </section>
-
-    </div>
+    <section class="closing-section"><div class="shell closing-grid"><h2>Your real interview should not be the first time you say these answers out loud.</h2><div><a class="button button-light" href="onboarding.html">Take your first step <span class="material-symbols-outlined">arrow_forward</span></a><p>Instant practice access · No credit card required</p></div></div></section>
   </main>
 
-  <!-- Global Footer -->
-  <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/40 pt-space-xl pb-space-xl">
-    <div class="max-w-7xl mx-auto px-margin">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-space-xl pb-space-xl border-b border-outline-variant/30">
-        <div class="md:col-span-5 space-y-space-md pr-space-lg">
-          <div class="flex items-center gap-space-sm">
-            <img alt="Melete Brand Logo" class="h-7 w-auto object-contain" src="assets/logo.svg"/>
-          </div>
-          <p class="font-body-md text-body-md text-on-surface-variant max-w-md leading-relaxed">
-            Melete helps students practise study-abroad interviews with their own university, course and interview context in mind.
-          </p>
-        </div>
-        <div class="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-space-lg">
-          <div class="space-y-space-md">
-            <h3 class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface font-semibold">All Pages</h3>
-            <ul class="space-y-space-sm">
-              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="index.html">Home</a></li>
-              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="interviews.html">Interviews</a></li>
-              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="how-it-works.html">How It Works</a></li>
-              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="resources.html">Resources</a></li>
-              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="about.html">About</a></li>
-              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="faq.html">FAQ</a></li>
-            </ul>
-          </div>
-          <div class="space-y-space-md">
-            <h3 class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface font-semibold">Account</h3>
-            <ul class="space-y-space-sm">
-              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="login.html">Log in</a></li>
-              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="onboarding.html">Take your first step</a></li>
-              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="session.html">Interview Session</a></li>
-              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="report.html">Diagnostic Report</a></li>
-            </ul>
-          </div>
-          <div class="space-y-space-md">
-            <h3 class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface font-semibold">Legal</h3>
-            <ul class="space-y-space-sm">
-              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="privacy-policy.html">Privacy Policy</a></li>
-              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="terms-of-use.html">Terms of Use</a></li>
-              <li class="font-body-md text-body-md"><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="disclaimer.html">Disclaimer</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="pt-space-lg space-y-space-md">
-        <p class="font-body-md text-body-md text-secondary leading-relaxed text-xs">
-          Melete is an independent interview-practice platform. It is not affiliated with universities, UKVI, the U.S. Department of State, embassies or consulates, and it does not guarantee admission, CAS issuance or visa outcomes.
-        </p>
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm pt-space-xs font-label-sm text-label-sm text-on-surface-variant">
-          <p>© 2026 Melete All rights reserved.</p>
-          <div class="flex items-center gap-space-md">
-            <span class="text-outline">Independent Practice</span>
-            <span class="text-outline-variant">•</span>
-            <span class="text-outline">Evidence-Based Feedback</span>
-          </div>
-        </div>
-      </div>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div class="footer-brand"><img src="assets/logo.svg" alt="Melete"/><p>Interview practice shaped around your university, course and study-abroad plans.</p></div>
+      <div><h3>Explore</h3><a href="interviews.html">Interviews</a><a href="how-it-works.html">How it works</a><a href="resources.html">Resources</a><a href="about.html">About</a><a href="faq.html">FAQ</a></div>
+      <div><h3>Account</h3><a class="footer-login-link" href="login.html">Log in</a><a href="onboarding.html">Get started</a><a href="session.html">Interview session</a><a href="report.html">Sample report</a></div>
+      <div><h3>Legal</h3><a href="privacy-policy.html">Privacy policy</a><a href="terms-of-use.html">Terms of use</a><a href="disclaimer.html">Disclaimer</a></div>
     </div>
+    <div class="shell footer-bottom"><p>© 2026 Melete. All rights reserved.</p><p>Independent interview practice · Evidence-based feedback</p></div>
+    <div class="shell disclaimer">Melete is an independent interview-practice platform. It is not affiliated with universities, UKVI, the U.S. Department of State, embassies or consulates, and it does not guarantee admission, CAS issuance or visa outcomes.</div>
   </footer>
 
   <script src="js/melete-core.js"></script>
   <script src="js/melete-auth.js"></script>
   <script>
-    // Hero Terminal Micro-interactions
     const voiceBtn = document.getElementById('mode-voice-btn');
     const videoBtn = document.getElementById('mode-video-btn');
     const videoPreview = document.getElementById('terminal-video-preview');
     const micBtn = document.getElementById('terminal-mic-btn');
     const camBtn = document.getElementById('terminal-cam-btn');
-    const waveformBars = document.querySelectorAll('#waveform-bars > div');
     const audioPill = document.getElementById('audio-status-pill');
-
-    let isVoice = true;
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const menuClose = document.getElementById('mobile-drawer-close');
     let isMicMuted = false;
-
-    voiceBtn.addEventListener('click', () => {
-      isVoice = true;
-      voiceBtn.className = 'px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-xs font-medium transition-colors';
-      videoBtn.className = 'px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors';
-      videoPreview.classList.add('hidden');
-    });
-
-    videoBtn.addEventListener('click', () => {
-      isVoice = false;
-      videoBtn.className = 'px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-xs font-medium transition-colors';
-      voiceBtn.className = 'px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors';
-      videoPreview.classList.remove('hidden');
-    });
-
-    micBtn.addEventListener('click', () => {
-      isMicMuted = !isMicMuted;
-      window.meleteIsMicMuted = isMicMuted;
-      if (isMicMuted) {
-        micBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] text-error">mic_off</span>';
-        audioPill.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-error"></span> MUTED';
-      } else {
-        micBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">mic</span>';
-        audioPill.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span> LIVE CAPTURE';
-      }
-    });
-
-    camBtn.addEventListener('click', () => {
-      if (videoPreview.classList.contains('hidden')) {
-        videoBtn.click();
-        camBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">videocam</span>';
-      } else {
-        voiceBtn.click();
-        camBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">videocam_off</span>';
-      }
-    });
+    function setMode(mode) { const video = mode === 'video'; voiceBtn.setAttribute('aria-pressed', String(!video)); videoBtn.setAttribute('aria-pressed', String(video)); videoPreview.classList.toggle('hidden', !video); }
+    voiceBtn.addEventListener('click', () => setMode('voice'));
+    videoBtn.addEventListener('click', () => setMode('video'));
+    micBtn.addEventListener('click', () => { isMicMuted = !isMicMuted; window.meleteIsMicMuted = isMicMuted; micBtn.innerHTML = '<span class="material-symbols-outlined">' + (isMicMuted ? 'mic_off' : 'mic') + '</span>'; audioPill.innerHTML = '<i aria-hidden="true"></i> ' + (isMicMuted ? 'Muted' : 'Live capture'); });
+    camBtn.addEventListener('click', () => setMode(videoPreview.classList.contains('hidden') ? 'video' : 'voice'));
+    menuBtn.addEventListener('click', () => menuBtn.setAttribute('aria-expanded', 'true'));
+    menuClose.addEventListener('click', () => menuBtn.setAttribute('aria-expanded', 'false'));
   </script>
 </body>
 </html>

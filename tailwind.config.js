@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./public/**/*.html', './public/js/**/*.js'],
+  content: ['./views/**/*.html', './public/**/*.html', './public/js/**/*.js'],
   theme: { extend: {
     colors: {
       'royal-blue':'#1A3C8F','royal-blue-hover':'#0d2a60',primary:'#1A3C8F','primary-hover':'#0d2a60','on-primary':'#fff',

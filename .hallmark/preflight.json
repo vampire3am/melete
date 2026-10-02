@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-02",
+  "font_stack": "Playfair Display + Inter",
+  "palette": "Melete royal blue with neutral surfaces",
+  "motion": "existing vanilla JavaScript motion suite",
+  "spacing": "Tailwind 4-point extensions",
+  "framework": "Express with server-rendered static HTML and Tailwind CSS",
+  "sources": ["package.json", "tailwind.config.js", "views/index.html", "public/js/melete-core.js"]
+}
